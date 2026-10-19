@@ -19,6 +19,17 @@ document.addEventListener('DOMContentLoaded', () => {
     if (policy) policy.open = true;
   });
 
+  const cover = document.querySelector('.ws-cover');
+  const floatingContact = document.querySelector('.ws-floating-contact');
+  if (cover && floatingContact && 'IntersectionObserver' in window) {
+    const coverObserver = new IntersectionObserver(entries => {
+      floatingContact.hidden = entries[0].isIntersecting;
+    });
+    coverObserver.observe(cover);
+  } else if (floatingContact) {
+    floatingContact.hidden = false;
+  }
+
   if ('IntersectionObserver' in window && !matchMedia('(prefers-reduced-motion: reduce)').matches) {
     const observer = new IntersectionObserver(entries => entries.forEach(entry => {
       if (entry.isIntersecting) {

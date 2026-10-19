@@ -12,7 +12,8 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@400;500;600;700&family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="{{ asset('css/workshop.css') }}?v=1">
-    <script src="{{ asset('js/workshop.js') }}?v=1" defer></script>
+    <link rel="stylesheet" href="{{ asset('css/workshop-hero.css') }}?v=2">
+    <script src="{{ asset('js/workshop.js') }}?v=2" defer></script>
 </head>
 <body class="workshop-page">
 <a class="ws-skip" href="#workshop-main">Chuyển đến nội dung chính</a>
@@ -23,22 +24,26 @@
     <button class="ws-menu" type="button" aria-label="Mở menu" aria-controls="workshop-nav" aria-expanded="false"><span></span><span></span></button>
 </header>
 <main id="workshop-main">
-    <section class="ws-hero" aria-labelledby="workshop-title">
-        <div class="ws-hero-copy">
-            <p class="ws-kicker"><span class="ws-dot"></span> PRIVATE MAKEUP WORKSHOP · TOKYO</p>
-            <h1 id="workshop-title">@if($workshop->title === 'THE ART OF ELEVATION 2026')THE ART<br><em>of</em> ELEVATION<span>2026</span>@else{{ $workshop->title }}@endif</h1>
-            <p class="ws-hero-tagline">{{ $workshop->tagline }}</p>
-            <p class="ws-hero-intro">Nâng tầm giá trị bản thân.<br>Thăng hoa cùng nghệ thuật.</p>
-            <div class="ws-hero-actions"><a class="ws-button" href="#registration">REGISTER NOW @include('partials.icon', ['name' => 'arrow-up-right'])</a><span class="ws-hero-price">¥{{ number_format($workshop->ticket_price) }}<small>/ KHÁCH THAM DỰ</small></span></div>
-            <div class="ws-hero-bottom"><span>VĂN CƯỜNG<br>MAKEUP & ACADEMY — JAPAN</span><span>{{ $workshop->event_date?->format('d.m.Y') ?? 'NGÀY TỔ CHỨC · ĐANG CẬP NHẬT' }}<br>10:00–18:00 · TOKYO, JAPAN</span></div>
+    <section class="ws-cover" aria-labelledby="workshop-title">
+        <div class="ws-cover-images" aria-hidden="true">
+            <div class="ws-cover-founder"><img src="{{ asset('images/founder-van-cuong-enhanced.png') }}" alt="" width="1254" height="1254"></div>
+            <div class="ws-cover-beauty"><img src="{{ asset('images/'.$workshop->hero_image) }}" alt="" fetchpriority="high" width="597" height="843"></div>
+            <div class="ws-cover-bridal"><img src="{{ asset('images/'.$workshop->bridal_image) }}" alt="" width="597" height="843"></div>
         </div>
-        <div class="ws-hero-art">
-            <img class="ws-hero-main" src="{{ asset('images/'.$workshop->hero_image) }}" alt="Layout beauty sắc sảo với lớp nền và đường nét tinh tế" fetchpriority="high" width="597" height="843">
-            <span class="ws-vertical">AN INTIMATE ENCOUNTER WITH BEAUTY & ART</span>
-            <div class="ws-guest-stamp"><strong>{{ $workshop->capacity }}</strong><span>GUESTS<br>BY DESIGN.</span></div>
-            <figure class="ws-hero-inset"><img src="{{ asset('images/founder-van-cuong-enhanced.png') }}" alt="Văn Cường — Makeup Artist & Educator" width="1254" height="1254"><figcaption>YOUR ARTIST · VĂN CƯỜNG</figcaption></figure>
-            <span class="ws-image-credit">THE ART OF ELEVATION / TOKYO EDITION</span>
+        <div class="ws-cover-shade" aria-hidden="true"></div>
+        <div class="ws-cover-top"><span>PRIVATE MAKEUP WORKSHOP</span><span>TOKYO, JAPAN <i></i> 2026 EDITION</span></div>
+        <div class="ws-cover-artist"><img src="{{ asset('images/founder-van-cuong-enhanced.png') }}" alt="Chân dung nghệ sĩ Văn Cường" width="1254" height="1254"><div><span>AN EXPERIENCE WITH</span><strong>Văn Cường</strong><small>MAKEUP ARTIST & EDUCATOR</small></div></div>
+        <div class="ws-cover-invitation"><span>AN INTIMATE EXPERIENCE</span><strong>{{ $workshop->capacity }}</strong><span>GUESTS ONLY</span></div>
+        <div class="ws-cover-content ws-container">
+            <p class="ws-cover-edition">VĂN CƯỜNG MAKEUP & ACADEMY — JAPAN</p>
+            <h1 id="workshop-title">@if($workshop->title === 'THE ART OF ELEVATION 2026')<span class="ws-cover-title-lead">The Art <em>of</em></span><span class="ws-cover-title-main">ELEVATION<span class="ws-cover-year">2026</span></span>@else<span class="ws-cover-custom-title">{{ $workshop->title }}</span>@endif</h1>
+            <p class="ws-cover-tagline">{{ $workshop->tagline }}</p>
+            <div class="ws-cover-bottom">
+                <div class="ws-cover-event"><p>Nâng tầm giá trị bản thân.<br>Thăng hoa cùng nghệ thuật.</p><span>{{ $workshop->event_date?->format('d.m.Y') ?? 'NGÀY TỔ CHỨC · ĐANG CẬP NHẬT' }}<br>10:00–18:00 · TOKYO, JAPAN</span></div>
+                <div class="ws-cover-booking"><span class="ws-cover-price">¥{{ number_format($workshop->ticket_price) }}<small>/ KHÁCH THAM DỰ</small></span><a class="ws-button ws-cover-register" href="#registration">REGISTER NOW @include('partials.icon', ['name' => 'arrow-up-right'])</a></div>
+            </div>
         </div>
+        <span class="ws-cover-side" aria-hidden="true">BEYOND BEAUTY, INTO ART.</span>
     </section>
     <div class="ws-at-a-glance" aria-label="Tổng quan workshop"><div><strong>02</strong><span>SIGNATURE<br>MAKEUP CONCEPTS</span></div><div><strong>06</strong><span>GIỜ TRAINING<br>CHUYÊN SÂU</span></div><div><strong>{{ $workshop->capacity }}</strong><span>KHÁCH THAM DỰ<br>PRIVATE EXPERIENCE</span></div><div><strong>01</strong><span>NGÀY KẾT NỐI<br>& TRUYỀN CẢM HỨNG</span></div></div>
 
@@ -80,6 +85,6 @@
 
     <footer class="ws-contact" id="contact"><div class="ws-container"><div class="ws-section-label"><span>09 / CONTACT</span><span>LET’S MAKE SOMETHING BEAUTIFUL.</span></div><div class="ws-contact-grid"><div><p class="ws-kicker">WE’RE HERE FOR YOUR NEXT CHAPTER.</p><h2>Let’s <em>connect.</em></h2><p>Văn Cường Makeup & Academy — Japan<br>Private Makeup Workshop · Tokyo</p></div><div class="ws-contact-links"><a href="{{ config('workshop.facebook') }}" target="_blank" rel="noopener noreferrer"><span>@include('partials.icon', ['name' => 'facebook']) Facebook</span>@include('partials.icon', ['name' => 'arrow-up-right'])</a><a href="tel:+818098194619"><span>@include('partials.icon', ['name' => 'phone']) {{ config('workshop.phone') }}</span>@include('partials.icon', ['name' => 'arrow-up-right'])</a><a href="#registration"><span>Đăng ký tham dự</span>@include('partials.icon', ['name' => 'arrow-up-right'])</a></div></div><div class="ws-footer-bottom"><a class="ws-brand" href="#workshop-main"><strong>VĂN CƯỜNG</strong><span>MAKEUP & ACADEMY · JAPAN</span></a><span>© {{ date('Y') }} · THE ART OF ELEVATION</span><a href="#workshop-main">Về đầu trang @include('partials.icon', ['name' => 'arrow-up'])</a></div></div></footer>
 </main>
-<a class="ws-floating-contact" href="{{ config('workshop.facebook') }}" target="_blank" rel="noopener noreferrer" aria-label="Liên hệ workshop qua Facebook">@include('partials.icon', ['name' => 'facebook'])</a>
+<a class="ws-floating-contact" href="{{ config('workshop.facebook') }}" target="_blank" rel="noopener noreferrer" aria-label="Liên hệ workshop qua Facebook" hidden>@include('partials.icon', ['name' => 'facebook'])</a>
 </body>
 </html>
