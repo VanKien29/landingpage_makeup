@@ -1,0 +1,832 @@
+﻿/* ============================================================
+   SECTIONS — VAN CUONG MAKEUP & ACADEMY
+   ============================================================ */
+
+/* ===== SECTION 01 — HERO ===== */
+.hero {
+  position: relative;
+  min-height: 100dvh;
+  display: flex;
+  align-items: flex-end;
+  overflow: hidden;
+  background-color: var(--color-bg-neutral);
+}
+
+.hero-bg {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+}
+
+.hero-bg img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center 20%;
+}
+
+.hero-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    to top,
+    rgba(0, 0, 0, 0.55) 0%,
+    rgba(0, 0, 0, 0.15) 40%,
+    rgba(0, 0, 0, 0.05) 100%
+  );
+  z-index: 1;
+}
+
+.hero-content {
+  position: relative;
+  z-index: 2;
+  width: 100%;
+  padding: 0 var(--gutter);
+  padding-bottom: clamp(4rem, 8vh, 8rem);
+  max-width: var(--container-wide);
+  margin: 0 auto;
+}
+
+.hero-eyebrow {
+  font-family: var(--font-sans);
+  font-size: var(--text-xs);
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 0.3em;
+  color: rgba(255, 255, 255, 0.7);
+  margin-bottom: 1rem;
+}
+
+.hero-title {
+  font-family: var(--font-serif);
+  font-size: var(--text-hero);
+  font-weight: 500;
+  line-height: 1.05;
+  color: #fff;
+  max-width: 10ch;
+  margin-bottom: 1.25rem;
+}
+
+.hero-title em {
+  font-style: italic;
+  font-weight: 400;
+}
+
+.hero-subtitle {
+  font-family: var(--font-sans);
+  font-size: var(--text-base);
+  font-weight: 300;
+  color: rgba(255, 255, 255, 0.8);
+  max-width: 42ch;
+  line-height: 1.7;
+  margin-bottom: 2rem;
+}
+
+.hero-stats {
+  display: flex;
+  gap: clamp(1.5rem, 3vw, 3rem);
+  margin-bottom: 2.5rem;
+}
+
+.hero-stat {
+  text-align: left;
+}
+
+.hero-stat-number {
+  font-family: var(--font-serif);
+  font-size: var(--text-3xl);
+  font-weight: 500;
+  color: #fff;
+  line-height: 1;
+}
+
+.hero-stat-label {
+  font-family: var(--font-sans);
+  font-size: 0.625rem;
+  text-transform: uppercase;
+  letter-spacing: 0.2em;
+  color: rgba(255, 255, 255, 0.6);
+  margin-top: 0.375rem;
+}
+
+.hero-cta-group {
+  display: flex;
+  gap: 1rem;
+  flex-wrap: wrap;
+}
+
+.hero .btn {
+  border-color: rgba(255, 255, 255, 0.5);
+  color: #fff;
+}
+
+.hero .btn::before {
+  background-color: #fff;
+}
+
+.hero .btn:hover {
+  color: var(--color-text-primary);
+}
+
+.hero .btn--filled {
+  background-color: #fff;
+  color: var(--color-text-primary);
+  border-color: #fff;
+}
+
+.hero .btn--filled::before {
+  background-color: var(--color-accent-taupe);
+}
+
+.hero .btn--filled:hover {
+  color: #fff;
+}
+
+
+/* ===== SECTION 02 — EDUCATOR ===== */
+.educator {
+  overflow: hidden;
+}
+
+.educator-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: var(--space-xl);
+  align-items: center;
+}
+
+.educator-image-group {
+  position: relative;
+}
+
+.educator-image-main {
+  width: 100%;
+  aspect-ratio: 3/4;
+  overflow: hidden;
+}
+
+.educator-image-main img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.educator-image-secondary {
+  position: absolute;
+  bottom: -2rem;
+  right: -1rem;
+  width: 45%;
+  aspect-ratio: 4/5;
+  overflow: hidden;
+  border: 6px solid var(--color-bg-primary);
+}
+
+.educator-image-secondary img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.educator-content {
+  padding: var(--space-lg) 0;
+}
+
+.educator-name {
+  font-family: var(--font-serif);
+  font-size: var(--text-5xl);
+  font-weight: 500;
+  line-height: 1.05;
+  margin-bottom: 0.5rem;
+}
+
+.educator-role {
+  font-family: var(--font-sans);
+  font-size: var(--text-xs);
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 0.2em;
+  color: var(--color-accent-taupe);
+  margin-bottom: var(--space-lg);
+}
+
+.educator-bio {
+  font-size: var(--text-base);
+  color: var(--color-text-secondary);
+  margin-bottom: var(--space-lg);
+  max-width: 55ch;
+}
+
+.educator-quote {
+  font-family: var(--font-serif);
+  font-size: var(--text-2xl);
+  font-style: italic;
+  line-height: 1.4;
+  color: var(--color-text-primary);
+  padding-left: 1.5rem;
+  border-left: 2px solid var(--color-accent-taupe);
+  max-width: 450px;
+}
+
+
+/* ===== SECTION 03 — THE PRO CLASS ===== */
+.proclass {
+  text-align: center;
+}
+
+.proclass-header {
+  max-width: 700px;
+  margin: 0 auto var(--space-xl);
+}
+
+.proclass-title {
+  margin-bottom: var(--space-sm);
+}
+
+.proclass-intro {
+  color: var(--color-text-secondary);
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.proclass-stats {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: var(--space-md);
+  max-width: 800px;
+  margin: 0 auto var(--space-xl);
+}
+
+.proclass-stat-card {
+  padding: var(--space-lg) var(--space-md);
+  border: var(--border-thin);
+}
+
+.proclass-structure {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 0;
+  max-width: 900px;
+  margin: 0 auto var(--space-xl);
+}
+
+.proclass-block {
+  padding: var(--space-lg);
+  position: relative;
+}
+
+.proclass-block:first-child {
+  border-bottom: var(--border-thin);
+}
+
+.proclass-block-number {
+  font-family: var(--font-serif);
+  font-size: var(--text-6xl);
+  font-weight: 400;
+  color: var(--color-border-subtle);
+  line-height: 1;
+  margin-bottom: 0.75rem;
+}
+
+.proclass-block h4 {
+  font-family: var(--font-sans);
+  font-size: var(--text-sm);
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.15em;
+  margin-bottom: 0.75rem;
+}
+
+.proclass-block p {
+  color: var(--color-text-secondary);
+  max-width: 40ch;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.proclass-message {
+  font-family: var(--font-serif);
+  font-size: var(--text-2xl);
+  font-style: italic;
+  max-width: 550px;
+  margin: 0 auto;
+  line-height: 1.4;
+}
+
+.proclass-details {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: var(--space-md);
+  margin-top: var(--space-lg);
+}
+
+.proclass-detail {
+  font-size: var(--text-sm);
+  color: var(--color-text-secondary);
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.proclass-detail-dot {
+  width: 4px;
+  height: 4px;
+  border-radius: 50%;
+  background-color: var(--color-accent-taupe);
+  flex-shrink: 0;
+}
+
+
+/* ===== SECTION 04 — CURRICULUM ===== */
+.curriculum {
+  overflow: hidden;
+}
+
+.curriculum-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: var(--space-xl);
+  align-items: start;
+}
+
+.curriculum-header {
+  max-width: 500px;
+}
+
+.curriculum-header h2 {
+  margin-bottom: var(--space-sm);
+}
+
+.curriculum-header p {
+  color: var(--color-text-secondary);
+}
+
+.curriculum-note {
+  font-size: var(--text-sm);
+  color: var(--color-accent-taupe);
+  font-style: italic;
+  margin-top: var(--space-md);
+}
+
+
+/* ===== SECTION 05 — CLASS SCHEDULE ===== */
+.schedule-content {
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.schedule-header {
+  text-align: center;
+  margin-bottom: var(--space-xl);
+}
+
+.schedule-header h2 {
+  margin-bottom: var(--space-sm);
+}
+
+.schedule-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 0;
+}
+
+.schedule-item {
+  display: grid;
+  grid-template-columns: auto 1fr;
+  gap: var(--space-md);
+  padding: var(--space-md) 0;
+  border-bottom: var(--border-thin);
+}
+
+.schedule-item:first-child {
+  border-top: var(--border-thin);
+}
+
+.schedule-icon {
+  width: 48px;
+  height: 48px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: var(--font-serif);
+  font-size: var(--text-xl);
+  color: var(--color-accent-taupe);
+  border: var(--border-thin);
+}
+
+.schedule-info h4 {
+  font-family: var(--font-sans);
+  font-size: var(--text-sm);
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  margin-bottom: 0.375rem;
+}
+
+.schedule-info p {
+  font-size: var(--text-sm);
+  color: var(--color-text-secondary);
+  margin-bottom: 0;
+}
+
+.schedule-note {
+  text-align: center;
+  margin-top: var(--space-lg);
+  font-size: var(--text-sm);
+  color: var(--color-accent-taupe);
+  font-style: italic;
+}
+
+
+/* ===== SECTION 06 — PORTFOLIO ===== */
+.portfolio-header {
+  text-align: center;
+  margin-bottom: var(--space-xl);
+}
+
+.portfolio-header h2 {
+  margin-bottom: var(--space-sm);
+}
+
+.portfolio-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 0.5rem;
+}
+
+.portfolio-item {
+  position: relative;
+  overflow: hidden;
+  cursor: pointer;
+  aspect-ratio: 3/4;
+}
+
+.portfolio-item:nth-child(3n+1) {
+  aspect-ratio: 4/5;
+}
+
+.portfolio-item:nth-child(5n+3) {
+  grid-column: span 2;
+  aspect-ratio: 16/9;
+}
+
+.portfolio-item img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 1.2s var(--ease-out-expo);
+}
+
+.portfolio-item:hover img {
+  transform: scale(1.04);
+}
+
+.portfolio-item-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to top, rgba(0,0,0,0.5), transparent 50%);
+  opacity: 0;
+  transition: opacity var(--duration-normal) var(--ease-out);
+  display: flex;
+  align-items: flex-end;
+  padding: 1.25rem;
+}
+
+.portfolio-item:hover .portfolio-item-overlay {
+  opacity: 1;
+}
+
+.portfolio-item-label {
+  font-family: var(--font-sans);
+  font-size: var(--text-xs);
+  text-transform: uppercase;
+  letter-spacing: 0.15em;
+  color: #fff;
+}
+
+
+/* ===== SECTION 07 — STUDENT JOURNEY ===== */
+.journey-header {
+  text-align: center;
+  margin-bottom: var(--space-xl);
+}
+
+.journey-header h2 {
+  margin-bottom: var(--space-sm);
+}
+
+.journey-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: var(--space-md);
+}
+
+.journey-card {
+  overflow: hidden;
+}
+
+.journey-card img {
+  width: 100%;
+  aspect-ratio: 4/3;
+  object-fit: cover;
+  transition: transform 1.2s var(--ease-out-expo);
+}
+
+.journey-card:hover img {
+  transform: scale(1.03);
+}
+
+.journey-card-caption {
+  padding: 1rem 0;
+  font-size: var(--text-sm);
+  color: var(--color-text-secondary);
+}
+
+
+/* ===== SECTION 08 — COMMITMENT ===== */
+.commitment-content {
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.commitment-header {
+  text-align: center;
+  margin-bottom: var(--space-xl);
+}
+
+.commitment-list {
+  display: grid;
+  gap: 0;
+}
+
+.commitment-item {
+  display: grid;
+  grid-template-columns: auto 1fr;
+  gap: 1.5rem;
+  padding: var(--space-md) 0;
+  border-bottom: var(--border-thin);
+  align-items: start;
+}
+
+.commitment-item:first-child {
+  border-top: var(--border-thin);
+}
+
+.commitment-number {
+  font-family: var(--font-serif);
+  font-size: var(--text-2xl);
+  color: var(--color-border-subtle);
+  line-height: 1;
+  min-width: 2.5rem;
+}
+
+.commitment-text h4 {
+  font-family: var(--font-sans);
+  font-size: var(--text-base);
+  font-weight: 600;
+  margin-bottom: 0.375rem;
+}
+
+.commitment-text p {
+  font-size: var(--text-sm);
+  color: var(--color-text-secondary);
+  margin-bottom: 0;
+}
+
+.commitment-conditions {
+  margin-top: var(--space-xl);
+  padding: var(--space-lg);
+  background-color: var(--color-bg-ivory);
+}
+
+.commitment-conditions h4 {
+  font-family: var(--font-sans);
+  font-size: var(--text-sm);
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  margin-bottom: var(--space-md);
+}
+
+.commitment-conditions ul li {
+  font-size: var(--text-sm);
+  color: var(--color-text-secondary);
+  padding: 0.5rem 0;
+  padding-left: 1.25rem;
+  position: relative;
+}
+
+.commitment-conditions ul li::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 0.9em;
+  width: 4px;
+  height: 4px;
+  border-radius: 50%;
+  background-color: var(--color-accent-taupe);
+}
+
+
+/* ===== SECTION 09 — TUITION ===== */
+.tuition-content {
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+.tuition-header {
+  text-align: center;
+  margin-bottom: var(--space-xl);
+}
+
+.tuition-price {
+  text-align: center;
+  padding: var(--space-xl) 0;
+  border-top: var(--border-thin);
+  border-bottom: var(--border-thin);
+  margin-bottom: var(--space-xl);
+}
+
+.tuition-amount {
+  font-family: var(--font-serif);
+  font-size: var(--text-6xl);
+  font-weight: 500;
+  line-height: 1;
+  margin-bottom: 0.5rem;
+}
+
+.tuition-unit {
+  font-family: var(--font-sans);
+  font-size: var(--text-sm);
+  text-transform: uppercase;
+  letter-spacing: 0.2em;
+  color: var(--color-text-secondary);
+}
+
+.tuition-breakdown {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 0;
+  margin-bottom: var(--space-xl);
+}
+
+.tuition-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  padding: 1rem 0;
+  border-bottom: var(--border-thin);
+  font-size: var(--text-sm);
+}
+
+.tuition-row:first-child {
+  border-top: var(--border-thin);
+}
+
+.tuition-row-label {
+  color: var(--color-text-secondary);
+}
+
+.tuition-row-value {
+  font-weight: 600;
+}
+
+.tuition-bonus {
+  padding: var(--space-md);
+  background-color: var(--color-bg-ivory);
+  text-align: center;
+  margin-bottom: var(--space-lg);
+}
+
+.tuition-bonus p {
+  margin: 0 auto;
+}
+
+.tuition-notes {
+  font-size: var(--text-sm);
+  color: var(--color-text-secondary);
+  margin-bottom: var(--space-xl);
+}
+
+.tuition-notes a {
+  color: var(--color-accent-taupe);
+  border-bottom: 1px solid var(--color-accent-taupe);
+}
+
+.tuition-notes a:hover {
+  color: var(--color-text-primary);
+  border-bottom-color: var(--color-text-primary);
+}
+
+/* Enrollment Form */
+.enrollment-form-section {
+  padding-top: var(--space-xl);
+  border-top: var(--border-thin);
+}
+
+.enrollment-form-section h3 {
+  text-align: center;
+  margin-bottom: var(--space-sm);
+}
+
+.enrollment-form-intro {
+  text-align: center;
+  color: var(--color-text-secondary);
+  margin-bottom: var(--space-lg);
+  max-width: 500px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+
+/* ===== SECTION 10 — POLICIES ===== */
+.policies-content {
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.policies-header {
+  text-align: center;
+  margin-bottom: var(--space-xl);
+}
+
+
+/* ===== FOOTER ===== */
+.site-footer {
+  background-color: var(--color-text-primary);
+  color: var(--color-bg-ivory);
+  padding: var(--space-2xl) 0 var(--space-md);
+}
+
+.footer-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: var(--space-lg);
+  margin-bottom: var(--space-xl);
+}
+
+.footer-brand h3 {
+  font-family: var(--font-serif);
+  font-size: var(--text-2xl);
+  font-weight: 500;
+  color: #fff;
+  margin-bottom: 0.5rem;
+}
+
+.footer-brand p {
+  font-size: var(--text-xs);
+  text-transform: uppercase;
+  letter-spacing: 0.2em;
+  color: rgba(255, 255, 255, 0.4);
+}
+
+.footer-links h4 {
+  font-family: var(--font-sans);
+  font-size: var(--text-xs);
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.15em;
+  color: rgba(255, 255, 255, 0.4);
+  margin-bottom: 1rem;
+}
+
+.footer-links a {
+  display: block;
+  font-size: var(--text-sm);
+  color: rgba(255, 255, 255, 0.7);
+  padding: 0.375rem 0;
+  transition: color var(--duration-fast) var(--ease-out);
+}
+
+.footer-links a:hover {
+  color: #fff;
+}
+
+.footer-bottom {
+  padding-top: var(--space-md);
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  align-items: center;
+}
+
+.footer-copyright {
+  font-size: var(--text-xs);
+  color: rgba(255, 255, 255, 0.35);
+}
+
+.footer-social {
+  display: flex;
+  gap: 1.5rem;
+}
+
+.footer-social a {
+  font-size: var(--text-sm);
+  color: rgba(255, 255, 255, 0.4);
+  transition: color var(--duration-fast) var(--ease-out);
+}
+
+.footer-social a:hover {
+  color: #fff;
+}

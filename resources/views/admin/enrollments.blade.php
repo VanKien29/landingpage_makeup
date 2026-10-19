@@ -1,0 +1,4 @@
+@extends('admin.layout')
+@section('content')
+<h1>Đăng ký tư vấn</h1><p style="margin-bottom:25px">Thông tin khách quan tâm đến khóa Makeup Chuyên Nghiệp.</p><div class="table-wrap"><table class="admin-table"><thead><tr><th>Họ tên</th><th>Liên hệ</th><th>Lời nhắn</th><th>Trạng thái</th><th>Ngày đăng ký</th></tr></thead><tbody>@forelse($enrollments as $enrollment)<tr><td>{{ $enrollment->name }}</td><td>{{ $enrollment->contact }}</td><td style="white-space:pre-wrap">{{ $enrollment->message ?: '—' }}</td><td>{{ ['pending' => 'Chờ tư vấn', 'contacted' => 'Đã liên hệ', 'enrolled' => 'Đã nhập học', 'cancelled' => 'Đã hủy'][$enrollment->status] ?? $enrollment->status }}</td><td>{{ $enrollment->created_at->timezone('Asia/Tokyo')->format('d/m/Y H:i') }} JST</td></tr>@empty<tr><td colspan="5">Chưa có đăng ký tư vấn.</td></tr>@endforelse</tbody></table></div><div style="margin-top:30px">{{ $enrollments->links() }}</div>
+@endsection
