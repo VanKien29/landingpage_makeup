@@ -2,9 +2,11 @@
 
 namespace Tests\Feature;
 
+use App\Models\PortfolioCategory;
 use App\Models\PortfolioItem;
 use App\Services\PortfolioCache;
 use Illuminate\Foundation\Testing\LazilyRefreshDatabase;
+use Illuminate\Support\Collection;
 use Illuminate\Support\Facades\Cache;
 use Tests\TestCase;
 
@@ -42,6 +44,44 @@ class HomeControllerTest extends TestCase
 
         $this->assertFalse(Cache::has(PortfolioCache::ITEMS_KEY));
         $this->get('/')->assertOk()->assertSee('Fresh work');
+    }
+
+    public function test_home_remains_available_on_repeated_requests_with_database_cache(): void
+    {
+        config(['cache.default' => 'database']);
+        $item = PortfolioItem::factory()->create(['title' => 'Cached uploaded artwork', 'image_path' => 'portfolio/cached-artwork.jpg']);
+        PortfolioItem::factory()->create(['title' => 'Hidden cached artwork', 'is_featured' => false]);
+        PortfolioCategory::where('slug', 'beauty')->firstOrFail()->update(['name' => 'Cached beauty category']);
+        PortfolioCategory::where('slug', 'bridal')->firstOrFail()->update(['is_active' => false]);
+
+        $this->get('/')->assertOk();
+        $response = $this->get('/');
+
+        $response->assertOk()->assertSee('Cached uploaded artwork')->assertDontSee('Hidden cached artwork')
+            ->assertSee(route('portfolio.image', $item), false)
+            ->assertViewHas('portfolioCategories', fn (Collection $categories): bool => $categories->contains('name', 'Cached beauty category') && ! $categories->contains('slug', 'bridal'));
+    }
+
+    public function test_database_portfolio_cache_refreshes_after_artwork_and_category_changes(): void
+    {
+        config(['cache.default' => 'database']);
+        $item = PortfolioItem::factory()->create(['title' => 'Original cached title']);
+        $category = PortfolioCategory::where('slug', 'beauty')->firstOrFail();
+        $this->get('/')->assertOk();
+
+        $item->update(['title' => 'Updated cached title']);
+        $category->update(['name' => 'Updated category name']);
+
+        $this->get('/')->assertOk()->assertSee('Updated cached title')->assertDontSee('Original cached title')
+            ->assertViewHas('portfolioCategories', fn (Collection $categories): bool => $categories->contains('name', 'Updated category name'));
+        $this->get('/')->assertOk()->assertSee('Updated cached title');
+
+        $item->delete();
+        $category->delete();
+
+        $this->get('/')->assertOk()->assertDontSee('Updated cached title')
+            ->assertViewHas('portfolioCategories', fn (Collection $categories): bool => ! $categories->contains('slug', 'beauty'));
+        $this->get('/')->assertOk()->assertDontSee('Updated cached title');
     }
 
     public function test_policy_page_labels_unreviewed_terms_as_draft(): void
