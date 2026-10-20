@@ -18,7 +18,7 @@ class WorkshopTest extends TestCase
     {
         $this->seed(WorkshopSeeder::class);
 
-        $this->get('/workshop/the-back')->assertOk()->assertSee('THE BACK')->assertSee('SỰ TRỞ LẠI')->assertSee('100% FREE')->assertSee('Western Glam')->assertSee('workshop-western-glam-01.jpg')->assertSee('workshop-bridal-beauty-01.jpg')->assertDontSee('Thai Glam')->assertSee('Bridal Beauty')->assertSee('10:30')->assertSee('14:30')->assertSee('Coming Soon')->assertSee('0 / 60 học viên')->assertSee('〒135-0033東京都江東区深川2-2-3-1F')->assertSee('google.com/maps')->assertSee('spacemarket.com/spaces/fukagawagarage')->assertDontSee('Eurasian Glam')->assertDontSee('¥5,000')->assertDontSee('06:00')->assertDontSee('20:00');
+        $this->get('/workshop/the-back')->assertOk()->assertSee('THE BACK')->assertSee('SỰ TRỞ LẠI')->assertSee('100% FREE')->assertSee('Western Glam')->assertSee('workshop-western-glam-01.webp')->assertSee('workshop-bridal-beauty-01.webp')->assertDontSee('Thai Glam')->assertSee('Bridal Beauty')->assertSee('10:30')->assertSee('14:30')->assertSee('Coming Soon')->assertSee('0 / 60 học viên')->assertSee('〒135-0033東京都江東区深川2-2-3-1F')->assertSee('google.com/maps')->assertSee('spacemarket.com/spaces/fukagawagarage')->assertDontSee('Eurasian Glam')->assertDontSee('¥5,000')->assertDontSee('06:00')->assertDontSee('20:00');
         $this->get('/workshop/the-art-of-elevation-2026')->assertRedirect('/workshop/the-back');
         $this->get('/workshop-admin/the-art-of-elevation-2026')->assertRedirect('/workshop-admin/the-back');
     }

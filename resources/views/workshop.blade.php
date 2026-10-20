@@ -3,11 +3,16 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="description" content="THE BACK — Sự trở lại của Văn Cường tại Nhật Bản. Private Makeup Workshop tri ân hoàn toàn miễn phí, giới hạn {{ $workshop->capacity }} học viên được xác nhận.">
+    @include('partials.seo', ['seo' => $seo])
+    @php
+        $bannerSrcset = config('workshop.banner_image') === 'workshop-banner-bridal-enhanced.webp'
+            ? asset('images/workshop-banner-bridal-enhanced-640.webp').' 640w, '.asset('images/workshop-banner-bridal-enhanced-960.webp').' 960w, '.asset('images/workshop-banner-bridal-enhanced.webp').' 1054w'
+            : null;
+    @endphp
+    <link rel="preload" as="image" href="{{ asset('images/'.config('workshop.banner_image')) }}" @if($bannerSrcset) imagesrcset="{{ $bannerSrcset }}" imagesizes="(max-width: 760px) 100vw, 72vw" @endif fetchpriority="high">
     <meta name="theme-color" content="#f5f2eb">
     <meta name="csrf-token" content="{{ csrf_token() }}">
-    <title>{{ $workshop->title }} — Văn Cường Makeup & Academy</title>
-    <link rel="icon" href="{{ asset('favicon.png') }}" type="image/png">
+    <link rel="icon" href="{{ asset('favicon.webp') }}" type="image/webp">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@400;500;600;700&family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
@@ -21,14 +26,14 @@
 <body class="workshop-page ws-back">
 <a class="ws-skip" href="#workshop-main">Chuyển đến nội dung chính</a>
 <header class="ws-header">
-    <a class="ws-brand" href="{{ route('home') }}" aria-label="Văn Cường Makeup & Academy — Trang chủ"><img class="ws-brand-logo" src="{{ asset('images/van-cuong-logo-transparent.png') }}" alt="Văn Cường Makeup & Academy" width="2172" height="724"></a>
+    <a class="ws-brand" href="{{ route('home') }}" aria-label="Văn Cường Makeup & Academy — Trang chủ"><img class="ws-brand-logo" src="{{ asset('images/van-cuong-logo-transparent.webp') }}" alt="Văn Cường Makeup & Academy" width="2172" height="724"></a>
     <nav class="ws-nav" id="workshop-nav" aria-label="Điều hướng workshop"><a href="#story">Câu chuyện</a><a href="#concepts">Trải nghiệm</a><a href="#schedule">Lịch trình</a><a href="#event">Thông tin</a></nav>
     <a class="ws-header-cta" href="#registration">Đăng ký tham dự @include('partials.icon', ['name' => 'arrow-up-right'])</a>
     <button class="ws-menu" type="button" aria-label="Mở menu" aria-controls="workshop-nav" aria-expanded="false"><span></span><span></span></button>
 </header>
 <main id="workshop-main">
     <section class="ws-cover" aria-labelledby="workshop-title">
-        <div class="ws-invite-background" aria-hidden="true"><img src="{{ asset('images/'.config('workshop.banner_image')) }}" alt="" fetchpriority="high" width="597" height="843"></div>
+        <div class="ws-invite-background" aria-hidden="true"><img src="{{ asset('images/'.config('workshop.banner_image')) }}" @if($bannerSrcset) srcset="{{ $bannerSrcset }}" sizes="(max-width: 760px) 100vw, 72vw" @endif alt="" fetchpriority="high" width="1054" height="1492"></div>
         <div class="ws-invite-top ws-container"><span>PRIVATE MAKEUP WORKSHOP</span><span>TOKYO, JAPAN <i aria-hidden="true"></i> 2026 EDITION</span></div>
         <div class="ws-invite-grid ws-container">
             <div class="ws-invite-copy">
@@ -46,7 +51,7 @@
                 <p class="ws-invite-note">Một lời mời riêng. Chỉ {{ $workshop->capacity }} suất tham dự.</p>
             </div>
         </div>
-        <div class="ws-invite-artist"><img src="{{ asset('images/'.$workshop->hero_image) }}" alt="Văn Cường — nghệ sĩ makeup và nhà đào tạo" width="1254" height="1254"><div><span>WITH GRATITUDE,</span><strong>Văn Cường</strong><small>MAKEUP ARTIST & EDUCATOR</small></div></div>
+        <div class="ws-invite-artist"><img src="{{ asset('images/'.\App\Services\WebpImages::publicFilename($workshop->hero_image)) }}" alt="Văn Cường — nghệ sĩ makeup và nhà đào tạo" width="1254" height="1254"><div><span>WITH GRATITUDE,</span><strong>Văn Cường</strong><small>MAKEUP ARTIST & EDUCATOR</small></div></div>
         <div class="ws-invite-seal"><strong>{{ $workshop->capacity }}</strong><span>GUESTS ONLY</span></div>
         <div class="ws-invite-bottom ws-container"><span>NOT JUST A COMEBACK. A HEARTFELT THANK YOU.</span><span>02 LAYOUTS <i aria-hidden="true"></i> 06 HOURS OF ARTISTRY</span></div>
     </section>
@@ -54,8 +59,8 @@
 
     <section class="ws-section ws-story ws-container ws-return-story" id="story">
         <div class="ws-section-label"><span>02 / THE STORY</span><span>NOT JUST A COMEBACK. A HEARTFELT THANK YOU.</span></div>
-        <div class="ws-return-story-grid"><figure class="ws-return-portrait"><img src="{{ asset('images/founder-van-cuong-enhanced.png') }}" alt="Văn Cường — Sự trở lại tại Nhật Bản" loading="lazy" width="1254" height="1254"><figcaption><span>THE PERSON BEHIND THE RETURN</span><span>VĂN CƯỜNG</span></figcaption></figure><div class="ws-return-story-copy"><p class="ws-kicker">THE STORY BEHIND THE BACK</p><h2>Một sự trở lại.<br><em>Một lời cảm ơn.</em></h2><p>{{ $workshop->introduction }}</p><p>Thay vì một workshop thương mại, Cường dành tặng một buổi training chuyên sâu <strong>hoàn toàn miễn phí</strong> như một món quà tri ân. Một không gian private để cùng học hỏi, kết nối và chia sẻ những kiến thức thực tế trong nghệ thuật makeup.</p><p class="ws-story-closing">Đây không chỉ là sự trở lại.<br>Đây là lời cảm ơn, và cũng là khởi đầu cho một hành trình mới.</p><a class="ws-text-link" href="#concepts">Món quà Cường muốn chia sẻ @include('partials.icon', ['name' => 'arrow-up-right'])</a></div></div>
-        <div class="ws-artist-journal"><img src="{{ asset('images/educator-classroom.jpg') }}" alt="Cường chia sẻ kỹ thuật makeup trong lớp học" loading="lazy" width="800" height="533"><div><p class="ws-kicker">TOGETHER, WE BEGIN AGAIN.</p><p>Trở lại để sẻ chia.<br>Đồng hành để cùng tiến bước.</p></div><img src="{{ asset('images/educator-students.jpg') }}" alt="Những học viên đã cùng đồng hành trong hành trình makeup" loading="lazy" width="1200" height="800"></div>
+        <div class="ws-return-story-grid"><figure class="ws-return-portrait"><img src="{{ asset('images/founder-van-cuong-enhanced.webp') }}" alt="Văn Cường — Sự trở lại tại Nhật Bản" loading="lazy" width="1254" height="1254"><figcaption><span>THE PERSON BEHIND THE RETURN</span><span>VĂN CƯỜNG</span></figcaption></figure><div class="ws-return-story-copy"><p class="ws-kicker">THE STORY BEHIND THE BACK</p><h2>Một sự trở lại.<br><em>Một lời cảm ơn.</em></h2><p>{{ $workshop->introduction }}</p><p>Thay vì một workshop thương mại, Cường dành tặng một buổi training chuyên sâu <strong>hoàn toàn miễn phí</strong> như một món quà tri ân. Một không gian private để cùng học hỏi, kết nối và chia sẻ những kiến thức thực tế trong nghệ thuật makeup.</p><p class="ws-story-closing">Đây không chỉ là sự trở lại.<br>Đây là lời cảm ơn, và cũng là khởi đầu cho một hành trình mới.</p><a class="ws-text-link" href="#concepts">Món quà Cường muốn chia sẻ @include('partials.icon', ['name' => 'arrow-up-right'])</a></div></div>
+        <div class="ws-artist-journal"><img src="{{ asset('images/educator-classroom.webp') }}" alt="Cường chia sẻ kỹ thuật makeup trong lớp học" loading="lazy" width="800" height="533"><div><p class="ws-kicker">TOGETHER, WE BEGIN AGAIN.</p><p>Trở lại để sẻ chia.<br>Đồng hành để cùng tiến bước.</p></div><img src="{{ asset('images/educator-students.webp') }}" alt="Những học viên đã cùng đồng hành trong hành trình makeup" loading="lazy" width="1200" height="800"></div>
     </section>
 
     <section class="ws-section ws-concepts" id="concepts">
@@ -71,7 +76,7 @@
                     <figure class="ws-concept-image ws-concept-collage" data-ws-collage data-concept-title="{{ $concept['name'].' '.$concept['year'] }}">
                         <div class="ws-collage-stage">
                             @foreach($conceptImages as $conceptImage)
-                                <a class="ws-collage-photo ws-collage-photo-{{ $loop->iteration }}" href="{{ asset('images/'.$conceptImage) }}" target="_blank" rel="noopener noreferrer" data-ws-collage-photo aria-label="Xem ảnh {{ $loop->iteration }} — {{ $concept['name'].' '.$concept['year'] }}"><img src="{{ asset('images/'.$conceptImage) }}" alt="{{ $concept['name'].' '.$concept['year'] }} — tác phẩm makeup, ảnh {{ $loop->iteration }}" loading="lazy" decoding="async" width="1706" height="2560"><span class="ws-collage-index" aria-hidden="true">0{{ $loop->iteration }}</span><span class="ws-collage-zoom" aria-hidden="true">@include('partials.icon', ['name' => 'zoom-in'])</span></a>
+                                <a class="ws-collage-photo ws-collage-photo-{{ $loop->iteration }}" href="{{ asset('images/'.\App\Services\WebpImages::publicFilename($conceptImage)) }}" target="_blank" rel="noopener noreferrer" data-ws-collage-photo aria-label="Xem ảnh {{ $loop->iteration }} — {{ $concept['name'].' '.$concept['year'] }}"><img src="{{ asset('images/'.\App\Services\WebpImages::publicFilename($conceptImage)) }}" alt="{{ $concept['name'].' '.$concept['year'] }} — tác phẩm makeup, ảnh {{ $loop->iteration }}" loading="lazy" decoding="async" width="1706" height="2560"><span class="ws-collage-index" aria-hidden="true">0{{ $loop->iteration }}</span><span class="ws-collage-zoom" aria-hidden="true">@include('partials.icon', ['name' => 'zoom-in'])</span></a>
                             @endforeach
                         </div>
                         <figcaption><span>THE LOOK / 0{{ $loop->iteration }}</span><span>{{ $concept['label'] }}</span></figcaption>
@@ -92,7 +97,7 @@
         </form><details class="ws-registration-policy" id="registration-policy"><summary>Chính sách đăng ký & dữ liệu cá nhân <span class="ws-plus" aria-hidden="true"></span></summary><p>THE BACK do Văn Cường Makeup & Academy — Japan tổ chức, hoàn toàn miễn phí, không yêu cầu chuyển khoản hay đặt cọc. Mỗi người đăng ký một suất. Đơn đăng ký chưa đồng nghĩa với giữ chỗ; ban tổ chức liên hệ xác nhận riêng, trong giới hạn {{ $workshop->capacity }} học viên. Ngày và địa chỉ cụ thể sẽ được thông báo khi chốt chương trình; khả năng tham dự được xác nhận lại sau khi công bố ngày. Khi đủ suất, đăng ký mới vào danh sách chờ. Việc xác nhận từ danh sách chờ do ban tổ chức thực hiện khi có chỗ trống.</p><p>Họ tên, số điện thoại tại Nhật, email, mạng xã hội, tình trạng makeup và xác nhận có thể tham dự được lưu trong hệ thống riêng để quản lý đăng ký, liên hệ, xác nhận và check-in. Chỉ quản trị viên được cấp quyền có thể xem thông tin này. Dữ liệu không được công khai hoặc dùng để gửi quảng cáo khi chưa có sự đồng ý riêng. Bạn có thể liên hệ {{ config('workshop.phone') }} hoặc Facebook học viện để cập nhật, hủy yêu cầu tham dự, rút lại đồng ý hoặc yêu cầu xóa thông tin trong phạm vi nghĩa vụ lưu giữ áp dụng.</p></details></div>
         </div></section>
 
-    <section class="ws-gratitude" id="gratitude"><div class="ws-container"><div class="ws-section-label"><span>06 / THANK YOU MESSAGE</span><span>A RETURN WITH GRATITUDE.</span></div><div class="ws-gratitude-content"><span class="ws-gratitude-mark" aria-hidden="true">“</span><p class="ws-kicker">WITH GRATITUDE, VĂN CƯỜNG.</p><h2>Cảm ơn,<br><em>vì đã luôn ở đây.</em></h2><blockquote>Cảm ơn vì đã luôn tin tưởng, yêu thương và đồng hành cùng Cường.<br><br>Hy vọng THE BACK sẽ không chỉ là một buổi học makeup mà còn là một kỷ niệm thật đẹp trong hành trình theo đuổi nghệ thuật của tất cả chúng ta.</blockquote><p class="ws-gratitude-signature">Văn Cường</p><span class="ws-gratitude-brand">VĂN CƯỜNG MAKEUP & ACADEMY — JAPAN</span><div class="ws-gratitude-contact"><a href="{{ config('workshop.facebook') }}" target="_blank" rel="noopener noreferrer">@include('partials.icon', ['name' => 'facebook']) Facebook @include('partials.icon', ['name' => 'arrow-up-right'])</a><a href="tel:+818098194619">@include('partials.icon', ['name' => 'phone']) {{ config('workshop.phone') }}</a></div></div><footer class="ws-footer-bottom"><a class="ws-brand" href="#workshop-main"><img class="ws-brand-logo" src="{{ asset('images/van-cuong-logo-transparent.png') }}" alt="Văn Cường Makeup & Academy" width="2172" height="724"></a><span>© {{ date('Y') }} · THE BACK — SỰ TRỞ LẠI</span><a href="#workshop-main">Về đầu trang @include('partials.icon', ['name' => 'arrow-up'])</a></footer></div></section>
+    <section class="ws-gratitude" id="gratitude"><div class="ws-container"><div class="ws-section-label"><span>06 / THANK YOU MESSAGE</span><span>A RETURN WITH GRATITUDE.</span></div><div class="ws-gratitude-content"><span class="ws-gratitude-mark" aria-hidden="true">“</span><p class="ws-kicker">WITH GRATITUDE, VĂN CƯỜNG.</p><h2>Cảm ơn,<br><em>vì đã luôn ở đây.</em></h2><blockquote>Cảm ơn vì đã luôn tin tưởng, yêu thương và đồng hành cùng Cường.<br><br>Hy vọng THE BACK sẽ không chỉ là một buổi học makeup mà còn là một kỷ niệm thật đẹp trong hành trình theo đuổi nghệ thuật của tất cả chúng ta.</blockquote><p class="ws-gratitude-signature">Văn Cường</p><span class="ws-gratitude-brand">VĂN CƯỜNG MAKEUP & ACADEMY — JAPAN</span><div class="ws-gratitude-contact"><a href="{{ config('workshop.facebook') }}" target="_blank" rel="noopener noreferrer">@include('partials.icon', ['name' => 'facebook']) Facebook @include('partials.icon', ['name' => 'arrow-up-right'])</a><a href="tel:+818098194619">@include('partials.icon', ['name' => 'phone']) {{ config('workshop.phone') }}</a></div></div><footer class="ws-footer-bottom"><a class="ws-brand" href="#workshop-main"><img class="ws-brand-logo" src="{{ asset('images/van-cuong-logo-transparent.webp') }}" alt="Văn Cường Makeup & Academy" width="2172" height="724"></a><span>© {{ date('Y') }} · THE BACK — SỰ TRỞ LẠI</span><a href="#workshop-main">Về đầu trang @include('partials.icon', ['name' => 'arrow-up'])</a></footer></div></section>
 </main>
 <dialog class="ws-image-dialog" id="ws-image-dialog" aria-labelledby="ws-image-dialog-title">
     <button class="ws-image-close" type="button" aria-label="Đóng ảnh" autofocus>@include('partials.icon', ['name' => 'close'])</button>

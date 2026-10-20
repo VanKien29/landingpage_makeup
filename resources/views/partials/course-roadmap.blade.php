@@ -1,7 +1,7 @@
 <div class="roadmap-layout">
     <figure class="roadmap-figure">
         <button class="roadmap-open" type="button" aria-label="Xem lớn lộ trình đào tạo 4 tháng">
-            <img src="{{ asset('images/course-roadmap-4-months.jpg') }}" alt="Lộ trình đào tạo makeup Văn Cường trong 16 tuần, các nội dung học và hai đợt thi đánh giá" loading="lazy" width="1706" height="2560">
+            <img src="{{ asset('images/course-roadmap-4-months.webp') }}" alt="Lộ trình đào tạo makeup Văn Cường trong 16 tuần, các nội dung học và hai đợt thi đánh giá" loading="lazy" width="1536" height="1024">
             <span class="roadmap-image-cta">XEM LỘ TRÌNH CHI TIẾT <span aria-hidden="true">@include('partials.icon', ['name' => 'arrow-up-right'])</span></span>
         </button>
     </figure>
@@ -20,7 +20,7 @@
     <div class="roadmap-dialog-panel">
         <div class="roadmap-dialog-header"><div><h2 id="roadmap-dialog-title">Lộ trình đào tạo 4 tháng</h2><p>Phóng to để đọc, kéo hoặc vuốt để di chuyển ảnh.</p></div><button class="roadmap-close" type="button" aria-label="Đóng lộ trình" autofocus>@include('partials.icon', ['name' => 'close'])</button></div>
         <div class="roadmap-zoom-controls" role="group" aria-label="Điều chỉnh kích thước lộ trình"><button type="button" data-roadmap-out aria-label="Thu nhỏ lộ trình">@include('partials.icon', ['name' => 'zoom-out'])</button><button type="button" data-roadmap-fit>Vừa khung</button><button type="button" data-roadmap-in aria-label="Phóng to lộ trình">@include('partials.icon', ['name' => 'zoom-in'])</button><span class="roadmap-zoom-label" role="status" aria-live="polite">100%</span></div>
-        <div class="roadmap-viewer" tabindex="0" role="region" aria-label="Ảnh lộ trình — dùng phím mũi tên, kéo hoặc vuốt để đọc"><div class="roadmap-canvas"><img src="{{ asset('images/course-roadmap-4-months.jpg') }}" alt="Poster đầy đủ lộ trình 16 tuần: khóa khai giảng 15/06/2026, ca sáng 09:00–12:30" loading="lazy" width="1706" height="2560" draggable="false"></div></div>
+        <div class="roadmap-viewer" tabindex="0" role="region" aria-label="Ảnh lộ trình — dùng phím mũi tên, kéo hoặc vuốt để đọc"><div class="roadmap-canvas"><img src="{{ asset('images/course-roadmap-4-months.webp') }}" alt="Poster đầy đủ lộ trình 16 tuần: khóa khai giảng 15/06/2026, ca sáng 09:00–12:30" loading="lazy" width="1536" height="1024" draggable="false"></div></div>
     </div>
 </dialog>
 

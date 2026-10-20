@@ -13,7 +13,7 @@ class PortfolioItemFactory extends Factory
         return [
             'title' => 'Beauty Study',
             'category' => 'beauty',
-            'image_path' => '2aOboR6WiZgtJaXsCt5LunyqWE9n4yTJ5JsJ9sJc.jpg',
+            'image_path' => '2aOboR6WiZgtJaXsCt5LunyqWE9n4yTJ5JsJ9sJc.webp',
             'alt_text' => 'Tác phẩm beauty makeup',
             'display_order' => 1,
             'is_featured' => true,

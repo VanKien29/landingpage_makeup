@@ -1,19 +1,19 @@
 <section class="hero-banner" id="home" aria-label="Văn Cường Makeup & Academy — Banner ảnh">
     <div class="banner-slides" aria-hidden="true">
         <div class="banner-slide is-active">
-            <img class="banner-side" src="{{ asset('images/academy-36.jpg') }}" alt="" width="1333" height="2000">
-            <img class="banner-image-main" src="{{ asset('images/academy-38.jpg') }}" alt="" fetchpriority="high" width="1333" height="2000">
-            <img class="banner-side" src="{{ asset('images/academy-43.jpg') }}" alt="" width="1333" height="2000">
+            <img class="banner-side" src="{{ asset('images/academy-36.webp') }}" alt="" width="1333" height="2000">
+            <img class="banner-image-main" src="{{ asset('images/academy-38.webp') }}" srcset="{{ asset('images/academy-38-640.webp') }} 640w, {{ asset('images/academy-38-960.webp') }} 960w, {{ asset('images/academy-38.webp') }} 1333w" sizes="(max-width: 700px) 100vw, (max-width: 1080px) 50vw, 40vw" alt="" fetchpriority="high" width="1333" height="2000">
+            <img class="banner-side" src="{{ asset('images/academy-43.webp') }}" alt="" width="1333" height="2000">
         </div>
         <div class="banner-slide">
-            <img class="banner-side" src="{{ asset('images/academy-41.jpg') }}" alt="" loading="lazy" width="1333" height="2000">
-            <img class="banner-image-main" src="{{ asset('images/academy-40.jpg') }}" alt="" loading="lazy" width="1333" height="2000">
-            <img class="banner-side" src="{{ asset('images/academy-39.jpg') }}" alt="" loading="lazy" width="1333" height="2000">
+            <img class="banner-side" src="{{ asset('images/academy-41.webp') }}" alt="" loading="lazy" width="1333" height="2000">
+            <img class="banner-image-main" src="{{ asset('images/academy-40.webp') }}" alt="" loading="lazy" width="1333" height="2000">
+            <img class="banner-side" src="{{ asset('images/academy-39.webp') }}" alt="" loading="lazy" width="1333" height="2000">
         </div>
         <div class="banner-slide">
-            <img class="banner-side" src="{{ asset('images/academy-44.jpg') }}" alt="" loading="lazy" width="1333" height="2000">
-            <img class="banner-image-main" src="{{ asset('images/academy-25.jpg') }}" alt="" loading="lazy" width="1333" height="2000">
-            <img class="banner-side" src="{{ asset('images/academy-47.jpg') }}" alt="" loading="lazy" width="1333" height="2000">
+            <img class="banner-side" src="{{ asset('images/academy-44.webp') }}" alt="" loading="lazy" width="1333" height="2000">
+            <img class="banner-image-main" src="{{ asset('images/academy-25.webp') }}" alt="" loading="lazy" width="1333" height="2000">
+            <img class="banner-side" src="{{ asset('images/academy-47.webp') }}" alt="" loading="lazy" width="1333" height="2000">
         </div>
     </div>
     <div class="banner-shade"></div>

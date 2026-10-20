@@ -26,9 +26,9 @@ class WorkshopEventFactory extends Factory
             'capacity' => 60,
             'ticket_price' => 0,
             'registration_open' => true,
-            'hero_image' => 'founder-van-cuong-enhanced.png',
-            'glam_image' => 'workshop-western-glam-01.jpg',
-            'bridal_image' => 'workshop-bridal-beauty-01.jpg',
+            'hero_image' => 'founder-van-cuong-enhanced.webp',
+            'glam_image' => 'workshop-western-glam-01.webp',
+            'bridal_image' => 'workshop-bridal-beauty-01.webp',
         ];
     }
 }

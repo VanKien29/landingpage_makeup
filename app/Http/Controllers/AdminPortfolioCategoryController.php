@@ -6,6 +6,7 @@ use App\Http\Requests\StorePortfolioCategoryRequest;
 use App\Http\Requests\UpdatePortfolioCategoryRequest;
 use App\Models\PortfolioCategory;
 use App\Models\PortfolioItem;
+use App\Services\PortfolioCache;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
@@ -45,6 +46,7 @@ class AdminPortfolioCategoryController extends Controller
                 PortfolioItem::where('category', $oldSlug)->update(['category' => $category->slug]);
             }
         });
+        PortfolioCache::flush();
 
         return redirect()->route('admin.portfolio.categories')->with('success', 'Đã cập nhật danh mục.');
     }

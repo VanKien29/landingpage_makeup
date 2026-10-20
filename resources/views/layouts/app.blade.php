@@ -3,16 +3,13 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Văn Cường Makeup & Academy — Đào tạo Makeup Chuyên Nghiệp tại Nhật Bản. 40 buổi trong 04 tháng, chỉ 02–03 học viên mỗi lớp.">
+    @include('partials.seo', ['seo' => $seo])
     <meta name="csrf-token" content="{{ csrf_token() }}">
     <meta name="theme-color" content="#f7f6f2">
-    <meta property="og:title" content="Văn Cường Makeup & Academy">
-    <meta property="og:description" content="Nghệ thuật trang điểm. Tư duy thẩm mỹ. Bản lĩnh làm nghề.">
-    <meta property="og:type" content="website">
-    <meta property="og:locale" content="vi_VN">
-    <meta property="og:image" content="{{ asset('images/2aOboR6WiZgtJaXsCt5LunyqWE9n4yTJ5JsJ9sJc.jpg') }}">
-    <title>@yield('title', 'Văn Cường Makeup & Academy | Professional Makeup Course in Japan')</title>
-    <link rel="icon" href="{{ asset('favicon.png') }}" type="image/png">
+    @if(request()->routeIs('home'))
+        <link rel="preload" as="image" href="{{ asset('images/academy-38.webp') }}" imagesrcset="{{ asset('images/academy-38-640.webp') }} 640w, {{ asset('images/academy-38-960.webp') }} 960w, {{ asset('images/academy-38.webp') }} 1333w" imagesizes="(max-width: 700px) 100vw, (max-width: 1080px) 50vw, 40vw" fetchpriority="high">
+    @endif
+    <link rel="icon" href="{{ asset('favicon.webp') }}" type="image/webp">
     <link rel="shortcut icon" href="{{ asset('favicon.ico') }}" type="image/x-icon">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>

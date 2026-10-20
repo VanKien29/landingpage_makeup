@@ -1,5 +1,4 @@
 @extends('layouts.app')
-@section('title', 'Nội quy & chính sách đào tạo | Văn Cường Makeup & Academy')
 @section('content')
 <article class="section wrap policy-page"><p class="eyebrow">ACADEMY POLICIES</p><h1>Nội quy &<br><em>chính sách đào tạo.</em></h1><aside class="draft-notice"><strong>Bản dự thảo chính sách.</strong> Các điều khoản thanh toán, không hoàn hủy và chấm dứt đào tạo cần được rà soát phù hợp với pháp luật Nhật Bản trước khi công bố chính thức. Form tư vấn chỉ tiếp nhận nhu cầu tìm hiểu khóa học, không thu tiền hoặc xác lập đăng ký nhập học.</aside>
 <h2>01. Chương trình đào tạo</h2><p>Makeup Chuyên Nghiệp – Pro Class tại Văn Cường Makeup Academy – Japan. Đào tạo trực tiếp tại Nhật Bản, 40 buổi trong vòng 04 tháng kể từ ngày khai giảng, gồm 20 buổi Training và 20 buổi Thực hành – Trả bài. Sĩ số 02–03 học viên/lớp. Học viên Pro Class được tặng 01 khóa Tóc Ứng Dụng dành cho Makeup Artist.</p><p>Các module trên website là nhóm nội dung dự kiến, chưa phải danh sách giáo trình chính thức của 20 buổi Training.</p>

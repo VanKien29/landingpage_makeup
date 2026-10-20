@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Http\Requests\StoreWorkshopRegistrationRequest;
 use App\Models\WorkshopEvent;
 use App\Models\WorkshopRegistration;
+use App\Services\Seo;
 use Illuminate\Http\JsonResponse;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Support\Facades\DB;
@@ -14,11 +15,11 @@ use Illuminate\View\View;
 
 class WorkshopController extends Controller
 {
-    public function show(WorkshopEvent $workshop): View
+    public function show(WorkshopEvent $workshop, Seo $seo): View
     {
         abort_unless($workshop->is_published, 404);
 
-        return view('workshop', ['workshop' => $workshop, 'remaining' => $workshop->remainingTickets(), 'concepts' => config('workshop.concepts'), 'schedule' => config('workshop.schedule'), 'experienceLabels' => WorkshopRegistration::ExperienceLabels]);
+        return view('workshop', ['seo' => $seo->workshop($workshop), 'workshop' => $workshop, 'remaining' => $workshop->remainingTickets(), 'concepts' => config('workshop.concepts'), 'schedule' => config('workshop.schedule'), 'experienceLabels' => WorkshopRegistration::ExperienceLabels]);
     }
 
     public function store(StoreWorkshopRegistrationRequest $request, WorkshopEvent $workshop): JsonResponse|RedirectResponse

@@ -17,7 +17,7 @@
             <a class="offer-policy" href="{{ route('policies') }}">Đọc đầy đủ nội quy & chính sách trước khi đăng ký @include('partials.icon', ['name' => 'arrow-up-right'])</a>
         </div>
         <div class="offer-value">
-            <figure><img src="{{ asset('images/beauty-bridal-detail.jpg') }}" alt="Chi tiết makeup cô dâu với nền da và trang điểm mắt tinh tế" loading="lazy" width="600" height="800"><figcaption>VỮNG KỸ THUẬT. TỰ TIN THỂ HIỆN DẤU ẤN RIÊNG.</figcaption></figure>
+            <figure><img src="{{ asset('images/beauty-bridal-detail.webp') }}" alt="Chi tiết makeup cô dâu với nền da và trang điểm mắt tinh tế" loading="lazy" width="600" height="800"><figcaption>VỮNG KỸ THUẬT. TỰ TIN THỂ HIỆN DẤU ẤN RIÊNG.</figcaption></figure>
             <div class="offer-value-copy"><h3>Học kỹ thuật.<br><em>Rèn khả năng làm nghề.</em></h3><ul><li><strong>Giáo viên hướng dẫn trực tiếp</strong><span>20 buổi Training theo lộ trình của học viện.</span></li><li><strong>Thực hành, sửa bài & đánh giá</strong><span>20 buổi Practice để hoàn thiện kỹ thuật trên mẫu.</span></li><li><strong>Theo sát từng học viên</strong><span>Sĩ số chỉ 02–03 người, học trực tiếp tại Nhật Bản.</span></li></ul></div>
         </div>
     </div>

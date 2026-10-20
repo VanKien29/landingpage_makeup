@@ -43,6 +43,8 @@ class PortfolioControllerTest extends TestCase
         $response->assertRedirectToRoute('admin.portfolio');
         $this->assertDatabaseHas('portfolio_items', ['title' => 'Bridal Study', 'category' => 'bridal', 'alt_text' => 'Trang điểm cô dâu', 'display_order' => 3, 'is_featured' => true]);
         Storage::disk('local')->assertExists(PortfolioItem::firstOrFail()->image_path);
+        $this->assertStringEndsWith('.webp', PortfolioItem::firstOrFail()->image_path);
+        $this->assertSame(IMAGETYPE_WEBP, getimagesize(Storage::disk('local')->path(PortfolioItem::firstOrFail()->image_path))[2]);
     }
 
     public function test_admin_can_upload_multiple_artworks_in_one_request(): void
@@ -287,6 +289,53 @@ class PortfolioControllerTest extends TestCase
         $this->actingAs($admin)->put(route('admin.portfolio.update', ['portfolioItem' => $item, ...$filters]), ['title' => 'Bridal updated', 'category' => 'bridal', 'display_order' => 2])->assertRedirect(route('admin.portfolio', $filters));
         $this->delete(route('admin.portfolio.destroy', ['portfolioItem' => $item, ...$filters]))->assertRedirect(route('admin.portfolio', $filters));
         $this->assertModelMissing($item);
+    }
+
+    public function test_admin_upload_and_replacement_refresh_warmed_public_gallery_and_image_url(): void
+    {
+        Storage::fake('local');
+        config(['cache.default' => 'database']);
+        $admin = User::factory()->create(['email' => config('academy.admin_email')]);
+        PortfolioItem::factory()->create(['title' => 'Older gallery work', 'display_order' => 3]);
+        $this->get('/')->assertOk();
+
+        $this->actingAs($admin)->post(route('admin.portfolio.store'), ['title' => 'Newest gallery work', 'category' => 'beauty', 'image' => UploadedFile::fake()->image('new.jpg', 80, 120), 'display_order' => 3])
+            ->assertSessionHasNoErrors()->assertRedirectToRoute('admin.portfolio');
+
+        $item = PortfolioItem::where('title', 'Newest gallery work')->firstOrFail();
+        $oldPath = $item->image_path;
+        $oldUrl = $item->image_url;
+        $this->get('/')->assertOk()->assertSeeInOrder(['Newest gallery work', 'Older gallery work']);
+        $this->get($oldUrl)->assertOk()->assertHeader('Content-Type', 'image/webp');
+
+        $this->put(route('admin.portfolio.update', $item), ['title' => 'Replaced gallery work', 'category' => 'beauty', 'image' => UploadedFile::fake()->image('replacement.png', 140, 100), 'display_order' => 3, 'is_featured' => true])
+            ->assertSessionHasNoErrors()->assertRedirectToRoute('admin.portfolio');
+
+        $item->refresh();
+        $this->assertNotSame($oldUrl, $item->image_url);
+        $this->get('/')->assertOk()->assertSee('Replaced gallery work')->assertSee($item->image_url)->assertDontSee($oldUrl);
+        $this->get($item->image_url)->assertOk()->assertHeader('Content-Type', 'image/webp');
+        Storage::disk('local')->assertMissing($oldPath);
+        $this->assertSame([140, 100, IMAGETYPE_WEBP], array_slice(getimagesize(Storage::disk('local')->path($item->image_path)), 0, 3));
+    }
+
+    public function test_admin_category_changes_refresh_public_filters_and_captions(): void
+    {
+        config(['cache.default' => 'database']);
+        $admin = User::factory()->create(['email' => config('academy.admin_email')]);
+        $this->get('/')->assertOk()->assertDontSee('data-filter="runway"', false);
+
+        $this->actingAs($admin)->post(route('admin.portfolio.categories.store'), ['name' => 'Runway Art', 'slug' => 'runway', 'display_order' => 1, 'is_active' => true])->assertSessionHasNoErrors();
+
+        $this->get('/')->assertOk()->assertSee('data-filter="runway"', false)->assertSee('Runway Art');
+        $category = PortfolioCategory::where('slug', 'runway')->firstOrFail();
+        $item = PortfolioItem::factory()->create(['category' => 'runway', 'title' => 'Runway gallery work']);
+        $this->get('/')->assertOk()->assertSee('Runway gallery work');
+
+        $this->put(route('admin.portfolio.categories.update', $category), ['name' => 'Fashion Art', 'slug' => 'fashion-art', 'display_order' => 1, 'is_active' => true])->assertSessionHasNoErrors();
+
+        $this->get('/')->assertOk()->assertSee('data-filter="fashion-art"', false)->assertSee('Fashion Art')->assertDontSee('data-filter="runway"', false);
+        $this->assertSame('fashion-art', $item->fresh()->category);
     }
 
     public function test_category_slug_update_keeps_existing_artwork_attached_and_deletion_is_blocked_when_in_use(): void

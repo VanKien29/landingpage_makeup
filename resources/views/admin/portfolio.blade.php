@@ -16,7 +16,7 @@
             <label class="admin-check"><input type="hidden" name="is_featured" value="0"><input type="checkbox" name="is_featured" value="1" @checked(old('is_featured', true))> Hiển thị trên website</label>
         </div>
         <div class="admin-upload-drop"><label for="images">@include('partials.icon', ['name' => 'image'])<strong>Chọn hình ảnh để tải lên</strong><span>JPG, PNG, WebP · Tối đa 8 MB/ảnh · Tối đa 20 ảnh</span></label><input type="file" id="images" name="images[]" accept="image/jpeg,image/png,image/webp" multiple required data-upload-input></div>
-        <p class="admin-field-help">Sau khi chọn ảnh, bạn có thể sửa thông tin riêng của từng ảnh bên dưới. Nếu gửi thất bại, hãy chọn lại tệp; các thông tin đã nhập sẽ được giữ lại.</p>
+        <p class="admin-field-help">Ảnh được tự động chuyển sang WebP khi lưu; ảnh tối đa 16 megapixel. Bạn có thể sửa thông tin riêng của từng ảnh bên dưới. Nếu gửi thất bại, hãy chọn lại tệp; các thông tin đã nhập sẽ được giữ lại.</p>
         <p class="admin-inline-error" role="alert" data-upload-error hidden></p>
         <div class="admin-upload-heading" data-upload-heading hidden><h3>Thông tin từng ảnh <span data-upload-count></span></h3><button type="button" class="admin-button secondary" data-apply-defaults>Áp dụng thông tin chung</button></div>
         <div class="admin-upload-previews" data-upload-previews></div>

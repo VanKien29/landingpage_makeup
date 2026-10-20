@@ -1,6 +1,6 @@
 <aside class="admin-sidebar" aria-label="Điều hướng quản trị">
     <a class="admin-brand" href="{{ route('home') }}">
-        <img src="{{ asset('images/van-cuong-logo-transparent.png') }}" alt="Văn Cường Makeup & Academy">
+        <img src="{{ asset('images/van-cuong-logo-transparent.webp') }}" alt="Văn Cường Makeup & Academy">
         <span>ACADEMY CONTROL</span>
     </a>
     <nav class="admin-sidebar-nav">

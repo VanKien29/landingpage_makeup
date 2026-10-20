@@ -20,9 +20,9 @@ class WorkshopSeeder extends Seeder
             'ticket_price' => 0,
             'venue' => '〒135-0033東京都江東区深川2-2-3-1F',
             'is_published' => true,
-            'hero_image' => 'founder-van-cuong-enhanced.png',
-            'glam_image' => 'workshop-western-glam-01.jpg',
-            'bridal_image' => 'workshop-bridal-beauty-01.jpg',
+            'hero_image' => 'founder-van-cuong-enhanced.webp',
+            'glam_image' => 'workshop-western-glam-01.webp',
+            'bridal_image' => 'workshop-bridal-beauty-01.webp',
         ];
 
         $previous = WorkshopEvent::where('slug', 'the-art-of-elevation-2026')->first();

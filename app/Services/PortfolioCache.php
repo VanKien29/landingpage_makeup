@@ -9,14 +9,14 @@ use Illuminate\Support\Facades\Cache;
 
 final class PortfolioCache
 {
-    public const ITEMS_KEY = 'public.portfolio.items.v2';
+    public const ITEMS_KEY = 'public.portfolio.items.v3';
 
     public const CATEGORIES_KEY = 'public.portfolio.categories.v2';
 
     public static function items(): Collection
     {
         $attributes = Cache::remember(self::ITEMS_KEY, now()->addMinutes(10), fn (): array => PortfolioItem::where('is_featured', true)
-            ->orderBy('display_order')->get()
+            ->orderBy('display_order')->orderByDesc('id')->get()
             ->map(fn (PortfolioItem $item): array => $item->getAttributes())->all());
 
         return PortfolioItem::hydrate($attributes);

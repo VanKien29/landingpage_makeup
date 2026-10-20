@@ -5,16 +5,19 @@ use App\Http\Controllers\AdminSessionController;
 use App\Http\Controllers\EnrollmentController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\PortfolioController;
+use App\Http\Controllers\SeoController;
 use App\Http\Controllers\WorkshopAdminController;
 use App\Http\Controllers\WorkshopController;
 use Illuminate\Support\Facades\Route;
 
 Route::get('/', [HomeController::class, 'index'])->name('home');
 Route::post('/enrollment', [EnrollmentController::class, 'store'])->middleware('throttle:consultation-form')->name('enrollment.store');
-Route::view('/chinh-sach', 'policies')->name('policies');
+Route::get('/chinh-sach', [SeoController::class, 'policies'])->name('policies');
+Route::get('/sitemap.xml', [SeoController::class, 'sitemap'])->name('sitemap');
+Route::get('/robots.txt', [SeoController::class, 'robots'])->name('robots');
 Route::get('/tac-pham/{portfolioItem}/anh', [PortfolioController::class, 'show'])->name('portfolio.image');
-Route::redirect('/workshop/the-art-of-elevation-2026', '/workshop/the-back', 302);
-Route::redirect('/workshop-admin/the-art-of-elevation-2026', '/workshop-admin/the-back', 302);
+Route::get('/workshop/the-art-of-elevation-2026', [SeoController::class, 'legacyWorkshop']);
+Route::redirect('/workshop-admin/the-art-of-elevation-2026', '/workshop-admin/the-back', 301);
 Route::get('/workshop/{workshop:slug}', [WorkshopController::class, 'show'])->name('workshop.show');
 Route::post('/workshop/{workshop:slug}/register', [WorkshopController::class, 'store'])->middleware('throttle:workshop-registration')->name('workshop.register');
 Route::prefix('workshop-admin/{workshop:slug}')->middleware(['auth', 'can:manage-academy'])->group(function (): void {

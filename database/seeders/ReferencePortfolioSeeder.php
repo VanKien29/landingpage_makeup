@@ -31,7 +31,7 @@ class ReferencePortfolioSeeder extends Seeder
         ];
 
         foreach ($references as $index => [$number, $title, $category, $description]) {
-            PortfolioItem::updateOrCreate(['image_path' => sprintf('academy-%02d.jpg', $number)], [
+            PortfolioItem::updateOrCreate(['image_path' => sprintf('academy-%02d.webp', $number)], [
                 'title' => $title,
                 'category' => $category,
                 'alt_text' => $description.' — hình ảnh tham khảo',

@@ -2,6 +2,7 @@
 
 namespace App\Models;
 
+use App\Services\WebpImages;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
@@ -25,6 +26,6 @@ class StudentJourney extends Model
             return $this->image_path;
         }
 
-        return asset('images/'.ltrim($this->image_path, '/'));
+        return asset('images/'.WebpImages::publicFilename(ltrim($this->image_path, '/')));
     }
 }

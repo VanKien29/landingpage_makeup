@@ -16,10 +16,10 @@
             <p class="policy-note">Vi phạm nghiêm trọng có thể được xem xét chấm dứt đào tạo theo nội quy, thỏa thuận và pháp luật áp dụng. Điều khoản thanh toán, hoàn hủy và chấm dứt đào tạo đang chờ rà soát theo pháp luật Nhật Bản trước khi công bố chính thức.</p>
         </div>
         <div class="policy-photo-journal">
-            <figure class="policy-milestone"><img src="{{ asset('images/academy-training-milestone.jpg') }}" alt="Khoảnh khắc nhận chứng nhận sau quá trình học makeup" loading="lazy" width="1350" height="1800"><figcaption>LEARNING IS A CONTINUOUS JOURNEY.</figcaption></figure>
+            <figure class="policy-milestone"><img src="{{ asset('images/academy-training-milestone.webp') }}" alt="Khoảnh khắc nhận chứng nhận sau quá trình học makeup" loading="lazy" width="1350" height="1800"><figcaption>LEARNING IS A CONTINUOUS JOURNEY.</figcaption></figure>
             <div class="policy-photo-pair">
-                <figure><img src="{{ asset('images/academy-training-certificate.jpg') }}" alt="Chứng nhận hoàn thành khóa Master 1–1 của Văn Cường tại Hạnh Lâm Makeup & Academy" loading="lazy" width="1012" height="1800"><figcaption>ĐÀO TẠO & RÈN LUYỆN</figcaption></figure>
-                <figure><img src="{{ asset('images/academy-learning-space.jpg') }}" alt="Tư liệu về đào tạo makeup được trưng bày trong không gian học viện" loading="lazy" width="1201" height="1800"><figcaption>KHÔNG GIAN & CẢM HỨNG</figcaption></figure>
+                <figure><img src="{{ asset('images/academy-training-certificate.webp') }}" alt="Chứng nhận hoàn thành khóa Master 1–1 của Văn Cường tại Hạnh Lâm Makeup & Academy" loading="lazy" width="1012" height="1800"><figcaption>ĐÀO TẠO & RÈN LUYỆN</figcaption></figure>
+                <figure><img src="{{ asset('images/academy-learning-space.webp') }}" alt="Tư liệu về đào tạo makeup được trưng bày trong không gian học viện" loading="lazy" width="1201" height="1800"><figcaption>KHÔNG GIAN & CẢM HỨNG</figcaption></figure>
             </div>
         </div>
     </div>

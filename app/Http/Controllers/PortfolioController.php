@@ -8,6 +8,7 @@ use App\Http\Requests\UpdatePortfolioItemRequest;
 use App\Models\PortfolioCategory;
 use App\Models\PortfolioItem;
 use App\Services\PortfolioCache;
+use App\Services\WebpImages;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
@@ -50,7 +51,7 @@ class PortfolioController extends Controller
         ]);
     }
 
-    public function store(StorePortfolioItemRequest $request): RedirectResponse
+    public function store(StorePortfolioItemRequest $request, WebpImages $images): RedirectResponse
     {
         $filters = $this->listingParameters($request);
         $data = $request->validated();
@@ -61,10 +62,9 @@ class PortfolioController extends Controller
         }
         $storedPaths = [];
         try {
-            DB::transaction(function () use ($uploads, $data, &$storedPaths): void {
+            DB::transaction(function () use ($uploads, $data, $images, $request, &$storedPaths): void {
                 foreach ($uploads as $index => $upload) {
-                    $path = $upload->store('portfolio', 'local');
-                    abort_unless($path, 500, 'Không thể lưu ảnh. Vui lòng thử lại.');
+                    $path = $images->storeUpload($upload, $request->hasFile('images') ? 'images.'.$index : 'image');
                     $storedPaths[] = $path;
                     $metadata = $data['items'][$index] ?? $data;
                     PortfolioItem::create([
@@ -87,20 +87,19 @@ class PortfolioController extends Controller
         return redirect()->route('admin.portfolio', $filters)->with('success', count($storedPaths).' tác phẩm đã được thêm vào bộ sưu tập.');
     }
 
-    public function update(UpdatePortfolioItemRequest $request, PortfolioItem $portfolioItem): RedirectResponse
+    public function update(UpdatePortfolioItemRequest $request, PortfolioItem $portfolioItem, WebpImages $images): RedirectResponse
     {
         $filters = $this->listingParameters($request);
         $data = $request->validated();
         $oldPath = $portfolioItem->image_path;
         if ($request->hasFile('image')) {
-            $data['image_path'] = $request->file('image')->store('portfolio', 'local');
-            abort_unless($data['image_path'], 500, 'Không thể lưu ảnh. Vui lòng thử lại.');
+            $data['image_path'] = $images->storeUpload($request->file('image'), 'image');
         }
         unset($data['image']);
         $data['alt_text'] = ($data['alt_text'] ?? null) ?: $data['title'];
         $data['is_featured'] = $data['is_featured'] ?? false;
         try {
-            $portfolioItem->update($data);
+            DB::transaction(fn (): bool => $portfolioItem->update($data));
         } catch (Throwable $exception) {
             if (isset($data['image_path'])) {
                 Storage::disk('local')->delete($data['image_path']);
@@ -110,6 +109,7 @@ class PortfolioController extends Controller
         if (isset($data['image_path']) && str_starts_with($oldPath, 'portfolio/')) {
             Storage::disk('local')->delete($oldPath);
         }
+        PortfolioCache::flush();
 
         return $this->redirectToListing($filters)->with('success', 'Đã cập nhật tác phẩm.');
     }

@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="robots" content="noindex, nofollow"><title>@yield('title', 'Quản trị — Văn Cường Academy')</title>
-    <link rel="icon" href="{{ asset('favicon.png') }}"><link rel="stylesheet" href="{{ asset('css/academy.css') }}">
+    <link rel="icon" href="{{ asset('favicon.webp') }}"><link rel="stylesheet" href="{{ asset('css/academy.css') }}">
     @stack('styles')
     <link rel="stylesheet" href="{{ asset('css/admin.css') }}?v={{ filemtime(public_path('css/admin.css')) }}">
     <script src="{{ asset('js/admin.js') }}?v={{ filemtime(public_path('js/admin.js')) }}" defer></script>
