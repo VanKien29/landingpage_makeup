@@ -19,7 +19,7 @@
 <body class="workshop-page ws-back">
 <a class="ws-skip" href="#workshop-main">Chuyển đến nội dung chính</a>
 <header class="ws-header">
-    <a class="ws-brand" href="#workshop-main" aria-label="Văn Cường Makeup & Academy — Workshop"><strong>VĂN CƯỜNG</strong><span>MAKEUP & ACADEMY · JAPAN</span></a>
+    <a class="ws-brand" href="{{ route('home') }}" aria-label="Văn Cường Makeup & Academy — Trang chủ"><strong>VĂN CƯỜNG</strong><span>MAKEUP & ACADEMY · JAPAN</span></a>
     <nav class="ws-nav" id="workshop-nav" aria-label="Điều hướng workshop"><a href="#story">Câu chuyện</a><a href="#concepts">Trải nghiệm</a><a href="#schedule">Lịch trình</a><a href="#event">Thông tin</a></nav>
     <a class="ws-header-cta" href="#registration">Đăng ký tham dự @include('partials.icon', ['name' => 'arrow-up-right'])</a>
     <button class="ws-menu" type="button" aria-label="Mở menu" aria-controls="workshop-nav" aria-expanded="false"><span></span><span></span></button>

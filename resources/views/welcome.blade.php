@@ -3,6 +3,8 @@
 @include('partials.hero')
 <div class="stats-strip wrap" aria-label="Thông tin khóa học"><div><strong>40</strong><span>BUỔI ĐÀO TẠO</span></div><div><strong>04</strong><span>THÁNG HỌC TẬP</span></div><div><strong>02–03</strong><span>HỌC VIÊN / LỚP</span></div><div><strong>20<span> / </span>20</strong><span>TRAINING / PRACTICE</span></div></div>
 
+@include('partials.workshop-invitation')
+
 <section class="section educator wrap" id="about">
     <div class="section-top"><p class="eyebrow">01 / MEET YOUR EDUCATOR</p><span>THE PERSON BEHIND THE VISION</span></div>
     <div class="educator-grid">
