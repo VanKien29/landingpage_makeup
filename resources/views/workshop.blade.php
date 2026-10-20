@@ -12,8 +12,8 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@400;500;600;700&family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="{{ asset('css/workshop.css') }}?v=3">
-    <link rel="stylesheet" href="{{ asset('css/workshop-hero.css') }}?v=3">
-    <link rel="stylesheet" href="{{ asset('css/workshop-return.css') }}?v=1">
+    <link rel="stylesheet" href="{{ asset('css/workshop-hero.css') }}?v=5">
+    <link rel="stylesheet" href="{{ asset('css/workshop-return.css') }}?v=2">
     <script src="{{ asset('js/workshop.js') }}?v=3" defer></script>
 </head>
 <body class="workshop-page ws-back">
@@ -26,25 +26,27 @@
 </header>
 <main id="workshop-main">
     <section class="ws-cover" aria-labelledby="workshop-title">
-        <div class="ws-cover-images" aria-hidden="true">
-            <div class="ws-cover-founder"><img src="{{ asset('images/'.$workshop->glam_image) }}" alt="" width="597" height="843"></div>
-            <div class="ws-cover-beauty"><img src="{{ asset('images/'.$workshop->hero_image) }}" alt="" fetchpriority="high" width="597" height="843"></div>
-            <div class="ws-cover-bridal"><img src="{{ asset('images/'.$workshop->bridal_image) }}" alt="" width="597" height="843"></div>
-        </div>
-        <div class="ws-cover-shade" aria-hidden="true"></div>
-        <div class="ws-cover-top"><span>PRIVATE MAKEUP WORKSHOP</span><span>TOKYO, JAPAN <i></i> A RETURN WITH GRATITUDE</span></div>
-        <div class="ws-cover-artist"><img src="{{ asset('images/founder-van-cuong-enhanced.png') }}" alt="Chân dung nghệ sĩ Văn Cường" width="1254" height="1254"><div><span>WITH GRATITUDE,</span><strong>Văn Cường</strong><small>MAKEUP ARTIST & EDUCATOR</small></div></div>
-        <div class="ws-cover-invitation"><span>A PRIVATE APPRECIATION EVENT</span><strong>{{ $workshop->capacity }}</strong><span>GUESTS ONLY</span></div>
-        <div class="ws-cover-content ws-container">
-            <p class="ws-cover-edition">VĂN CƯỜNG MAKEUP & ACADEMY — JAPAN</p>
-            <h1 id="workshop-title"><span class="ws-cover-title-main ws-back-title">{{ $workshop->title }}</span><span class="ws-back-subtitle">{{ config('workshop.subtitle') }}</span></h1>
-            <p class="ws-cover-tagline">{{ $workshop->tagline }}</p>
-            <div class="ws-cover-bottom">
-                <div class="ws-cover-event"><p>Một sự trở lại đầy biết ơn.<br>Một món quà dành cho {{ $workshop->capacity }} học viên.</p><span>{{ $workshop->event_date?->format('d.m.Y') ?? 'NGÀY TỔ CHỨC · ĐANG CẬP NHẬT' }}<br>10:00–18:00 · TOKYO, JAPAN</span></div>
-                <div class="ws-cover-booking"><span class="ws-cover-price ws-complimentary">100% FREE<small>COMPLIMENTARY ADMISSION</small></span><a class="ws-button ws-cover-register" href="#registration">REGISTER NOW @include('partials.icon', ['name' => 'arrow-up-right'])</a></div>
+        <div class="ws-invite-background" aria-hidden="true"><img src="{{ asset('images/'.$workshop->bridal_image) }}" alt="" fetchpriority="high" width="597" height="843"></div>
+        <div class="ws-invite-top ws-container"><span>PRIVATE MAKEUP WORKSHOP</span><span>TOKYO, JAPAN <i aria-hidden="true"></i> 2026 EDITION</span></div>
+        <div class="ws-invite-grid ws-container">
+            <div class="ws-invite-copy">
+                <p class="ws-invite-eyebrow"><span aria-hidden="true"></span> A RETURN WITH GRATITUDE</p>
+                <h1 id="workshop-title">{{ $workshop->title }}</h1>
+                <p class="ws-invite-subtitle">{{ config('workshop.subtitle') }}</p>
+                <p class="ws-invite-tagline">{{ $workshop->tagline }}</p>
+                <p class="ws-invite-message">Một sự trở lại đầy biết ơn.<br>Một món quà dành cho {{ $workshop->capacity }} học viên, từ Văn Cường.</p>
+                <div class="ws-invite-details">
+                    <div><span>DATE</span><strong>{{ $workshop->event_date?->format('d.m.Y') ?? 'Coming soon' }}</strong></div>
+                    <div><span>TIME / JST</span><strong>10:00–18:00</strong></div>
+                    <div><span>LOCATION</span><strong>Tokyo, Japan</strong></div>
+                </div>
+                <div class="ws-invite-actions"><a class="ws-button ws-invite-register" href="#registration">REGISTER NOW @include('partials.icon', ['name' => 'arrow-up-right'])</a><div class="ws-invite-admission"><strong>100% FREE</strong><span>COMPLIMENTARY ADMISSION</span></div></div>
+                <p class="ws-invite-note">Một lời mời riêng. Chỉ {{ $workshop->capacity }} suất tham dự.</p>
             </div>
         </div>
-        <span class="ws-cover-side" aria-hidden="true">A GRATEFUL RETURN. A NEW BEGINNING.</span>
+        <div class="ws-invite-artist"><img src="{{ asset('images/'.$workshop->hero_image) }}" alt="Văn Cường — nghệ sĩ makeup và nhà đào tạo" width="1254" height="1254"><div><span>WITH GRATITUDE,</span><strong>Văn Cường</strong><small>MAKEUP ARTIST & EDUCATOR</small></div></div>
+        <div class="ws-invite-seal"><strong>{{ $workshop->capacity }}</strong><span>GUESTS ONLY</span></div>
+        <div class="ws-invite-bottom ws-container"><span>NOT JUST A COMEBACK. A HEARTFELT THANK YOU.</span><span>02 LAYOUTS <i aria-hidden="true"></i> 06 HOURS OF ARTISTRY</span></div>
     </section>
     <div class="ws-at-a-glance" aria-label="Tổng quan workshop"><div><strong>{{ $workshop->capacity }}</strong><span>HỌC VIÊN<br>PRIVATE EXPERIENCE</span></div><div><strong>02</strong><span>LAYOUT MAKEUP<br>LIVE DEMONSTRATION</span></div><div><strong>06</strong><span>GIỜ TRAINING<br>CHUYÊN SÂU</span></div><div><strong>100<span class="ws-metric-percent">%</span></strong><span>HOÀN TOÀN MIỄN PHÍ<br>A GIFT OF GRATITUDE</span></div></div>
 
