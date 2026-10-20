@@ -9,6 +9,13 @@ class Enrollment extends Model
 {
     use HasFactory;
 
+    public const StatusLabels = [
+        'pending' => 'Chờ tư vấn',
+        'contacted' => 'Đã liên hệ',
+        'enrolled' => 'Đã nhập học',
+        'cancelled' => 'Đã hủy',
+    ];
+
     protected $fillable = [
         'name',
         'contact',

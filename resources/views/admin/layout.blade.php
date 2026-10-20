@@ -1,2 +1,22 @@
-<!DOCTYPE html><html lang="vi"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Quản trị — Văn Cường Academy</title><link rel="stylesheet" href="{{ asset('css/academy.css') }}"><script src="{{ asset('js/academy.js') }}" defer></script></head><body><main class="admin-page"><a class="wordmark" href="{{ route('home') }}">VĂN CƯỜNG<span>MAKEUP & ACADEMY</span></a><nav class="admin-nav" aria-label="Quản trị"><a href="{{ route('admin.portfolio') }}">Quản lý tác phẩm</a><a href="{{ route('admin.enrollments') }}">Đăng ký tư vấn</a><a href="{{ route('home') }}">Xem website @include('partials.icon', ['name' => 'arrow-up-right'])</a><form method="POST" action="{{ route('logout') }}">@csrf<button>Đăng xuất</button></form></nav>@if(session('success'))<p class="success-notice" role="status">{{ session('success') }}</p>@endif @if($errors->any())<ul class="error-list">@foreach($errors->all() as $error)<li>{{ $error }}</li>@endforeach</ul>@endif @yield('content')</main></body></html>
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="robots" content="noindex, nofollow"><title>@yield('title', 'Quản trị — Văn Cường Academy')</title>
+    <link rel="icon" href="{{ asset('favicon.png') }}"><link rel="stylesheet" href="{{ asset('css/academy.css') }}">
+    @stack('styles')
+    <link rel="stylesheet" href="{{ asset('css/admin.css') }}?v={{ filemtime(public_path('css/admin.css')) }}">
+    <script src="{{ asset('js/admin.js') }}?v={{ filemtime(public_path('js/admin.js')) }}" defer></script>
+</head>
+<body class="admin-shell">
+    @include('admin.sidebar')
+    <main class="admin-main">
+        <header class="admin-topbar"><div><p class="admin-breadcrumb">VĂN CƯỜNG MAKEUP & ACADEMY / ADMIN</p><h1>@yield('page_heading', 'Quản trị nội dung')</h1></div><div class="admin-user"><span class="admin-user-dot"></span>{{ auth()->user()->name ?? 'Quản trị viên' }}</div></header>
+        @if(session('success'))<p class="admin-notice success-notice" role="status">{{ session('success') }}</p>@endif
+        @if($errors->any())<div class="admin-notice error-notice" role="alert"><strong>Chưa thể lưu thay đổi</strong><ul>@foreach($errors->all() as $error)<li>{{ $error }}</li>@endforeach</ul></div>@endif
+        @yield('content')
+    </main>
+    @include('admin.dialogs')
+</body>
+</html>
 

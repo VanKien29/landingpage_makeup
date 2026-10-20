@@ -3,7 +3,9 @@
 namespace Tests\Feature;
 
 use App\Models\PortfolioItem;
+use App\Services\PortfolioCache;
 use Illuminate\Foundation\Testing\LazilyRefreshDatabase;
+use Illuminate\Support\Facades\Cache;
 use Tests\TestCase;
 
 class HomeControllerTest extends TestCase
@@ -27,6 +29,19 @@ class HomeControllerTest extends TestCase
         $response = $this->get('/');
 
         $response->assertOk()->assertSee('&lt;script&gt;alert(1)&lt;/script&gt;', false)->assertDontSee('<script>alert(1)</script>', false);
+    }
+
+    public function test_portfolio_cache_is_warmed_on_home_and_invalidated_when_artwork_changes(): void
+    {
+        PortfolioItem::factory()->create(['title' => 'First cached work']);
+
+        $this->get('/')->assertOk();
+        $this->assertTrue(Cache::has(PortfolioCache::ITEMS_KEY));
+
+        PortfolioItem::factory()->create(['title' => 'Fresh work']);
+
+        $this->assertFalse(Cache::has(PortfolioCache::ITEMS_KEY));
+        $this->get('/')->assertOk()->assertSee('Fresh work');
     }
 
     public function test_policy_page_labels_unreviewed_terms_as_draft(): void
