@@ -18,9 +18,13 @@ class WorkshopRegistration extends Model
 
     public const Cancelled = 'cancelled';
 
-    protected $fillable = ['name', 'phone', 'email', 'social', 'quantity', 'notes'];
+    public const Waitlisted = 'waitlisted';
 
-    protected $casts = ['quantity' => 'integer', 'unit_price' => 'integer', 'consented_at' => 'datetime', 'paid_at' => 'datetime', 'checked_in_at' => 'datetime'];
+    public const ExperienceLabels = ['studying' => 'Đang học makeup', 'professional' => 'Đang làm nghề makeup', 'enthusiast' => 'Yêu thích makeup'];
+
+    protected $fillable = ['name', 'phone', 'email', 'social', 'experience'];
+
+    protected $casts = ['quantity' => 'integer', 'unit_price' => 'integer', 'attendance_confirmed' => 'boolean', 'consented_at' => 'datetime', 'confirmed_at' => 'datetime', 'paid_at' => 'datetime', 'checked_in_at' => 'datetime'];
 
     public function workshopEvent(): BelongsTo
     {

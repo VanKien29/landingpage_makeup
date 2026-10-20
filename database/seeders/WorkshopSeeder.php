@@ -12,13 +12,22 @@ class WorkshopSeeder extends Seeder
      */
     public function run(): void
     {
-        WorkshopEvent::firstOrCreate(['slug' => config('workshop.slug')], [
-            'title' => 'THE ART OF ELEVATION 2026',
-            'tagline' => 'Elevate Your Beauty. Elevate Your Art.',
-            'introduction' => 'THE ART OF ELEVATION 2026 là không gian gặp gỡ dành cho những người yêu nghệ thuật makeup tại Tokyo. Một ngày để quan sát kỹ hơn, học hỏi sâu hơn và tìm thấy nguồn cảm hứng mới cho hành trình của chính mình. Với quy mô private chỉ 40 khách, mỗi khoảnh khắc được dành cho sự kết nối, chia sẻ và phát triển kỹ thuật, tư duy thẩm mỹ cùng giá trị cá nhân.',
-            'hero_image' => 'beauty-pro-technique.jpg',
+        $defaults = [
+            'title' => 'THE BACK',
+            'tagline' => 'A Grateful Return. A New Beginning.',
+            'introduction' => 'Có những hành trình phải tạm dừng, nhưng tình yêu dành cho nghệ thuật chưa bao giờ dừng lại. THE BACK đánh dấu sự trở lại của Văn Cường Makeup & Academy tại Nhật Bản sau một khoảng thời gian với nhiều thay đổi và thử thách. Với Cường, đây là dịp gửi lời cảm ơn chân thành đến những học viên, khách hàng và những người đã luôn tin tưởng, yêu thương, đồng hành trong suốt hành trình vừa qua.',
+            'capacity' => 60,
+            'ticket_price' => 0,
+            'hero_image' => 'founder-van-cuong-enhanced.png',
             'glam_image' => '2aOboR6WhLoQQe6I8VzjFvxGVTBjIAHxaqrDAMNs.jpg',
             'bridal_image' => 'beauty-bridal-detail.jpg',
-        ]);
+        ];
+
+        $previous = WorkshopEvent::where('slug', 'the-art-of-elevation-2026')->first();
+        if ($previous && ! WorkshopEvent::where('slug', config('workshop.slug'))->exists()) {
+            $previous->update([...$defaults, 'slug' => config('workshop.slug')]);
+        }
+
+        WorkshopEvent::firstOrCreate(['slug' => config('workshop.slug')], $defaults);
     }
 }

@@ -1,0 +1,126 @@
+.ws-back .ws-cover h1 { font-size: clamp(120px, 16.2vw, 240px); letter-spacing: -5px; }
+.ws-back .ws-back-title { display: block; line-height: .84; }
+.ws-back-subtitle { display: block; font: 400 19px/1.7 var(--ws-sans); letter-spacing: 8px; color: #e7d7b6; margin-top: 23px; }
+.ws-back .ws-cover-beauty img { object-position: 50% 24%; filter: saturate(.65); }
+.ws-back .ws-cover-artist > img { display: none; }
+.ws-back .ws-cover-tagline { margin-top: 12px; }
+.ws-back .ws-complimentary { font-size: 25px; letter-spacing: -.6px; }
+.ws-back .ws-cover-booking { gap: 27px; }
+.ws-metric-percent { font-size: .53em; vertical-align: .2em; margin-left: 1px; }
+.ws-return-story-grid { display: grid; grid-template-columns: .9fr 1.1fr; align-items: center; gap: 95px; }
+.ws-return-portrait img { height: 560px; object-position: 50% 22%; }
+.ws-return-portrait figcaption { display: flex; justify-content: space-between; gap: 18px; font: 500 8px/1.8 var(--ws-english); letter-spacing: 1px; color: var(--ws-muted); padding-top: 15px; }
+.ws-return-story-copy h2 { font-size: clamp(46px, 5vw, 73px); margin: 17px 0 28px; }
+.ws-return-story-copy > p:not(.ws-kicker) { font-size: 13px; line-height: 2.05; }
+.ws-return-story-copy strong { color: #39362d; font-weight: 500; }
+.ws-return-story-copy .ws-story-closing { color: #635943; padding-top: 20px; border-top: 1px solid var(--ws-line); margin-top: 24px; }
+.ws-return-story-copy .ws-text-link { margin-top: 20px; }
+.ws-back .ws-concepts { padding-bottom: 0; }
+.ws-return-programme { padding-block: 65px 70px; margin-top: 75px; background: #e3ded2; }
+.ws-return-programme .ws-section-label { border-color: #c9c0ad; }
+.ws-return-programme .ws-schedule-intro h2 { font-size: 65px; }
+.ws-return-programme .ws-schedule-intro > p { font-size: 12px; line-height: 2; }
+.ws-return-programme .ws-timeline > li { border-color: #bcb29e75; }
+.ws-return-programme .ws-timeline h3 { color: #3e3b32; }
+.ws-return-programme .ws-timeline-training h3 { color: #746247; }
+.ws-return-programme .ws-timeline-time > span { color: #8c816c; }
+.ws-return-programme .ws-timeline-tag { color: #6b5d43; border-color: #b2a080; }
+.ws-return-programme .ws-timeline p { color: #756d5d; }
+.ws-back .ws-return-admission strong { font: 500 50px/1 var(--ws-serif); letter-spacing: -.8px; color: #665941; }
+.ws-return-admission p { font-size: 11px; margin-top: 12px; }
+.ws-back .ws-return-free { font: 500 57px/1.1 var(--ws-serif); letter-spacing: -1px; color: #6c5d43; }
+.ws-back .ws-return-free > span { font: 500 9px/1.8 var(--ws-english); letter-spacing: 1px; margin-top: 10px; }
+.ws-back .ws-attendance { padding: 15px 0; border-block: 1px solid #d4ccbd; margin: 5px 0 20px; }
+.ws-gratitude { background: #25261f; color: #f5efe2; padding-block: 60px 25px; }
+.ws-gratitude .ws-section-label { border-color: #ffffff29; }
+.ws-gratitude .ws-section-label > span:last-child { color: #aaa78f; }
+.ws-gratitude-content { position: relative; max-width: 760px; margin: auto; text-align: center; padding-block: 12px 25px; }
+.ws-gratitude-mark { position: absolute; font: 190px/1 var(--ws-serif); color: #8b7c5b33; top: -10px; left: -45px; }
+.ws-gratitude .ws-kicker { color: #b8a685; font-size: 10px; }
+.ws-gratitude h2 { font-size: 78px; margin-block: 20px 35px; }
+.ws-gratitude h2 em { color: #c6b18b; }
+.ws-gratitude blockquote { font: 400 20px/1.8 var(--ws-serif); color: #d4cbb6; max-width: 670px; margin: auto; }
+.ws-gratitude-signature { font: italic 400 48px/1.2 var(--ws-serif); color: #e9dcc1; margin-top: 30px; }
+.ws-gratitude-brand { display: block; font: 500 8px/1.8 var(--ws-english); letter-spacing: 1.5px; color: #a19e87; margin-top: 14px; }
+.ws-gratitude-contact { display: flex; align-items: center; justify-content: center; flex-wrap: wrap; gap: 30px; margin-top: 25px; }
+.ws-gratitude-contact a { display: inline-flex; align-items: center; gap: 10px; font-size: 11px; border-bottom: 1px solid #8d80604d; padding-bottom: 8px; }
+.ws-gratitude-contact .control-icon { width: 16px; height: 16px; color: #bcaa84; }
+.ws-gratitude .ws-footer-bottom { margin-top: 40px; }
+.ws-admin-counters.ws-back-counters { grid-template-columns: repeat(5, minmax(0, 1fr)); gap: 14px; }
+.ws-admin-counters.ws-back-counters strong { font-size: 31px; }
+.ws-status-waitlisted { background: #e8dfcd; color: #755d31; }
+.ws-admin-return-intro { font-size: 12px; color: #716a5d; }
+@media(max-width:1100px) {
+    .ws-back .ws-cover h1 { font-size: 17.5vw; }
+    .ws-back .ws-complimentary { font-size: 22px; }
+    .ws-return-story-grid { gap: 55px; }
+    .ws-return-portrait img { height: 520px; }
+    .ws-return-story-copy > p:not(.ws-kicker) { font-size: 12px; }
+    .ws-back .ws-cover-event { gap: 25px; }
+    .ws-return-programme .ws-schedule-intro h2 { font-size: 55px; }
+}
+@media(max-width:760px) {
+    .ws-back .ws-cover h1 { font-size: 19vw; letter-spacing: -3px; }
+    .ws-back-subtitle { font-size: 15px; letter-spacing: 6px; margin-top: 20px; }
+    .ws-back .ws-complimentary { font-size: 23px; }
+    .ws-back .ws-cover-booking { gap: 16px; }
+    .ws-return-story-grid { gap: 30px; }
+    .ws-return-portrait img { height: 490px; }
+    .ws-return-story-copy h2 { font-size: 48px; margin-bottom: 22px; }
+    .ws-return-story-copy > p:not(.ws-kicker) { font-size: 11px; }
+    .ws-return-portrait figcaption { font-size: 7px; letter-spacing: .3px; }
+    .ws-return-programme { margin-top: 55px; padding-block: 45px 50px; }
+    .ws-return-programme .ws-schedule-intro { margin-bottom: 35px; }
+    .ws-return-programme .ws-schedule-intro h2 { font-size: 60px; }
+    .ws-gratitude { padding-top: 45px; }
+    .ws-gratitude h2 { font-size: 64px; }
+    .ws-gratitude-mark { left: 0; font-size: 150px; }
+    .ws-gratitude blockquote { font-size: 20px; }
+    .ws-admin-counters.ws-back-counters { grid-template-columns: repeat(2, 1fr); }
+}
+@media(max-width:520px) {
+    .ws-back .ws-cover h1 { font-size: clamp(66px, 21.5vw, 108px); letter-spacing: -2px; }
+    .ws-back-subtitle { font-size: 14px; letter-spacing: 5px; margin-top: 19px; line-height: 1.8; }
+    .ws-back .ws-cover-tagline { font-size: 23px; max-width: none; }
+    .ws-back .ws-complimentary { font-size: 22px; letter-spacing: -.4px; }
+    .ws-back .ws-complimentary small { font-size: 7px; letter-spacing: .5px; }
+    .ws-back .ws-cover-register { min-width: 172px; gap: 25px; font-size: 9px; padding-inline: 18px; }
+    .ws-back .ws-cover-event { gap: 15px; }
+    .ws-back .ws-at-a-glance>div:last-child { gap: 10px; }
+    .ws-back .ws-at-a-glance>div:last-child>span { font-size: 6px; letter-spacing: .4px; }
+    .ws-return-story-grid { display: flex; flex-direction: column-reverse; gap: 30px; }
+    .ws-return-story-copy h2 { font-size: 55px; margin-block: 18px 25px; }
+    .ws-return-story-copy > p:not(.ws-kicker) { font-size: 12px; line-height: 2.05; }
+    .ws-return-story-copy .ws-kicker { font-size: 9px; letter-spacing: 1px; }
+    .ws-return-story-copy .ws-text-link { font-size: 11px; }
+    .ws-return-portrait { width: 100%; }
+    .ws-return-portrait img { width: 100%; height: auto; aspect-ratio: 4/4.3; }
+    .ws-return-portrait figcaption { font-size: 7px; margin-top: 0; }
+    .ws-return-programme { margin-top: 45px; padding-block: 40px; }
+    .ws-return-programme .ws-schedule-intro h2 { font-size: 50px; }
+    .ws-return-programme .ws-schedule-intro > p { font-size: 11px; }
+    .ws-back .ws-return-admission strong { font-size: 46px; }
+    .ws-back .ws-return-free { font-size: 51px; }
+    .ws-back .ws-return-free > span { display: block; margin-left: 0; font-size: 8px; }
+    .ws-back .ws-field select { font-size: 13px; }
+    .ws-back .ws-field select option { font-size: 14px; }
+    .ws-back .ws-attendance { font-size: 11px; line-height: 1.9; }
+    .ws-gratitude { padding-top: 40px; }
+    .ws-gratitude-content { padding-top: 10px; }
+    .ws-gratitude h2 { font-size: 56px; margin-block: 18px 28px; }
+    .ws-gratitude .ws-kicker { font-size: 8px; letter-spacing: 1px; }
+    .ws-gratitude blockquote { font: 400 13px/2.1 var(--ws-sans); }
+    .ws-gratitude-mark { font-size: 125px; top: -10px; left: -7px; }
+    .ws-gratitude-signature { font-size: 43px; margin-top: 26px; }
+    .ws-gratitude-brand { font-size: 6px; letter-spacing: 1px; }
+    .ws-gratitude-contact { gap: 23px; }
+    .ws-gratitude-contact a { font-size: 10px; gap: 9px; }
+}
+@media(max-width:380px) {
+    .ws-back .ws-cover-register { min-width: 148px; padding-inline: 14px; gap: 17px; font-size: 8px; }
+    .ws-back .ws-complimentary { font-size: 20px; }
+    .ws-back .ws-complimentary small { font-size: 5px; letter-spacing: .3px; }
+    .ws-back .ws-cover-booking { gap: 15px; }
+    .ws-back .ws-cover-tagline { font-size: 21px; }
+    .ws-back-subtitle { font-size: 12px; letter-spacing: 4px; }
+}

@@ -43,16 +43,9 @@ document.addEventListener('DOMContentLoaded', () => {
 
   const form = document.querySelector('#workshop-form');
   if (!form) return;
-  const quantity = form.querySelector('[name="quantity"]');
-  const total = document.querySelector('#ws-total');
   const status = form.querySelector('.ws-form-status');
   const submit = form.querySelector('[type="submit"]');
   const fieldset = form.querySelector('fieldset');
-  const updateTotal = () => {
-    total.textContent = `¥${(Number(quantity.value) * Number(form.dataset.price)).toLocaleString('en-US')}`;
-  };
-  quantity?.addEventListener('change', updateTotal);
-  updateTotal();
   let submitting = false;
   form.addEventListener('submit', async event => {
     event.preventDefault();

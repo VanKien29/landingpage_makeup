@@ -20,13 +20,15 @@ class WorkshopRegistrationFactory extends Factory
     {
         return [
             'workshop_event_id' => WorkshopEvent::factory(),
-            'reference' => 'ELEV-'.strtoupper(fake()->unique()->bothify('??######')),
+            'reference' => 'BACK-'.strtoupper(fake()->unique()->bothify('??######')),
             'name' => fake()->name(),
             'email' => fake()->safeEmail(),
             'phone' => '08098194619',
             'social' => 'instagram.com/makeup.artist',
             'quantity' => 1,
-            'unit_price' => 5000,
+            'unit_price' => 0,
+            'experience' => 'enthusiast',
+            'attendance_confirmed' => true,
             'consented_at' => now(),
         ];
     }

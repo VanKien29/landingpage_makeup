@@ -12,6 +12,8 @@ Route::get('/', [HomeController::class, 'index'])->name('home');
 Route::post('/enrollment', [EnrollmentController::class, 'store'])->middleware('throttle:5,1')->name('enrollment.store');
 Route::view('/chinh-sach', 'policies')->name('policies');
 Route::get('/tac-pham/{portfolioItem}/anh', [PortfolioController::class, 'show'])->name('portfolio.image');
+Route::redirect('/workshop/the-art-of-elevation-2026', '/workshop/the-back', 302);
+Route::redirect('/workshop-admin/the-art-of-elevation-2026', '/workshop-admin/the-back', 302);
 Route::get('/workshop/{workshop:slug}', [WorkshopController::class, 'show'])->name('workshop.show');
 Route::post('/workshop/{workshop:slug}/register', [WorkshopController::class, 'store'])->middleware('throttle:5,1')->name('workshop.register');
 Route::prefix('workshop-admin/{workshop:slug}')->middleware(['auth', 'can:manage-academy'])->group(function (): void {

@@ -29,13 +29,11 @@ class UpdateWorkshopEventRequest extends FormRequest
             'introduction' => ['required', 'string', 'max:5000'],
             'event_date' => ['nullable', 'date_format:Y-m-d'],
             'venue' => ['required', 'string', 'max:255'],
-            'ticket_price' => ['required', 'integer', 'min:0', 'max:1000000'],
-            'capacity' => ['required', 'integer', 'min:1', 'max:40'],
+            'capacity' => ['required', 'integer', 'min:1', 'max:60'],
             'registration_open' => ['required', 'boolean'],
             'hero_image' => ['required', Rule::in(self::imageOptions())],
             'glam_image' => ['required', Rule::in(self::imageOptions())],
             'bridal_image' => ['required', Rule::in(self::imageOptions())],
-            'payment_instructions' => ['nullable', 'string', 'max:3000'],
         ];
     }
 

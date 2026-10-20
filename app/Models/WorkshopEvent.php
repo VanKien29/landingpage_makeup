@@ -28,6 +28,6 @@ class WorkshopEvent extends Model
 
     public function acceptsRegistrations(): bool
     {
-        return $this->registration_open && $this->remainingTickets() > 0;
+        return $this->registration_open;
     }
 }
