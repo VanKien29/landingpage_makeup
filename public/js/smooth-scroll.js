@@ -39,7 +39,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
   window.addEventListener('wheel', event => {
     const element = event.target instanceof Element ? event.target : null;
-    if (reducedMotion.matches || event.ctrlKey || event.metaKey || event.shiftKey || !event.cancelable || Math.abs(event.deltaX) > Math.abs(event.deltaY) || document.body.classList.contains('modal-open') || element?.closest('dialog[open], textarea, select, input, [contenteditable="true"], [data-native-scroll]')) {
+    if (reducedMotion.matches || event.ctrlKey || event.metaKey || event.shiftKey || !event.cancelable || Math.abs(event.deltaX) > Math.abs(event.deltaY) || document.body.classList.contains('modal-open') || document.body.classList.contains('ws-image-open') || element?.closest('dialog[open], textarea, select, input, [contenteditable="true"], [data-native-scroll]')) {
       stop();
       return;
     }

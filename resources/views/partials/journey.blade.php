@@ -1,7 +1,7 @@
 <section class="section journey" id="journey">
     <div class="wrap">
         <div class="section-top"><p class="eyebrow">06 / STUDENT JOURNEY</p><span>THE PROCESS IS THE PROGRESS</span></div>
-        <div class="section-heading"><h2>STUDENT <em>JOURNEY</em></h2><p>Mục tiêu là thể hiện môi trường đào tạo và kết quả học tập thực tế.</p></div>
+        <div class="section-heading"><h2>STUDENT <em>JOURNEY</em></h2><p>Từ những buổi học đầu tiên đến bài thực hành và thành quả sau đào tạo.</p></div>
         <div class="journey-scroll-zone" data-journey-carousel>
             <div class="journey-sticky">
                 <div class="rail-toolbar"><span class="rail-desktop">TỪ NỀN TẢNG ĐẾN DẤU ẤN RIÊNG</span><span class="rail-mobile">VUỐT NGANG ĐỂ KHÁM PHÁ @include('partials.icon', ['name' => 'arrow-right'])</span><div><button type="button" data-rail-prev aria-label="Chặng học trước">@include('partials.icon', ['name' => 'previous'])</button><button type="button" data-rail-next aria-label="Chặng học tiếp theo">@include('partials.icon', ['name' => 'next'])</button></div></div>
