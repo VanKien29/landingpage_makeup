@@ -18,6 +18,8 @@ class WorkshopSeeder extends Seeder
             'introduction' => 'Có những hành trình phải tạm dừng, nhưng tình yêu dành cho nghệ thuật chưa bao giờ dừng lại. THE BACK đánh dấu sự trở lại của Văn Cường Makeup & Academy tại Nhật Bản sau một khoảng thời gian với nhiều thay đổi và thử thách. Với Cường, đây là dịp gửi lời cảm ơn chân thành đến những học viên, khách hàng và những người đã luôn tin tưởng, yêu thương, đồng hành trong suốt hành trình vừa qua.',
             'capacity' => 60,
             'ticket_price' => 0,
+            'venue' => '〒135-0033東京都江東区深川2-2-3-1F',
+            'is_published' => true,
             'hero_image' => 'founder-van-cuong-enhanced.png',
             'glam_image' => 'workshop-western-glam-01.jpg',
             'bridal_image' => 'workshop-bridal-beauty-01.jpg',

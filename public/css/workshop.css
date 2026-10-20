@@ -19,3 +19,32 @@
 @media(max-width:520px){.ws-hero h1{font-size:clamp(48px,15.5vw,84px)}}
 @media(max-width:380px){.ws-header{padding-inline:16px;gap:8px}.ws-brand strong{font-size:17px}.ws-brand>span{font-size:5px;letter-spacing:1.3px}.ws-header-cta{font-size:8px}.ws-hero-actions{gap:17px}.ws-hero-price{font-size:23px}.ws-hero-actions .ws-button{gap:17px;padding-inline:15px}.ws-at-a-glance>div{gap:10px}.ws-at-a-glance>div:nth-child(even){padding-left:14px}.ws-at-a-glance>div>span{font-size:6px}.ws-registration-price>span{font-size:7px;margin-left:8px}.ws-registration-intro h2{font-size:48px}}
 @media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}*,*::before,*::after{transition:none!important;animation:none!important}.ws-reveal-ready [data-ws-reveal]{opacity:1;transform:none}}
+/* Registration form refinements */
+.ws-field select{appearance:none;cursor:pointer;padding-right:30px;background-image:linear-gradient(45deg,transparent 50%,#6f6657 50%),linear-gradient(135deg,#6f6657 50%,transparent 50%);background-position:calc(100% - 11px) 21px,calc(100% - 6px) 21px;background-size:5px 5px,5px 5px;background-repeat:no-repeat}
+.ws-field select option{background:#f4f0e7;color:#25241e}
+.ws-field.has-error input,.ws-field.has-error textarea,.ws-field.has-error select{border-bottom-color:#a55f4b}
+.ws-field-error{display:block;margin-top:7px;color:#9a4d3b;font-size:10px;line-height:1.5}
+.ws-field:has([aria-invalid="true"]) input,.ws-field:has([aria-invalid="true"]) textarea,.ws-field:has([aria-invalid="true"]) select{border-bottom-color:#a55f4b}
+.ws-form-status.is-error{background:#fcf3ef}
+.ws-floating-contact{bottom:max(28px,calc(env(safe-area-inset-bottom) + 12px))}
+@media(max-width:520px){.ws-floating-contact{bottom:max(26px,calc(env(safe-area-inset-bottom) + 12px))}}
+.ws-admin .ws-capacity-trigger{border:1px solid #b8b6ad;background:transparent;text-decoration:none;padding:11px 17px;min-height:0;color:#5e5e57}
+.ws-admin .ws-icon-button{display:inline-flex;align-items:center;justify-content:center;width:34px;height:34px;min-height:34px;padding:0;border:1px solid #c9c6bc;border-radius:50%;background:#fffefa;text-decoration:none;color:#5a5b54}
+.ws-admin .ws-icon-button .control-icon{width:15px;height:15px}
+.ws-admin .ws-icon-button.is-confirm{color:#4f7654;border-color:#a9c0a7}
+.ws-admin .ws-icon-button.is-reject{color:#965b52;border-color:#d2aaa0}
+.ws-admin .ws-icon-button.is-checkin{color:#806b45;border-color:#c9b991}
+.ws-event-location{min-width:0}
+.ws-event-map{position:relative;min-height:610px;background:#d8d4ca;border:1px solid #cbc3b4;overflow:hidden}
+.ws-event-map iframe{display:block;width:100%;height:610px;border:0;filter:saturate(.72) sepia(.08)}
+.ws-event-map-label{position:absolute;left:24px;bottom:24px;display:flex;flex-direction:column;gap:3px;min-width:220px;padding:17px 20px;background:#f7f5f0ed;border-left:2px solid var(--ws-gold);box-shadow:0 8px 26px #37352a1f}
+.ws-event-map-label span{font:500 8px/1.6 var(--ws-english);letter-spacing:1.6px;color:var(--ws-gold)}
+.ws-event-map-label strong{font:500 25px/1.1 var(--ws-serif);color:var(--ws-ink)}
+.ws-event-map-label small{font-size:10px;color:var(--ws-muted)}
+.ws-event-location-links{display:flex;flex-wrap:wrap;gap:24px;margin-top:17px}
+.ws-event-location-links a{display:inline-flex;align-items:center;gap:11px;padding-bottom:7px;border-bottom:1px solid #b6a98e;font-size:10px;color:#625842}
+.ws-event-location-links a:hover{color:var(--ws-gold)}
+.ws-event-location-links .control-icon{width:14px;height:14px}
+.ws-event-address{margin-top:23px;padding:15px 0;border-block:1px solid var(--ws-line);font-size:13px;line-height:1.8;color:var(--ws-ink)}
+.ws-event-address span{font-size:10px;color:var(--ws-muted)}
+@media(max-width:760px){.ws-event-map,.ws-event-map iframe{min-height:390px;height:390px}.ws-event-map-label{left:16px;bottom:16px;min-width:0;padding:13px 15px}.ws-event-map-label strong{font-size:22px}.ws-event-location-links{gap:16px}.ws-event-location-links a{font-size:9px}.ws-event-address{font-size:12px}}

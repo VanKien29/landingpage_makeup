@@ -135,3 +135,6 @@ html.wheel-scrolling { scroll-behavior: auto !important; }
 @media(max-width:760px) { .ws-header .ws-brand-logo { width: 165px; } }
 @media(max-width:520px) { .ws-header .ws-brand-logo { width: 155px; } .ws-gratitude .ws-brand-logo { width: 190px; } }
 @media(max-width:380px) { .ws-header .ws-brand-logo { width: 135px; } }
+/* Keep floating contacts clear of the mobile footer edge. */
+.ws-gratitude-contact{padding-bottom:12px}
+@media(max-width:520px){.ws-gratitude-contact{padding-bottom:22px}}

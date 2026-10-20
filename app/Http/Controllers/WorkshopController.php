@@ -16,6 +16,8 @@ class WorkshopController extends Controller
 {
     public function show(WorkshopEvent $workshop): View
     {
+        abort_unless($workshop->is_published, 404);
+
         return view('workshop', ['workshop' => $workshop, 'remaining' => $workshop->remainingTickets(), 'concepts' => config('workshop.concepts'), 'schedule' => config('workshop.schedule'), 'experienceLabels' => WorkshopRegistration::ExperienceLabels]);
     }
 
@@ -23,7 +25,7 @@ class WorkshopController extends Controller
     {
         $registration = DB::transaction(function () use ($request, $workshop): WorkshopRegistration {
             $event = WorkshopEvent::lockForUpdate()->findOrFail($workshop->id);
-            if (! $event->acceptsRegistrations()) {
+            if (! $event->is_published || ! $event->acceptsRegistrations()) {
                 throw ValidationException::withMessages(['attendance' => 'Workshop đã đóng đăng ký. Vui lòng liên hệ học viện để được hỗ trợ.']);
             }
             if ($event->registrations()->where('email', $request->validated('email'))->where('status', '!=', WorkshopRegistration::Cancelled)->exists()) {

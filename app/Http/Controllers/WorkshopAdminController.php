@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\UpdateWorkshopCapacityRequest;
 use App\Http\Requests\UpdateWorkshopEventRequest;
 use App\Models\WorkshopEvent;
 use App\Models\WorkshopRegistration;
@@ -43,6 +44,19 @@ class WorkshopAdminController extends Controller
         }, 3);
 
         return back()->with('success', 'Đã cập nhật thông tin workshop.');
+    }
+
+    public function updateCapacity(UpdateWorkshopCapacityRequest $request, WorkshopEvent $workshop): RedirectResponse
+    {
+        DB::transaction(function () use ($request, $workshop): void {
+            $event = WorkshopEvent::lockForUpdate()->findOrFail($workshop->id);
+            if ($request->integer('capacity') < $event->confirmed_tickets) {
+                throw ValidationException::withMessages(['capacity' => 'Sức chứa không được nhỏ hơn số học viên đã xác nhận.']);
+            }
+            $event->update(['capacity' => $request->integer('capacity')]);
+        }, 3);
+
+        return back()->with('success', 'Đã cập nhật số lượng học viên tối đa.');
     }
 
     public function updateRegistration(Request $request, WorkshopEvent $workshop, WorkshopRegistration $registration): RedirectResponse

@@ -1408,5 +1408,7 @@ body.modal-open .floating-phone { visibility: hidden; }
 .main-nav .nav-workshop::after { display: none; }
 .main-nav .nav-workshop .control-icon { width: 13px; height: 13px; }
 .main-nav .nav-workshop:hover { background: #dfd2bb; border-color: #a18b66; color: #5a492f; }
+.workshop-invitation + .section.educator { padding-top: 48px; }
+@media(max-width:760px) { .workshop-invitation + .section.educator { padding-top: 38px; } }
 @media(min-width:1081px) and (max-width:1280px) { .main-nav { gap: 11px; } .main-nav a { font-size: 14px; } .main-nav .nav-workshop { padding-inline: 8px; gap: 5px; } }
 @media(max-width:1080px) { .main-nav .nav-workshop { width: auto; align-self: flex-start; padding: 10px 16px; margin-block: 8px; font-size: 21px; gap: 12px; } .main-nav .nav-workshop .control-icon { width: 17px; height: 17px; } }

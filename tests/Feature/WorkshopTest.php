@@ -17,7 +17,7 @@ class WorkshopTest extends TestCase
     {
         $this->seed(WorkshopSeeder::class);
 
-        $this->get('/workshop/the-back')->assertOk()->assertSee('THE BACK')->assertSee('SỰ TRỞ LẠI')->assertSee('100% FREE')->assertSee('Western Glam')->assertSee('workshop-western-glam-01.jpg')->assertSee('workshop-bridal-beauty-01.jpg')->assertDontSee('Thai Glam')->assertSee('Bridal Beauty')->assertSee('10:30')->assertSee('14:30')->assertSee('Coming Soon')->assertSee('0 / 60 học viên')->assertDontSee('Eurasian Glam')->assertDontSee('¥5,000')->assertDontSee('06:00')->assertDontSee('20:00');
+        $this->get('/workshop/the-back')->assertOk()->assertSee('THE BACK')->assertSee('SỰ TRỞ LẠI')->assertSee('100% FREE')->assertSee('Western Glam')->assertSee('workshop-western-glam-01.jpg')->assertSee('workshop-bridal-beauty-01.jpg')->assertDontSee('Thai Glam')->assertSee('Bridal Beauty')->assertSee('10:30')->assertSee('14:30')->assertSee('Coming Soon')->assertSee('0 / 60 học viên')->assertSee('〒135-0033東京都江東区深川2-2-3-1F')->assertSee('google.com/maps')->assertSee('spacemarket.com/spaces/fukagawagarage')->assertDontSee('Eurasian Glam')->assertDontSee('¥5,000')->assertDontSee('06:00')->assertDontSee('20:00');
         $this->get('/workshop/the-art-of-elevation-2026')->assertRedirect('/workshop/the-back');
         $this->get('/workshop-admin/the-art-of-elevation-2026')->assertRedirect('/workshop-admin/the-back');
     }
@@ -94,6 +94,17 @@ class WorkshopTest extends TestCase
         $this->postJson(route('workshop.register', $event->slug), $this->payload())->assertUnprocessable()->assertJsonValidationErrors('attendance');
 
         $this->assertDatabaseCount('workshop_registrations', 0);
+    }
+
+    public function test_workshop_registration_form_is_rate_limited_per_email_and_ip(): void
+    {
+        $event = WorkshopEvent::factory()->create();
+
+        for ($attempt = 0; $attempt < 5; $attempt++) {
+            $this->postJson(route('workshop.register', $event->slug), $this->payload());
+        }
+
+        $this->postJson(route('workshop.register', $event->slug), $this->payload())->assertStatus(429);
     }
 
     public function test_attendance_confirmation_is_required_even_when_other_fields_are_valid(): void
@@ -196,7 +207,7 @@ class WorkshopTest extends TestCase
         WorkshopRegistration::factory()->for($event)->create(['name' => '<script>alert(1)</script>', 'social' => '=HYPERLINK("bad")', 'phone' => '+818098194619']);
         $this->actingAs($this->admin());
 
-        $this->get(route('workshop.admin', $event->slug))->assertOk()->assertSee('&lt;script&gt;alert(1)&lt;/script&gt;', false)->assertDontSee('<script>alert(1)</script>', false)->assertSee('Tổng số đơn đăng ký')->assertSee('Đơn trong danh sách chờ');
+        $this->get(route('workshop.admin', $event->slug))->assertOk()->assertSee('&lt;script&gt;alert(1)&lt;/script&gt;', false)->assertDontSee('<script>alert(1)</script>', false)->assertSee('Tổng số đơn đăng ký')->assertSee('Đơn trong danh sách chờ')->assertSee('Sức chứa tối đa')->assertDontSee('Cài đặt sự kiện, hình ảnh');
         $response = $this->get(route('workshop.export', $event->slug))->assertOk()->assertDownload($event->slug.'-guests.csv');
 
         $csv = $response->streamedContent();
@@ -216,6 +227,26 @@ class WorkshopTest extends TestCase
         $this->patch(route('workshop.update', $event->slug), [...$data, 'registration_open' => true, 'capacity' => 4])->assertSessionHasErrors('capacity');
         $this->patch(route('workshop.update', $event->slug), [...$data, 'registration_open' => true, 'capacity' => 61])->assertSessionHasErrors('capacity');
         $this->patch(route('workshop.update', $event->slug), [...$data, 'registration_open' => true, 'hero_image' => 'https://example.com/tracker.jpg'])->assertSessionHasErrors('hero_image');
+    }
+
+    public function test_admin_can_update_capacity_from_the_registrations_screen(): void
+    {
+        $event = WorkshopEvent::factory()->create(['capacity' => 40, 'confirmed_tickets' => 3]);
+        $this->actingAs($this->admin());
+
+        $this->patch(route('workshop.capacity.update', $event->slug), ['capacity' => 25])->assertSessionHasNoErrors();
+        $this->assertDatabaseHas('workshop_events', ['id' => $event->id, 'capacity' => 25]);
+        $this->patch(route('workshop.capacity.update', $event->slug), ['capacity' => 2])->assertSessionHasErrors('capacity');
+        $this->assertSame(25, $event->fresh()->capacity);
+    }
+
+    public function test_admin_can_hide_workshop_from_public_page_and_navigation(): void
+    {
+        $event = WorkshopEvent::factory()->create(['slug' => 'the-back', 'is_published' => false]);
+        $this->assertNotNull($event);
+
+        $this->get(route('workshop.show', $event->slug))->assertNotFound();
+        $this->postJson(route('workshop.register', $event->slug), $this->payload())->assertUnprocessable()->assertJsonValidationErrors('attendance');
     }
 
     private function admin(): User

@@ -12,9 +12,9 @@ class WorkshopEvent extends Model
     /** @use HasFactory<WorkshopEventFactory> */
     use HasFactory;
 
-    protected $fillable = ['slug', 'title', 'tagline', 'introduction', 'event_date', 'venue', 'ticket_price', 'capacity', 'registration_open', 'hero_image', 'glam_image', 'bridal_image', 'payment_instructions'];
+    protected $fillable = ['slug', 'title', 'tagline', 'introduction', 'event_date', 'venue', 'ticket_price', 'capacity', 'registration_open', 'is_published', 'hero_image', 'glam_image', 'bridal_image', 'payment_instructions'];
 
-    protected $casts = ['event_date' => 'date', 'ticket_price' => 'integer', 'capacity' => 'integer', 'confirmed_tickets' => 'integer', 'registration_open' => 'boolean'];
+    protected $casts = ['event_date' => 'date', 'ticket_price' => 'integer', 'capacity' => 'integer', 'confirmed_tickets' => 'integer', 'registration_open' => 'boolean', 'is_published' => 'boolean'];
 
     public function registrations(): HasMany
     {

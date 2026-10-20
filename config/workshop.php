@@ -6,6 +6,9 @@ return [
     'banner_image' => 'workshop-banner-bridal-enhanced.png',
     'facebook' => 'https://www.facebook.com/profile.php?id=100042490924350',
     'phone' => '08098194619',
+    'map_url' => 'https://www.google.com/maps?q=35.6741215,139.7977928+(Fukagawa%20Garage%EF%BC%88%E6%B7%B1%E5%B7%9D%E3%82%AC%E3%83%AC%E3%83%BC%E3%82%B8%EF%BC%89%2F%20%E5%A4%9A%E7%9B%AE%E7%9A%84%E3%83%AC%E3%83%B3%E3%82%BF%E3%83%AB%E3%82%B9%E3%83%9A%E3%83%BC%E3%82%B9)',
+    'map_embed_url' => 'https://www.google.com/maps?q=35.6741215,139.7977928&z=16&output=embed',
+    'venue_detail_url' => 'https://www.spacemarket.com/spaces/fukagawagarage/',
     'concepts' => [
         [
             'name' => 'Western Glam', 'year' => 'Beauty Concept', 'label' => 'SCULPTED. RADIANT. LASTING.',

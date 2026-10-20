@@ -31,6 +31,7 @@ class UpdateWorkshopEventRequest extends FormRequest
             'venue' => ['required', 'string', 'max:255'],
             'capacity' => ['required', 'integer', 'min:1', 'max:60'],
             'registration_open' => ['required', 'boolean'],
+            'is_published' => ['sometimes', 'boolean'],
             'hero_image' => ['required', Rule::in(self::imageOptions())],
             'glam_image' => ['required', Rule::in(self::imageOptions())],
             'bridal_image' => ['required', Rule::in(self::imageOptions())],

@@ -86,6 +86,11 @@ document.addEventListener('DOMContentLoaded', () => {
   const submit = form.querySelector('[type="submit"]');
   const fieldset = form.querySelector('fieldset');
   let submitting = false;
+  form.querySelectorAll('input, select, textarea').forEach(input => {
+    input.addEventListener('invalid', () => input.setAttribute('aria-invalid', 'true'));
+    input.addEventListener('input', () => { if (input.checkValidity()) input.removeAttribute('aria-invalid'); });
+    input.addEventListener('change', () => { if (input.checkValidity()) input.removeAttribute('aria-invalid'); });
+  });
   form.addEventListener('submit', async event => {
     event.preventDefault();
     if (submitting || fieldset.disabled) return;
