@@ -41,6 +41,45 @@ document.addEventListener('DOMContentLoaded', () => {
     document.querySelectorAll('[data-ws-reveal]').forEach(element => observer.observe(element));
   }
 
+  const imageDialog = document.querySelector('#ws-image-dialog');
+  if (imageDialog && typeof imageDialog.showModal === 'function') {
+    const dialogImage = imageDialog.querySelector('[data-ws-dialog-image]');
+    const dialogTitle = imageDialog.querySelector('#ws-image-dialog-title');
+    const dialogCounter = imageDialog.querySelector('[data-ws-dialog-counter]');
+    let activePhotos = [];
+    let activeIndex = 0;
+    const showPhoto = index => {
+      activeIndex = (index + activePhotos.length) % activePhotos.length;
+      const photo = activePhotos[activeIndex];
+      dialogImage.src = photo.href;
+      dialogImage.alt = photo.querySelector('img').alt;
+      dialogCounter.textContent = `${String(activeIndex + 1).padStart(2, '0')} / ${String(activePhotos.length).padStart(2, '0')}`;
+    };
+    document.querySelectorAll('[data-ws-collage]').forEach(collage => {
+      const photos = [...collage.querySelectorAll('[data-ws-collage-photo]')];
+      photos.forEach((photo, index) => photo.addEventListener('click', event => {
+        if (event.ctrlKey || event.metaKey || event.shiftKey || event.altKey) return;
+        event.preventDefault();
+        activePhotos = photos;
+        dialogTitle.textContent = collage.dataset.conceptTitle;
+        showPhoto(index);
+        imageDialog.showModal();
+        document.body.classList.add('ws-image-open');
+      }));
+    });
+    imageDialog.querySelector('.ws-image-close').addEventListener('click', () => imageDialog.close());
+    imageDialog.querySelector('[data-ws-dialog-prev]').addEventListener('click', () => showPhoto(activeIndex - 1));
+    imageDialog.querySelector('[data-ws-dialog-next]').addEventListener('click', () => showPhoto(activeIndex + 1));
+    imageDialog.addEventListener('click', event => { if (event.target === imageDialog) imageDialog.close(); });
+    imageDialog.addEventListener('close', () => document.body.classList.remove('ws-image-open'));
+    imageDialog.addEventListener('keydown', event => {
+      if (event.key === 'ArrowLeft' || event.key === 'ArrowRight') {
+        event.preventDefault();
+        showPhoto(activeIndex + (event.key === 'ArrowRight' ? 1 : -1));
+      }
+    });
+  }
+
   const form = document.querySelector('#workshop-form');
   if (!form) return;
   const status = form.querySelector('.ws-form-status');

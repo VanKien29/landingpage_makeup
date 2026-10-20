@@ -13,8 +13,8 @@
     <link href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@400;500;600;700&family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="{{ asset('css/workshop.css') }}?v=3">
     <link rel="stylesheet" href="{{ asset('css/workshop-hero.css') }}?v=5">
-    <link rel="stylesheet" href="{{ asset('css/workshop-return.css') }}?v=2">
-    <script src="{{ asset('js/workshop.js') }}?v=3" defer></script>
+    <link rel="stylesheet" href="{{ asset('css/workshop-return.css') }}?v=4">
+    <script src="{{ asset('js/workshop.js') }}?v=5" defer></script>
 </head>
 <body class="workshop-page ws-back">
 <a class="ws-skip" href="#workshop-main">Chuyển đến nội dung chính</a>
@@ -26,7 +26,7 @@
 </header>
 <main id="workshop-main">
     <section class="ws-cover" aria-labelledby="workshop-title">
-        <div class="ws-invite-background" aria-hidden="true"><img src="{{ asset('images/'.$workshop->bridal_image) }}" alt="" fetchpriority="high" width="597" height="843"></div>
+        <div class="ws-invite-background" aria-hidden="true"><img src="{{ asset('images/'.config('workshop.banner_image')) }}" alt="" fetchpriority="high" width="597" height="843"></div>
         <div class="ws-invite-top ws-container"><span>PRIVATE MAKEUP WORKSHOP</span><span>TOKYO, JAPAN <i aria-hidden="true"></i> 2026 EDITION</span></div>
         <div class="ws-invite-grid ws-container">
             <div class="ws-invite-copy">
@@ -60,7 +60,20 @@
         <div class="ws-container"><div class="ws-section-label"><span>03 / WORKSHOP EXPERIENCE</span><span>TWO LOOKS. SIX HOURS. SHARED WITH GRATITUDE.</span></div><div class="ws-heading-row"><h2>Trở lại để<br><em>cùng thăng hoa.</em></h2><p>02 layout makeup · 06 giờ training.<br>Kiến thức thực tế, trình diễn trực tiếp<br>và những kết nối từ đam mê chung.</p></div>
             @foreach($concepts as $concept)
                 <article class="ws-concept {{ $loop->even ? 'ws-concept-reverse' : '' }}" data-ws-reveal>
-                    <figure class="ws-concept-image"><img src="{{ asset('images/'.($loop->first ? $workshop->glam_image : $workshop->bridal_image)) }}" alt="{{ $concept['name'] }} — layout makeup minh họa" loading="lazy" width="597" height="843"><figcaption><span>THE LOOK / 0{{ $loop->iteration }}</span><span>{{ $concept['label'] }}</span></figcaption></figure>
+                    @php
+                        $primaryImage = $loop->first ? $workshop->glam_image : $workshop->bridal_image;
+                        $conceptImages = in_array($primaryImage, $concept['images'], true)
+                            ? array_values(array_unique([$primaryImage, ...$concept['images']]))
+                            : $concept['images'];
+                    @endphp
+                    <figure class="ws-concept-image ws-concept-collage" data-ws-collage data-concept-title="{{ $concept['name'].' '.$concept['year'] }}">
+                        <div class="ws-collage-stage">
+                            @foreach($conceptImages as $conceptImage)
+                                <a class="ws-collage-photo ws-collage-photo-{{ $loop->iteration }}" href="{{ asset('images/'.$conceptImage) }}" target="_blank" rel="noopener noreferrer" data-ws-collage-photo aria-label="Xem ảnh {{ $loop->iteration }} — {{ $concept['name'].' '.$concept['year'] }}"><img src="{{ asset('images/'.$conceptImage) }}" alt="{{ $concept['name'].' '.$concept['year'] }} — tác phẩm makeup, ảnh {{ $loop->iteration }}" loading="lazy" decoding="async" width="1706" height="2560"><span class="ws-collage-index" aria-hidden="true">0{{ $loop->iteration }}</span><span class="ws-collage-zoom" aria-hidden="true">@include('partials.icon', ['name' => 'zoom-in'])</span></a>
+                            @endforeach
+                        </div>
+                        <figcaption><span>THE LOOK / 0{{ $loop->iteration }}</span><span>{{ $concept['label'] }}</span></figcaption>
+                    </figure>
                     <div class="ws-concept-copy"><div class="ws-concept-number"><span>TRAINING 0{{ $loop->iteration }}</span><span>03 HOURS / LIVE DEMONSTRATION</span></div><h3>{{ $concept['name'] }}<em>{{ $concept['year'] }}</em></h3><p class="ws-concept-subtitle">{{ $concept['subtitle'] }}</p><p>{{ $concept['description'] }}</p><ul class="ws-techniques">@foreach($concept['techniques'] as $technique)<li><span>{{ str_pad($loop->iteration, 2, '0', STR_PAD_LEFT) }}</span>{{ $technique }}</li>@endforeach</ul><a class="ws-text-link" href="#registration">Đăng ký tham dự miễn phí @include('partials.icon', ['name' => 'arrow-up-right'])</a></div>
                 </article>
             @endforeach
@@ -79,6 +92,11 @@
 
     <section class="ws-gratitude" id="gratitude"><div class="ws-container"><div class="ws-section-label"><span>06 / THANK YOU MESSAGE</span><span>A RETURN WITH GRATITUDE.</span></div><div class="ws-gratitude-content"><span class="ws-gratitude-mark" aria-hidden="true">“</span><p class="ws-kicker">WITH GRATITUDE, VĂN CƯỜNG.</p><h2>Cảm ơn,<br><em>vì đã luôn ở đây.</em></h2><blockquote>Cảm ơn vì đã luôn tin tưởng, yêu thương và đồng hành cùng Cường.<br><br>Hy vọng THE BACK sẽ không chỉ là một buổi học makeup mà còn là một kỷ niệm thật đẹp trong hành trình theo đuổi nghệ thuật của tất cả chúng ta.</blockquote><p class="ws-gratitude-signature">Văn Cường</p><span class="ws-gratitude-brand">VĂN CƯỜNG MAKEUP & ACADEMY — JAPAN</span><div class="ws-gratitude-contact"><a href="{{ config('workshop.facebook') }}" target="_blank" rel="noopener noreferrer">@include('partials.icon', ['name' => 'facebook']) Facebook @include('partials.icon', ['name' => 'arrow-up-right'])</a><a href="tel:+818098194619">@include('partials.icon', ['name' => 'phone']) {{ config('workshop.phone') }}</a></div></div><footer class="ws-footer-bottom"><a class="ws-brand" href="#workshop-main"><strong>VĂN CƯỜNG</strong><span>MAKEUP & ACADEMY · JAPAN</span></a><span>© {{ date('Y') }} · THE BACK — SỰ TRỞ LẠI</span><a href="#workshop-main">Về đầu trang @include('partials.icon', ['name' => 'arrow-up'])</a></footer></div></section>
 </main>
+<dialog class="ws-image-dialog" id="ws-image-dialog" aria-labelledby="ws-image-dialog-title">
+    <button class="ws-image-close" type="button" aria-label="Đóng ảnh" autofocus>@include('partials.icon', ['name' => 'close'])</button>
+    <div class="ws-image-view"><img alt="" data-ws-dialog-image></div>
+    <div class="ws-image-toolbar"><div><p id="ws-image-dialog-title"></p><span data-ws-dialog-counter aria-live="polite"></span></div><div class="ws-image-navigation"><button type="button" aria-label="Ảnh trước" data-ws-dialog-prev>@include('partials.icon', ['name' => 'previous'])</button><button type="button" aria-label="Ảnh tiếp theo" data-ws-dialog-next>@include('partials.icon', ['name' => 'next'])</button></div></div>
+</dialog>
 <a class="ws-floating-contact" href="{{ config('workshop.facebook') }}" target="_blank" rel="noopener noreferrer" aria-label="Liên hệ workshop qua Facebook" hidden>@include('partials.icon', ['name' => 'facebook'])</a>
 </body>
 </html>

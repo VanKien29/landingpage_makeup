@@ -94,3 +94,36 @@
     .ws-gratitude-contact { gap: 23px; }
     .ws-gratitude-contact a { font-size: 10px; gap: 9px; }
 }
+.ws-collage-stage { position: relative; aspect-ratio: 5/6; width: calc(100% - 22px); margin: 15px auto 30px; isolation: isolate; }
+.ws-collage-stage::before { content: ''; position: absolute; inset: 5% 8% 7%; border: 1px solid #bba88780; transform: rotate(3deg); z-index: -1; }
+.ws-collage-photo { position: absolute; display: block; border: 5px solid #fbf8f0; background: #fbf8f0; box-shadow: 0 6px 18px #463b2924; transition: transform .35s ease, box-shadow .35s ease; }
+.ws-concept-collage .ws-collage-photo img { display: block; width: 100%; height: 100%; object-fit: cover; object-position: 50% 25%; aspect-ratio: auto; }
+.ws-collage-photo-1 { left: 13%; top: 7%; width: 72%; height: 82%; transform: rotate(-1.5deg); z-index: 1; }
+.ws-collage-photo-2 { left: -2%; top: 0; width: 31%; height: 31%; transform: rotate(-7deg); z-index: 2; }
+.ws-collage-photo-3 { right: -2%; top: 11%; width: 32%; height: 33%; transform: rotate(7deg); z-index: 3; }
+.ws-collage-photo-4 { left: -2%; bottom: 1%; width: 34%; height: 40%; transform: rotate(-5deg); z-index: 4; }
+.ws-collage-photo-5 { right: 1%; bottom: -1%; width: 35%; height: 37%; transform: rotate(6deg); z-index: 5; }
+.ws-collage-index { position: absolute; left: 6px; bottom: 6px; font: 500 9px/1 var(--ws-english); letter-spacing: .5px; background: #faf6edeb; color: #756247; padding: 6px; }
+.ws-collage-zoom { position: absolute; bottom: 6px; right: 6px; display: grid; place-items: center; width: 27px; height: 27px; border-radius: 50%; background: #faf6edeb; color: #756247; opacity: 0; transition: opacity .2s ease; }
+.ws-collage-zoom .control-icon { width: 15px; height: 15px; }
+.ws-collage-photo:focus-visible { outline: 2px solid #93784e; outline-offset: 4px; z-index: 6; }
+.ws-collage-photo:focus-visible .ws-collage-zoom, .ws-collage-photo:hover .ws-collage-zoom { opacity: 1; }
+@media(hover:hover) { .ws-collage-photo:hover { transform: rotate(0) scale(1.025); z-index: 6; box-shadow: 0 10px 25px #463b2940; } }
+.ws-image-open { overflow: hidden; }
+.ws-image-dialog { position: fixed; inset: 0; margin: auto; padding: 25px; width: min(1100px, calc(100vw - 70px)); max-width: none; max-height: calc(100dvh - 50px); border: 1px solid #b6a27c6e; background: #24251f; color: #f4eddf; overflow: auto; }
+.ws-image-dialog::backdrop { background: #151613e8; backdrop-filter: blur(5px); }
+.ws-image-close { position: absolute; top: 12px; right: 12px; width: 39px; height: 39px; display: grid; place-items: center; background: #24251fcc; color: #f4eddf; border: 1px solid #d4c2a14d; border-radius: 50%; cursor: pointer; z-index: 1; }
+.ws-image-close .control-icon { width: 18px; height: 18px; }
+.ws-image-view { display: flex; justify-content: center; min-height: 180px; }
+.ws-image-view img { width: auto; max-width: 100%; height: min(74dvh, 920px); object-fit: contain; }
+.ws-image-toolbar { display: flex; align-items: center; justify-content: space-between; gap: 20px; padding: 20px 2px 0; }
+.ws-image-toolbar p { font: 500 15px/1.6 var(--ws-english); color: #e7d8ba; }
+.ws-image-toolbar span { display: block; font: 500 11px/1.8 var(--ws-english); color: #c6b798; letter-spacing: 2px; margin-top: 4px; }
+.ws-image-navigation { display: flex; gap: 9px; }
+.ws-image-navigation button { display: grid; place-items: center; background: transparent; color: #e7d8ba; border: 1px solid #d4c2a14d; border-radius: 50%; width: 41px; height: 41px; cursor: pointer; }
+.ws-image-navigation .control-icon { width: 19px; height: 19px; }
+.ws-image-dialog button:hover { background: #6b5a3d; }
+.ws-image-dialog button:focus-visible { outline: 2px solid #e7d8ba; outline-offset: 3px; }
+@media(max-width:760px) { .ws-collage-stage { margin-bottom: 24px; width: calc(100% - 24px); } .ws-collage-photo { border-width: 4px; } .ws-concept-collage figcaption { margin-top: 24px; } }
+@media(max-width:520px) { .ws-concept h3 { font-size: 55px; } .ws-collage-stage { margin-top: 12px; } .ws-collage-photo { border-width: 3px; } .ws-collage-index { font-size: 7px; padding: 4px; left: 4px; bottom: 4px; } .ws-collage-zoom { opacity: 1; width: 23px; height: 23px; right: 4px; bottom: 4px; } .ws-collage-zoom .control-icon { width: 13px; height: 13px; } .ws-image-dialog { width: calc(100vw - 24px); padding: 12px; max-height: calc(100dvh - 30px); } .ws-image-view img { height: auto; max-height: 74dvh; } .ws-image-toolbar { padding-top: 16px; gap: 12px; } .ws-image-toolbar p { font-size: 11px; } .ws-image-toolbar span { font-size: 10px; } .ws-image-navigation button { width: 37px; height: 37px; } }
+@media(prefers-reduced-motion:reduce) { .ws-collage-photo { transition: none; } }

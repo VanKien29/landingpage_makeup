@@ -19,8 +19,8 @@ class WorkshopSeeder extends Seeder
             'capacity' => 60,
             'ticket_price' => 0,
             'hero_image' => 'founder-van-cuong-enhanced.png',
-            'glam_image' => '2aOboR6WhLoQQe6I8VzjFvxGVTBjIAHxaqrDAMNs.jpg',
-            'bridal_image' => 'beauty-bridal-detail.jpg',
+            'glam_image' => 'workshop-western-glam-01.jpg',
+            'bridal_image' => 'workshop-bridal-beauty-01.jpg',
         ];
 
         $previous = WorkshopEvent::where('slug', 'the-art-of-elevation-2026')->first();
