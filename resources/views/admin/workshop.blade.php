@@ -1,9 +1,18 @@
 @extends('admin.layout')
 @section('title', 'Quản lý workshop — '.$workshop->title)
-@section('page_heading', 'Đơn đăng ký workshop')
+@section('page_heading', 'Workshop')
 @section('content')
 <div class="ws-admin">
-    <div class="admin-page-intro"><div><span class="admin-kicker">THE BACK · WORKSHOP TRI ÂN</span><p>Theo dõi đăng ký, xác nhận học viên và check-in tại sự kiện.</p></div><div class="admin-actions"><a class="admin-button secondary" href="{{ route('workshop.show', $workshop->slug) }}" target="_blank" rel="noopener">Xem workshop @include('partials.icon', ['name' => 'arrow-up-right'])</a><a class="admin-button secondary" href="{{ route('workshop.export', $workshop->slug) }}">Xuất CSV học viên</a><button class="admin-button" type="button" data-open-capacity-dialog>@include('partials.icon', ['name' => 'settings']) Sức chứa tối đa</button></div></div>
+    <div class="admin-page-intro"><div><span class="admin-kicker">THE BACK · WORKSHOP TRI ÂN</span><p>Theo dõi đăng ký, xác nhận học viên và check-in tại sự kiện.</p></div><div class="admin-actions">@if($workshop->is_published)<a class="admin-button secondary" href="{{ route('workshop.show', $workshop->slug) }}" target="_blank" rel="noopener">Xem workshop @include('partials.icon', ['name' => 'arrow-up-right'])</a>@endif<a class="admin-button secondary" href="{{ route('workshop.export', $workshop->slug) }}">Xuất CSV học viên</a><button class="admin-button" type="button" data-open-capacity-dialog>@include('partials.icon', ['name' => 'settings']) Sức chứa tối đa</button></div></div>
+    <section class="admin-workshop-visibility" aria-label="Hiển thị workshop">
+        <div><span class="admin-badge {{ $workshop->is_published ? 'is-success' : 'is-muted' }}">{{ $workshop->is_published ? 'Đang hiển thị' : 'Đang ẩn' }}</span><h2>Hiển thị workshop trên website</h2><p>Bật/tắt đồng thời trang workshop, khối giới thiệu và nút Workshop trên thanh điều hướng trang chính.</p></div>
+        <form method="post" action="{{ route('workshop.visibility.update', $workshop->slug) }}" data-confirm="{{ $workshop->is_published ? 'Ẩn trang workshop cùng khối giới thiệu và nút Workshop trên trang chính? Các đơn đăng ký vẫn được giữ nguyên.' : 'Hiển thị trang workshop cùng khối giới thiệu và nút Workshop trên trang chính?' }}">
+            @csrf
+            @method('PATCH')
+            <input type="hidden" name="is_published" value="{{ $workshop->is_published ? '0' : '1' }}">
+            <button class="admin-button {{ $workshop->is_published ? 'secondary' : '' }}" type="submit">@include('partials.icon', ['name' => $workshop->is_published ? 'eye-off' : 'eye']) {{ $workshop->is_published ? 'Ẩn workshop' : 'Hiện workshop' }}</button>
+        </form>
+    </section>
     <div class="admin-stats admin-stats-five"><div><span>Tổng số đơn đăng ký</span><strong>{{ $totalRegistrations }}</strong></div><div><span>Học viên đã xác nhận</span><strong>{{ $workshop->confirmed_tickets }} <small>/ {{ $workshop->capacity }}</small></strong></div><div><span>Đơn chờ ban tổ chức duyệt</span><strong>{{ $pendingTickets }}</strong></div><div><span>Đơn trong danh sách chờ</span><strong>{{ $waitlistedTickets }}</strong></div><div><span>Học viên đã check-in</span><strong>{{ $checkedInTickets }}</strong></div></div>
     <div class="admin-context-note">Đăng ký mới khi đủ {{ $workshop->capacity }} suất đã xác nhận sẽ được đưa vào danh sách chờ.</div>
     <div data-layout-scope="workshop" data-layout="auto" class="admin-collection">

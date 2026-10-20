@@ -21,6 +21,7 @@ Route::prefix('workshop-admin/{workshop:slug}')->middleware(['auth', 'can:manage
     Route::get('/', [WorkshopAdminController::class, 'index'])->name('workshop.admin');
     Route::patch('/', [WorkshopAdminController::class, 'updateEvent'])->name('workshop.update');
     Route::patch('/capacity', [WorkshopAdminController::class, 'updateCapacity'])->name('workshop.capacity.update');
+    Route::patch('/visibility', [WorkshopAdminController::class, 'updateVisibility'])->name('workshop.visibility.update');
     Route::get('/guests.csv', [WorkshopAdminController::class, 'export'])->name('workshop.export');
     Route::patch('/registrations/{registration}', [WorkshopAdminController::class, 'updateRegistration'])->name('workshop.registration.update');
 });

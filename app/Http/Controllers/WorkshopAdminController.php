@@ -59,6 +59,20 @@ class WorkshopAdminController extends Controller
         return back()->with('success', 'Đã cập nhật số lượng học viên tối đa.');
     }
 
+    public function updateVisibility(Request $request, WorkshopEvent $workshop): RedirectResponse
+    {
+        $data = $request->validate(['is_published' => ['required', 'boolean']], [
+            'is_published.required' => 'Vui lòng chọn trạng thái hiển thị workshop.',
+            'is_published.boolean' => 'Trạng thái hiển thị workshop không hợp lệ.',
+        ]);
+
+        $workshop->update($data);
+
+        return back()->with('success', $workshop->is_published
+            ? 'Đã hiển thị trang workshop, khối giới thiệu và nút Workshop trên trang chính.'
+            : 'Đã ẩn trang workshop, khối giới thiệu và nút Workshop trên trang chính. Các đơn đăng ký vẫn được giữ nguyên.');
+    }
+
     public function updateRegistration(Request $request, WorkshopEvent $workshop, WorkshopRegistration $registration): RedirectResponse
     {
         abort_unless($registration->workshop_event_id === $workshop->id, 404);

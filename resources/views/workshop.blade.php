@@ -14,8 +14,9 @@
     <link rel="stylesheet" href="{{ asset('css/workshop.css') }}?v=3">
     <link rel="stylesheet" href="{{ asset('css/workshop-hero.css') }}?v=5">
     <link rel="stylesheet" href="{{ asset('css/workshop-return.css') }}?v=5">
+    <link rel="stylesheet" href="{{ asset('css/floating-actions.css') }}?v=1">
     <script src="{{ asset('js/workshop.js') }}?v=5" defer></script>
-    <script src="{{ asset('js/smooth-scroll.js') }}?v=2" defer></script>
+    <script src="{{ asset('js/smooth-scroll.js') }}?v=3" defer></script>
 </head>
 <body class="workshop-page ws-back">
 <a class="ws-skip" href="#workshop-main">Chuyển đến nội dung chính</a>
@@ -98,6 +99,9 @@
     <div class="ws-image-view"><img alt="" data-ws-dialog-image></div>
     <div class="ws-image-toolbar"><div><p id="ws-image-dialog-title"></p><span data-ws-dialog-counter aria-live="polite"></span></div><div class="ws-image-navigation"><button type="button" aria-label="Ảnh trước" data-ws-dialog-prev>@include('partials.icon', ['name' => 'previous'])</button><button type="button" aria-label="Ảnh tiếp theo" data-ws-dialog-next>@include('partials.icon', ['name' => 'next'])</button></div></div>
 </dialog>
-<a class="ws-floating-contact" href="{{ config('workshop.facebook') }}" target="_blank" rel="noopener noreferrer" aria-label="Liên hệ workshop qua Facebook" hidden>@include('partials.icon', ['name' => 'facebook'])</a>
+<div class="floating-actions floating-actions-workshop" role="group" aria-label="Liên hệ và điều hướng nhanh">
+    <a class="ws-floating-contact" href="{{ config('workshop.facebook') }}" target="_blank" rel="noopener noreferrer" aria-label="Liên hệ workshop qua Facebook" hidden>@include('partials.icon', ['name' => 'facebook'])</a>
+    @include('partials.back-to-top')
+</div>
 </body>
 </html>

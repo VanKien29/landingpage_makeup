@@ -11,7 +11,10 @@
     </div>
     <div class="footer-bottom wrap"><span>© {{ date('Y') }} Văn Cường Makeup & Academy.</span><span>PROFESSIONAL MAKEUP EDUCATION IN JAPAN</span><a href="{{ route('login') }}">Quản trị</a><a href="#main-content">Về đầu trang @include('partials.icon', ['name' => 'arrow-up'])</a></div>
 </footer>
-<a class="floating-phone floating-facebook" href="https://www.facebook.com/profile.php?id=100042490924350" target="_blank" rel="noopener noreferrer" aria-label="Liên hệ Văn Cường Makeup Academy qua Facebook"><span class="phone-tooltip">Liên hệ qua Facebook</span>@include('partials.icon', ['name' => 'facebook'])</a>
-<a class="floating-phone" href="tel:+818098194619" aria-label="Gọi Văn Cường Makeup Academy: 08098194619"><span class="phone-tooltip">Gọi tư vấn · 08098194619</span>@include('partials.icon', ['name' => 'phone'])</a>
+<div class="floating-actions" role="group" aria-label="Liên hệ và điều hướng nhanh">
+    <a class="floating-phone floating-facebook" href="https://www.facebook.com/profile.php?id=100042490924350" target="_blank" rel="noopener noreferrer" aria-label="Liên hệ Văn Cường Makeup Academy qua Facebook"><span class="phone-tooltip">Liên hệ qua Facebook</span>@include('partials.icon', ['name' => 'facebook'])</a>
+    <a class="floating-phone" href="tel:+818098194619" aria-label="Gọi Văn Cường Makeup Academy: 08098194619"><span class="phone-tooltip">Gọi tư vấn · 08098194619</span>@include('partials.icon', ['name' => 'phone'])</a>
+    @include('partials.back-to-top')
+</div>
 
 

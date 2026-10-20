@@ -1,4 +1,5 @@
 :root{--admin-ink:#252d28;--admin-muted:#737a73;--admin-paper:#f4f5f1;--admin-card:#fff;--admin-line:#e0e4dc;--admin-gold:#88744c;--admin-font:'Segoe UI',Arial,sans-serif}
+.admin-workshop-visibility{display:flex;align-items:center;justify-content:space-between;gap:24px;padding:24px;margin-bottom:24px;border:1px solid var(--admin-line);border-radius:12px;background:var(--admin-card)}.admin-workshop-visibility h2{margin:10px 0 6px;font-size:18px}.admin-workshop-visibility p{margin:0;max-width:650px}.admin-workshop-visibility form{flex-shrink:0}@media(max-width:760px){.admin-workshop-visibility{flex-direction:column;align-items:stretch;padding:18px;gap:16px}.admin-workshop-visibility .admin-button{width:100%}}
 .admin-shell,.admin-login-shell{font-family:var(--admin-font);font-size:14px;line-height:1.6;letter-spacing:normal;color:var(--admin-ink)}
 .admin-shell{min-height:100vh;display:grid;grid-template-columns:238px minmax(0,1fr);background:var(--admin-paper)}
 .admin-shell h1,.admin-shell h2,.admin-shell h3,.admin-login-shell h2{font-family:var(--admin-font);font-weight:650;letter-spacing:normal;line-height:1.4}

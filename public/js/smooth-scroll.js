@@ -37,6 +37,24 @@ document.addEventListener('DOMContentLoaded', () => {
     return false;
   };
 
+  const backToTop = document.querySelector('[data-back-to-top]');
+  if (backToTop) {
+    let visibilityFrame = null;
+    const updateBackToTop = () => {
+      backToTop.hidden = window.scrollY <= 160;
+      visibilityFrame = null;
+    };
+    window.addEventListener('scroll', () => {
+      if (visibilityFrame === null) visibilityFrame = requestAnimationFrame(updateBackToTop);
+    }, { passive: true });
+    window.addEventListener('pageshow', updateBackToTop);
+    backToTop.addEventListener('click', () => {
+      stop();
+      window.scrollTo({ top: 0, behavior: reducedMotion.matches ? 'instant' : 'smooth' });
+    });
+    updateBackToTop();
+  }
+
   window.addEventListener('wheel', event => {
     const element = event.target instanceof Element ? event.target : null;
     if (reducedMotion.matches || event.ctrlKey || event.metaKey || event.shiftKey || !event.cancelable || Math.abs(event.deltaX) > Math.abs(event.deltaY) || document.body.classList.contains('modal-open') || document.body.classList.contains('ws-image-open') || element?.closest('dialog[open], textarea, select, input, [contenteditable="true"], [data-native-scroll]')) {

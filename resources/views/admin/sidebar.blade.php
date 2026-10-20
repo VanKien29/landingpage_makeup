@@ -9,7 +9,7 @@
         <a class="{{ request()->routeIs('admin.portfolio.categories*') ? 'is-active' : '' }}" href="{{ route('admin.portfolio.categories') }}"><span class="admin-nav-icon">02</span> Danh mục tác phẩm</a>
         <a class="{{ request()->routeIs('admin.enrollments') ? 'is-active' : '' }}" href="{{ route('admin.enrollments') }}"><span class="admin-nav-icon">03</span> Đăng ký tư vấn</a>
         <p>WORKSHOP</p>
-        <a class="{{ request()->routeIs('workshop.admin', 'workshop.registration.update', 'workshop.export', 'workshop.capacity.update') ? 'is-active' : '' }}" href="{{ route('workshop.admin', config('workshop.slug')) }}#registrations"><span class="admin-nav-icon">04</span> Đơn đăng ký workshop</a>
+        <a class="{{ request()->routeIs('workshop.admin', 'workshop.registration.update', 'workshop.export', 'workshop.capacity.update', 'workshop.visibility.update') ? 'is-active' : '' }}" href="{{ route('workshop.admin', config('workshop.slug')) }}"><span class="admin-nav-icon">04</span> Workshop</a>
     </nav>
     <div class="admin-sidebar-bottom">
         <a href="{{ route('home') }}" target="_blank" rel="noopener">Xem website @include('partials.icon', ['name' => 'arrow-up-right'])</a>

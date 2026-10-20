@@ -7,6 +7,7 @@ use App\Models\WorkshopEvent;
 use App\Models\WorkshopRegistration;
 use Database\Seeders\WorkshopSeeder;
 use Illuminate\Foundation\Testing\LazilyRefreshDatabase;
+use PHPUnit\Framework\Attributes\TestWith;
 use Tests\TestCase;
 
 class WorkshopTest extends TestCase
@@ -184,11 +185,14 @@ class WorkshopTest extends TestCase
 
         $this->get(route('workshop.admin', $event->slug))->assertRedirectToRoute('login');
         $this->get(route('workshop.export', $event->slug))->assertRedirectToRoute('login');
+        $this->patch(route('workshop.visibility.update', $event->slug), ['is_published' => false])->assertRedirectToRoute('login');
         $this->actingAs(User::factory()->create());
         $this->get(route('workshop.admin', $event->slug))->assertForbidden();
         $this->get(route('workshop.export', $event->slug))->assertForbidden();
         $this->patch(route('workshop.registration.update', [$event->slug, $entry]), ['action' => 'confirm'])->assertForbidden();
         $this->patch(route('workshop.update', $event->slug), [])->assertForbidden();
+        $this->patch(route('workshop.visibility.update', $event->slug), ['is_published' => false])->assertForbidden();
+        $this->assertTrue($event->fresh()->is_published);
     }
 
     public function test_registration_from_another_event_cannot_be_changed(): void
@@ -247,6 +251,42 @@ class WorkshopTest extends TestCase
 
         $this->get(route('workshop.show', $event->slug))->assertNotFound();
         $this->postJson(route('workshop.register', $event->slug), $this->payload())->assertUnprocessable()->assertJsonValidationErrors('attendance');
+    }
+
+    public function test_admin_visibility_button_controls_workshop_homepage_invitation_and_navigation_without_losing_registrations(): void
+    {
+        $event = WorkshopEvent::factory()->create(['slug' => 'the-back', 'confirmed_tickets' => 1]);
+        $entry = WorkshopRegistration::factory()->for($event)->create(['status' => 'confirmed']);
+        $this->actingAs($this->admin());
+
+        $this->get(route('workshop.admin', $event->slug))->assertOk()->assertSee('<h1>Workshop</h1>', false)->assertSee('Ẩn workshop')->assertDontSee('Đơn đăng ký workshop');
+        $this->from(route('workshop.admin', $event->slug))->patch(route('workshop.visibility.update', $event->slug), ['is_published' => false, 'capacity' => 1, 'confirmed_tickets' => 0, 'title' => 'Unexpected change'])
+            ->assertRedirectToRoute('workshop.admin', $event->slug)->assertSessionHasNoErrors();
+
+        $this->get('/')->assertOk()->assertDontSee('id="workshop"', false)->assertDontSee('class="nav-workshop"', false);
+        $this->get(route('workshop.show', $event->slug))->assertNotFound();
+        $this->get(route('workshop.admin', $event->slug))->assertOk()->assertSee('Hiện workshop')->assertSee($entry->name);
+        $this->assertDatabaseHas('workshop_events', ['id' => $event->id, 'is_published' => false, 'capacity' => 60, 'confirmed_tickets' => 1, 'title' => 'THE BACK']);
+        $this->assertModelExists($entry);
+
+        $this->patch(route('workshop.visibility.update', $event->slug), ['is_published' => true])->assertSessionHasNoErrors();
+
+        $this->get('/')->assertOk()->assertSee('id="workshop"', false)->assertSee('class="nav-workshop"', false);
+        $this->get(route('workshop.show', $event->slug))->assertOk();
+        $this->get(route('workshop.admin', $event->slug))->assertOk()->assertSee('Ẩn workshop');
+        $this->assertTrue($event->fresh()->is_published);
+        $this->assertSame('confirmed', $entry->fresh()->status);
+    }
+
+    #[TestWith([[]])]
+    #[TestWith([['is_published' => 'invalid']])]
+    public function test_workshop_visibility_rejects_missing_or_invalid_status_without_changes(array $data): void
+    {
+        $event = WorkshopEvent::factory()->create();
+
+        $this->actingAs($this->admin())->patch(route('workshop.visibility.update', $event->slug), $data)->assertSessionHasErrors('is_published');
+
+        $this->assertTrue($event->fresh()->is_published);
     }
 
     private function admin(): User
