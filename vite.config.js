@@ -15,6 +15,8 @@ function academyCriticalStyles() {
             const stylesheet = Object.values(bundle).find(asset => asset.type === 'asset' && /academy-public-.*\.css$/.test(asset.fileName));
             if (!stylesheet) throw new Error('The academy stylesheet is missing.');
             const root = postcss.parse(String(stylesheet.source));
+            const criticalFontFamilies = /font-family:\s*["']?(Be Vietnam Pro|Cormorant Garamond|Manrope|Oswald)["']?/;
+            const criticalFontWeights = /font-weight:\s*(400|400\s+600|400\s+800|500)/;
             const prune = container => {
                 container.each(node => {
                     if (node.type === 'rule') {
@@ -22,7 +24,13 @@ function academyCriticalStyles() {
                         if (!selectors.length) node.remove();
                         else node.selectors = selectors;
                     } else if (node.type === 'atrule') {
-                        if (node.name === 'font-face' || (node.name.endsWith('keyframes') && ['type-marquee', 'scroll-cue'].includes(node.params))) return;
+                        if (node.name === 'font-face') {
+                            const fontFace = node.toString();
+                            if (criticalFontFamilies.test(fontFace) && criticalFontWeights.test(fontFace)) return;
+                            node.remove();
+                            return;
+                        }
+                        if (node.name.endsWith('keyframes') && ['type-marquee', 'scroll-cue'].includes(node.params)) return;
                         if (node.nodes && ['media', 'supports', 'layer'].includes(node.name)) {
                             prune(node);
                             if (!node.nodes.length) node.remove();

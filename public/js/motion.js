@@ -45,6 +45,9 @@ document.addEventListener('DOMContentLoaded', () => {
   document.querySelector('.banner-prev')?.addEventListener('click', () => { showSlide(slideIndex - 1); updatePlayback(); });
   document.querySelector('.banner-next')?.addEventListener('click', () => { showSlide(slideIndex + 1); updatePlayback(); });
   document.addEventListener('visibilitychange', updatePlayback);
+  if (slides[0]?.classList.contains('is-initial')) {
+    requestAnimationFrame(() => requestAnimationFrame(() => slides[0].classList.remove('is-initial')));
+  }
   const startBanner = () => {
     if (slides[0]) loadSlide(slides[0]);
     updatePlayback();

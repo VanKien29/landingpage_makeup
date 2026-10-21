@@ -1,7 +1,7 @@
 <section class="hero-banner" id="home" aria-label="Văn Cường Makeup & Academy — Banner ảnh">
     <div class="banner-slides" aria-hidden="true">
         @foreach([['36', '38', '43'], ['41', '40', '39'], ['44', '25', '47']] as $photos)
-            <div class="banner-slide {{ $loop->first ? 'is-active' : '' }}">
+            <div class="banner-slide {{ $loop->first ? 'is-active is-initial' : '' }}">
                 <x-image :file="'academy-'.$photos[0].'.webp'" class="banner-side" sizes="30vw" loading="eager" fetchpriority="low" :deferred="true" />
                 <x-image :file="'academy-'.$photos[1].'.webp'" class="banner-image-main" sizes="(max-width: 700px) 100vw, (max-width: 1080px) 50vw, 40vw" loading="eager" :fetchpriority="$loop->first ? 'high' : 'low'" :deferred="!$loop->first" />
                 <x-image :file="'academy-'.$photos[2].'.webp'" class="banner-side" sizes="30vw" loading="eager" fetchpriority="low" :deferred="true" />

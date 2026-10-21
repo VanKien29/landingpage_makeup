@@ -100,7 +100,7 @@
     "src": "public/fonts/zYXzKVElMYYaJe8bpLHnCwDKr932-G7dytD-Dmu1syxeKYY.woff2"
   },
   "resources/css/academy-public.css": {
-    "file": "assets/academy-public-BiIEXSBe.css",
+    "file": "assets/academy-public-DYlIs3eU.css",
     "name": "academy-public",
     "names": [
       "academy-public.css"
@@ -170,7 +170,7 @@
     ]
   },
   "resources/js/academy-public.js": {
-    "file": "assets/academy-public-D3mSYi2L.js",
+    "file": "assets/academy-public-B_vLy7MU.js",
     "name": "academy-public",
     "src": "resources/js/academy-public.js",
     "isEntry": true,
