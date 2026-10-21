@@ -15,15 +15,17 @@ use Illuminate\View\View;
 
 class WorkshopController extends Controller
 {
-    public function show(WorkshopEvent $workshop, Seo $seo): View
+    public function show(Seo $seo): View
     {
-        abort_unless($workshop->is_published, 404);
+        $workshop = WorkshopEvent::where('slug', config('workshop.slug'))->where('is_published', true)->firstOrFail();
 
         return view('workshop', ['seo' => $seo->workshop($workshop), 'workshop' => $workshop, 'remaining' => $workshop->remainingTickets(), 'concepts' => config('workshop.concepts'), 'schedule' => config('workshop.schedule'), 'experienceLabels' => WorkshopRegistration::ExperienceLabels]);
     }
 
-    public function store(StoreWorkshopRegistrationRequest $request, WorkshopEvent $workshop): JsonResponse|RedirectResponse
+    public function store(StoreWorkshopRegistrationRequest $request, ?WorkshopEvent $workshop = null): JsonResponse|RedirectResponse
     {
+        $workshop ??= WorkshopEvent::where('slug', config('workshop.slug'))->firstOrFail();
+
         $registration = DB::transaction(function () use ($request, $workshop): WorkshopRegistration {
             $event = WorkshopEvent::lockForUpdate()->findOrFail($workshop->id);
             if (! $event->is_published || ! $event->acceptsRegistrations()) {
@@ -54,6 +56,6 @@ class WorkshopController extends Controller
             return response()->json(['message' => $message, 'reference' => $registration->reference, 'status' => $registration->status], 201);
         }
 
-        return redirect()->to(route('workshop.show', $workshop->slug).'#registration')->with('workshop_success', $message);
+        return redirect()->to(route('workshop.show').'#registration')->with('workshop_success', $message);
     }
 }

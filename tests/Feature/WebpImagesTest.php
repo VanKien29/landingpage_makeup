@@ -43,6 +43,11 @@ class WebpImagesTest extends TestCase
         $converted = imagecreatefromwebp(Storage::disk('local')->path($path));
         $this->assertSame(127, imagecolorsforindex($converted, imagecolorat($converted, 0, 0))['alpha']);
         $this->assertSame(0, imagecolorsforindex($converted, imagecolorat($converted, 8, 8))['alpha']);
+
+        $preview = (new WebpImages)->encode($upload->getPathname(), 8);
+        $this->assertSame([8, 8, IMAGETYPE_WEBP], array_slice(getimagesizefromstring($preview), 0, 3));
+        $resized = imagecreatefromstring($preview);
+        $this->assertSame(127, imagecolorsforindex($resized, imagecolorat($resized, 0, 0))['alpha']);
     }
 
     public function test_invalid_image_is_rejected_before_any_file_is_saved(): void

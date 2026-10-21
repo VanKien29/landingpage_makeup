@@ -75,7 +75,7 @@ class ConvertImagesToWebp extends Command
                     $converted++;
                 } catch (Throwable $exception) {
                     if ($newPath !== null) {
-                        Storage::disk('local')->delete($newPath);
+                        WebpImages::delete($newPath);
                     }
                     $failed++;
                     $this->error('Tác phẩm #'.$item->id.': '.$exception->getMessage());

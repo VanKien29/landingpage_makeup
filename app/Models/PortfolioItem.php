@@ -3,9 +3,11 @@
 namespace App\Models;
 
 use App\Services\PortfolioCache;
+use App\Services\ResponsiveImages;
 use App\Services\WebpImages;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Support\Facades\Storage;
 
 class PortfolioItem extends Model
 {
@@ -52,5 +54,30 @@ class PortfolioItem extends Model
         return str_starts_with($this->image_path, 'portfolio/')
             ? route('admin.portfolio.image', $this)
             : $this->image_url;
+    }
+
+    public function getImageSrcsetAttribute(): string
+    {
+        if (str_starts_with($this->image_path, 'http')) {
+            return '';
+        }
+        if (! str_starts_with($this->image_path, 'portfolio/')) {
+            return ResponsiveImages::attributes(ltrim($this->image_path, '/'))['srcset'];
+        }
+        $candidates = [];
+        foreach (ResponsiveImages::WIDTHS as $width) {
+            if (Storage::disk('local')->exists(WebpImages::previewPath($this->image_path, $width))) {
+                $candidates[] = route('portfolio.image', ['portfolioItem' => $this, 'v' => substr(hash('sha256', $this->image_path), 0, 16), 'w' => $width]).' '.$width.'w';
+            }
+        }
+        if ($candidates === []) {
+            return '';
+        }
+        $size = @getimagesize(Storage::disk('local')->path($this->image_path));
+        if ($size !== false) {
+            $candidates[] = $this->image_url.' '.$size[0].'w';
+        }
+
+        return implode(', ', $candidates);
     }
 }

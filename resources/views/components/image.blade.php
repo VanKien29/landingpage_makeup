@@ -1,0 +1,3 @@
+@props(['file', 'sizes' => '(max-width: 700px) calc(100vw - 36px), 50vw', 'alt' => '', 'loading' => 'lazy', 'deferred' => false])
+@php($image = \App\Services\ResponsiveImages::attributes($file))
+<img @if($deferred) src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg'/%3E" data-src="{{ $image['src'] }}" @else src="{{ $image['src'] }}" @endif @if($image['srcset']) {{ $deferred ? 'data-srcset' : 'srcset' }}="{{ $image['srcset'] }}" sizes="{{ $sizes }}" @endif alt="{{ $alt }}" loading="{{ $loading }}" decoding="async" {{ $attributes->merge($image['width'] ? ['width' => $image['width'], 'height' => $image['height']] : []) }}>

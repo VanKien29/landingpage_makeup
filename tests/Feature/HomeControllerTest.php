@@ -5,6 +5,8 @@ namespace Tests\Feature;
 use App\Models\PortfolioCategory;
 use App\Models\PortfolioItem;
 use App\Services\PortfolioCache;
+use DOMDocument;
+use DOMXPath;
 use Illuminate\Foundation\Testing\LazilyRefreshDatabase;
 use Illuminate\Support\Collection;
 use Illuminate\Support\Facades\Cache;
@@ -31,6 +33,25 @@ class HomeControllerTest extends TestCase
         $response = $this->get('/');
 
         $response->assertOk()->assertSee('&lt;script&gt;alert(1)&lt;/script&gt;', false)->assertDontSee('<script>alert(1)</script>', false);
+    }
+
+    public function test_first_render_prioritizes_one_banner_image_and_does_not_wait_for_external_stylesheets(): void
+    {
+        $response = $this->get('/');
+
+        $response->assertOk()->assertDontSee('fonts.googleapis.com')->assertDontSee('fonts.gstatic.com');
+        $document = new DOMDocument;
+        $previous = libxml_use_internal_errors(true);
+        $document->loadHTML($response->getContent());
+        libxml_clear_errors();
+        libxml_use_internal_errors($previous);
+        $html = new DOMXPath($document);
+        $this->assertSame(1, $html->query('//style[@data-critical="academy"]')->length);
+        $this->assertSame(1, $html->query('//link[@rel="stylesheet"][@media="print"]')->length);
+        $this->assertSame(1, $html->query('//noscript/link[@rel="stylesheet"]')->length);
+        $this->assertSame(8, $html->query('//div[contains(@class,"banner-slide")]/img[@data-src]')->length);
+        $this->assertSame(1, $html->query('//img[@fetchpriority="high"][@srcset][not(@data-src)]')->length);
+        $this->assertSame(1, $html->query('//div[@class="marquee"][@aria-hidden="true"][not(@aria-label)]')->length);
     }
 
     public function test_portfolio_cache_is_warmed_on_home_and_invalidated_when_artwork_changes(): void

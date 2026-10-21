@@ -1,0 +1,999 @@
+{
+    "2aOboR6WhLnU2vVC3X18zqdEG13oVCdeq7Fq8sPw.webp": {
+        "width": 1708,
+        "height": 2560,
+        "variants": {
+            "480": "responsive/2aOboR6WhLnU2vVC3X18zqdEG13oVCdeq7Fq8sPw-6cfbce11b6b1-480.webp",
+            "960": "responsive/2aOboR6WhLnU2vVC3X18zqdEG13oVCdeq7Fq8sPw-6cfbce11b6b1-960.webp",
+            "1440": "responsive/2aOboR6WhLnU2vVC3X18zqdEG13oVCdeq7Fq8sPw-6cfbce11b6b1-1440.webp"
+        }
+    },
+    "2aOboR6WhLnU2vVC3X18zqmi2dLVVwGRugKGzhse.webp": {
+        "width": 1708,
+        "height": 2560,
+        "variants": {
+            "480": "responsive/2aOboR6WhLnU2vVC3X18zqmi2dLVVwGRugKGzhse-d9b8eeb6c363-480.webp",
+            "960": "responsive/2aOboR6WhLnU2vVC3X18zqmi2dLVVwGRugKGzhse-d9b8eeb6c363-960.webp",
+            "1440": "responsive/2aOboR6WhLnU2vVC3X18zqmi2dLVVwGRugKGzhse-d9b8eeb6c363-1440.webp"
+        }
+    },
+    "2aOboR6WhLnU2vVC3X18zqx13llI1dbYLFLJxNVg.webp": {
+        "width": 1712,
+        "height": 2560,
+        "variants": {
+            "480": "responsive/2aOboR6WhLnU2vVC3X18zqx13llI1dbYLFLJxNVg-dd6baec26541-480.webp",
+            "960": "responsive/2aOboR6WhLnU2vVC3X18zqx13llI1dbYLFLJxNVg-dd6baec26541-960.webp",
+            "1440": "responsive/2aOboR6WhLnU2vVC3X18zqx13llI1dbYLFLJxNVg-dd6baec26541-1440.webp"
+        }
+    },
+    "2aOboR6WhLnWTkRZYjtKqBKYzmFwR2WL9cP6nGCW.webp": {
+        "width": 596,
+        "height": 843,
+        "variants": {
+            "480": "responsive/2aOboR6WhLnWTkRZYjtKqBKYzmFwR2WL9cP6nGCW-fa7b28e3d298-480.webp"
+        }
+    },
+    "2aOboR6WhLnWTkRZYjtKqBpz0hSRjZpN1LkNerWy.webp": {
+        "width": 1440,
+        "height": 2560,
+        "variants": {
+            "480": "responsive/2aOboR6WhLnWTkRZYjtKqBpz0hSRjZpN1LkNerWy-ab1fe91ae12c-480.webp",
+            "960": "responsive/2aOboR6WhLnWTkRZYjtKqBpz0hSRjZpN1LkNerWy-ab1fe91ae12c-960.webp"
+        }
+    },
+    "2aOboR6WhLnWTkRZYjtKqBs6ANSHroWMShVgHRho.webp": {
+        "width": 1706,
+        "height": 2560,
+        "variants": {
+            "480": "responsive/2aOboR6WhLnWTkRZYjtKqBs6ANSHroWMShVgHRho-039bf6eada48-480.webp",
+            "960": "responsive/2aOboR6WhLnWTkRZYjtKqBs6ANSHroWMShVgHRho-039bf6eada48-960.webp",
+            "1440": "responsive/2aOboR6WhLnWTkRZYjtKqBs6ANSHroWMShVgHRho-039bf6eada48-1440.webp"
+        }
+    },
+    "2aOboR6WhLnidr9T4mGI3s5T8YHZ4Bvi5YqXBqCG.webp": {
+        "width": 1440,
+        "height": 2560,
+        "variants": {
+            "480": "responsive/2aOboR6WhLnidr9T4mGI3s5T8YHZ4Bvi5YqXBqCG-0adfd3be1d53-480.webp",
+            "960": "responsive/2aOboR6WhLnidr9T4mGI3s5T8YHZ4Bvi5YqXBqCG-0adfd3be1d53-960.webp"
+        }
+    },
+    "2aOboR6WhLnidr9T4mGI3sGgDGKCv647fR0I58RU.webp": {
+        "width": 1706,
+        "height": 2560,
+        "variants": {
+            "480": "responsive/2aOboR6WhLnidr9T4mGI3sGgDGKCv647fR0I58RU-e2469c0cce97-480.webp",
+            "960": "responsive/2aOboR6WhLnidr9T4mGI3sGgDGKCv647fR0I58RU-e2469c0cce97-960.webp",
+            "1440": "responsive/2aOboR6WhLnidr9T4mGI3sGgDGKCv647fR0I58RU-e2469c0cce97-1440.webp"
+        }
+    },
+    "2aOboR6WhLnl4g5qZz8TuD5Ckzyfk7yv12HFIviq.webp": {
+        "width": 1708,
+        "height": 2560,
+        "variants": {
+            "480": "responsive/2aOboR6WhLnl4g5qZz8TuD5Ckzyfk7yv12HFIviq-0f1deeffdb05-480.webp",
+            "960": "responsive/2aOboR6WhLnl4g5qZz8TuD5Ckzyfk7yv12HFIviq-0f1deeffdb05-960.webp",
+            "1440": "responsive/2aOboR6WhLnl4g5qZz8TuD5Ckzyfk7yv12HFIviq-0f1deeffdb05-1440.webp"
+        }
+    },
+    "2aOboR6WhLnnVV2E5C0fkXzMbyLDweVDR6iWYt72.webp": {
+        "width": 1706,
+        "height": 2560,
+        "variants": {
+            "480": "responsive/2aOboR6WhLnnVV2E5C0fkXzMbyLDweVDR6iWYt72-7e6f726cfcba-480.webp",
+            "960": "responsive/2aOboR6WhLnnVV2E5C0fkXzMbyLDweVDR6iWYt72-7e6f726cfcba-960.webp",
+            "1440": "responsive/2aOboR6WhLnnVV2E5C0fkXzMbyLDweVDR6iWYt72-7e6f726cfcba-1440.webp"
+        }
+    },
+    "2aOboR6WhLo4XFcsbe80ety1UDNJaccQYH06u9b6.webp": {
+        "width": 596,
+        "height": 843,
+        "variants": {
+            "480": "responsive/2aOboR6WhLo4XFcsbe80ety1UDNJaccQYH06u9b6-b161bac2bf83-480.webp"
+        }
+    },
+    "2aOboR6WhLo6y4ZG6r0CVEo2oSZBjq4pw6BsTdia.webp": {
+        "width": 596,
+        "height": 843,
+        "variants": {
+            "480": "responsive/2aOboR6WhLo6y4ZG6r0CVEo2oSZBjq4pw6BsTdia-960cece34055-480.webp"
+        }
+    },
+    "2aOboR6WhLo6y4ZG6r0CVEqQNFcDT4PLtOEC7ChU.webp": {
+        "width": 596,
+        "height": 843,
+        "variants": {
+            "480": "responsive/2aOboR6WhLo6y4ZG6r0CVEqQNFcDT4PLtOEC7ChU-c272dcd32dd7-480.webp"
+        }
+    },
+    "2aOboR6WhLo6y4ZG6r0CVEu2YjREBQuOtbwQYrTM.webp": {
+        "width": 1706,
+        "height": 2560,
+        "variants": {
+            "480": "responsive/2aOboR6WhLo6y4ZG6r0CVEu2YjREBQuOtbwQYrTM-4e3e2932d79f-480.webp",
+            "960": "responsive/2aOboR6WhLo6y4ZG6r0CVEu2YjREBQuOtbwQYrTM-4e3e2932d79f-960.webp",
+            "1440": "responsive/2aOboR6WhLo6y4ZG6r0CVEu2YjREBQuOtbwQYrTM-4e3e2932d79f-1440.webp"
+        }
+    },
+    "2aOboR6WhLo6y4ZG6r0CVFX5GNMwjOClfxs9cEeu.webp": {
+        "width": 1920,
+        "height": 2560,
+        "variants": {
+            "480": "responsive/2aOboR6WhLo6y4ZG6r0CVFX5GNMwjOClfxs9cEeu-12d97f5d79f7-480.webp",
+            "960": "responsive/2aOboR6WhLo6y4ZG6r0CVFX5GNMwjOClfxs9cEeu-12d97f5d79f7-960.webp",
+            "1440": "responsive/2aOboR6WhLo6y4ZG6r0CVFX5GNMwjOClfxs9cEeu-12d97f5d79f7-1440.webp"
+        }
+    },
+    "2aOboR6WhLo9OtVdc3sOLZkS5tToqn8AS0nrlvE0.webp": {
+        "width": 596,
+        "height": 843,
+        "variants": {
+            "480": "responsive/2aOboR6WhLo9OtVdc3sOLZkS5tToqn8AS0nrlvE0-340ea5339d53-480.webp"
+        }
+    },
+    "2aOboR6WhLo9OtVdc3sOLa2rFt2aAsKz9vRHu2DY.webp": {
+        "width": 1708,
+        "height": 2560,
+        "variants": {
+            "480": "responsive/2aOboR6WhLo9OtVdc3sOLa2rFt2aAsKz9vRHu2DY-b45d1770e096-480.webp",
+            "960": "responsive/2aOboR6WhLo9OtVdc3sOLa2rFt2aAsKz9vRHu2DY-b45d1770e096-960.webp",
+            "1440": "responsive/2aOboR6WhLo9OtVdc3sOLa2rFt2aAsKz9vRHu2DY-b45d1770e096-1440.webp"
+        }
+    },
+    "2aOboR6WhLoQQe6I8VzjFvxGVTBjIAHxaqrDAMNs.webp": {
+        "width": 596,
+        "height": 843,
+        "variants": {
+            "480": "responsive/2aOboR6WhLoQQe6I8VzjFvxGVTBjIAHxaqrDAMNs-65e161aa0954-480.webp"
+        }
+    },
+    "2aOboR6WhLoQQe6I8VzjFw8sUyAM6zDDLwT8vM2K.webp": {
+        "width": 1706,
+        "height": 2560,
+        "variants": {
+            "480": "responsive/2aOboR6WhLoQQe6I8VzjFw8sUyAM6zDDLwT8vM2K-c995f3423449-480.webp",
+            "960": "responsive/2aOboR6WhLoQQe6I8VzjFw8sUyAM6zDDLwT8vM2K-c995f3423449-960.webp",
+            "1440": "responsive/2aOboR6WhLoQQe6I8VzjFw8sUyAM6zDDLwT8vM2K-c995f3423449-1440.webp"
+        }
+    },
+    "2aOboR6WhLoSrT2fdirv6Gshz5UdYLt8Sky59REe.webp": {
+        "width": 596,
+        "height": 843,
+        "variants": {
+            "480": "responsive/2aOboR6WhLoSrT2fdirv6Gshz5UdYLt8Sky59REe-8dc5c2767a26-480.webp"
+        }
+    },
+    "2aOboR6WhLoSrT2fdirv6HMISiJgbibPUjCYf8gS.webp": {
+        "width": 1787,
+        "height": 2680,
+        "variants": {
+            "480": "responsive/2aOboR6WhLoSrT2fdirv6HMISiJgbibPUjCYf8gS-68d9dc52440a-480.webp",
+            "960": "responsive/2aOboR6WhLoSrT2fdirv6HMISiJgbibPUjCYf8gS-68d9dc52440a-960.webp",
+            "1440": "responsive/2aOboR6WhLoSrT2fdirv6HMISiJgbibPUjCYf8gS-68d9dc52440a-1440.webp"
+        }
+    },
+    "2aOboR6WhLoSrT2fdirv6HTbwRTT7sfxuHRT531k.webp": {
+        "width": 1708,
+        "height": 2560,
+        "variants": {
+            "480": "responsive/2aOboR6WhLoSrT2fdirv6HTbwRTT7sfxuHRT531k-304880eafae9-480.webp",
+            "960": "responsive/2aOboR6WhLoSrT2fdirv6HTbwRTT7sfxuHRT531k-304880eafae9-960.webp",
+            "1440": "responsive/2aOboR6WhLoSrT2fdirv6HTbwRTT7sfxuHRT531k-304880eafae9-1440.webp"
+        }
+    },
+    "2aOboR6WiZgtJaXsCt5LunyqWE9n4yTJ5JsJ9sJc.webp": {
+        "width": 597,
+        "height": 843,
+        "variants": {
+            "480": "responsive/2aOboR6WiZgtJaXsCt5LunyqWE9n4yTJ5JsJ9sJc-7298b64c61cd-480.webp"
+        }
+    },
+    "2aOboR6WiZgvkPUFi5xXl9BS4ZRyUHLj8DCIiELo.webp": {
+        "width": 1708,
+        "height": 2560,
+        "variants": {
+            "480": "responsive/2aOboR6WiZgvkPUFi5xXl9BS4ZRyUHLj8DCIiELo-668e08e51111-480.webp",
+            "960": "responsive/2aOboR6WiZgvkPUFi5xXl9BS4ZRyUHLj8DCIiELo-668e08e51111-960.webp",
+            "1440": "responsive/2aOboR6WiZgvkPUFi5xXl9BS4ZRyUHLj8DCIiELo-668e08e51111-1440.webp"
+        }
+    },
+    "2aOboR6Wiji1uwzBj89caqo3Dg74m1AhiO86ybWi.webp": {
+        "width": 596,
+        "height": 843,
+        "variants": {
+            "480": "responsive/2aOboR6Wiji1uwzBj89caqo3Dg74m1AhiO86ybWi-24b36dc29fd5-480.webp"
+        }
+    },
+    "2aOboR6Wiji1uwzBj89carQUW7rnY3VxecYiXP6m.webp": {
+        "width": 1926,
+        "height": 2568,
+        "variants": {
+            "480": "responsive/2aOboR6Wiji1uwzBj89carQUW7rnY3VxecYiXP6m-b395d154a8d7-480.webp",
+            "960": "responsive/2aOboR6Wiji1uwzBj89carQUW7rnY3VxecYiXP6m-b395d154a8d7-960.webp",
+            "1440": "responsive/2aOboR6Wiji1uwzBj89carQUW7rnY3VxecYiXP6m-b395d154a8d7-1440.webp"
+        }
+    },
+    "2aOboR6WinPdXBDbKH5YXLLaiWqRf1gWbwrTgYdc.webp": {
+        "width": 597,
+        "height": 843,
+        "variants": {
+            "480": "responsive/2aOboR6WinPdXBDbKH5YXLLaiWqRf1gWbwrTgYdc-3cc19452055a-480.webp"
+        }
+    },
+    "2aOboR6WinPdXBDbKH5YXLasflOy1oXWRFruSob2.webp": {
+        "width": 1707,
+        "height": 2560,
+        "variants": {
+            "480": "responsive/2aOboR6WinPdXBDbKH5YXLasflOy1oXWRFruSob2-48af20220398-480.webp",
+            "960": "responsive/2aOboR6WinPdXBDbKH5YXLasflOy1oXWRFruSob2-48af20220398-960.webp",
+            "1440": "responsive/2aOboR6WinPdXBDbKH5YXLasflOy1oXWRFruSob2-48af20220398-1440.webp"
+        }
+    },
+    "2aOboR6WjUjhoZ1qbiTmmgMiSdutROHyepWs66fA.webp": {
+        "width": 1707,
+        "height": 2560,
+        "variants": {
+            "480": "responsive/2aOboR6WjUjhoZ1qbiTmmgMiSdutROHyepWs66fA-04e2f4006eb7-480.webp",
+            "960": "responsive/2aOboR6WjUjhoZ1qbiTmmgMiSdutROHyepWs66fA-04e2f4006eb7-960.webp",
+            "1440": "responsive/2aOboR6WjUjhoZ1qbiTmmgMiSdutROHyepWs66fA-04e2f4006eb7-1440.webp"
+        }
+    },
+    "2aOboR6WjUjhoZ1qbiTmmggIRSfwGAPxIF6SJ5W4.webp": {
+        "width": 1706,
+        "height": 2560,
+        "variants": {
+            "480": "responsive/2aOboR6WjUjhoZ1qbiTmmggIRSfwGAPxIF6SJ5W4-992b8b835388-480.webp",
+            "960": "responsive/2aOboR6WjUjhoZ1qbiTmmggIRSfwGAPxIF6SJ5W4-992b8b835388-960.webp",
+            "1440": "responsive/2aOboR6WjUjhoZ1qbiTmmggIRSfwGAPxIF6SJ5W4-992b8b835388-1440.webp"
+        }
+    },
+    "2aOboR6WjUk3hxVG8aLVNiHbAfHy12obkIXZKPJI.webp": {
+        "width": 597,
+        "height": 843,
+        "variants": {
+            "480": "responsive/2aOboR6WjUk3hxVG8aLVNiHbAfHy12obkIXZKPJI-a2045a4ad0bc-480.webp"
+        }
+    },
+    "2aOboR6WjUk3hxVG8aLVNiID435HddLR7qqYjLKS.webp": {
+        "width": 596,
+        "height": 843,
+        "variants": {
+            "480": "responsive/2aOboR6WjUk3hxVG8aLVNiID435HddLR7qqYjLKS-90e931719645-480.webp"
+        }
+    },
+    "2aOboR6WjUk3hxVG8aLVNiLdkhlXExhA5buhU41o.webp": {
+        "width": 596,
+        "height": 843,
+        "variants": {
+            "480": "responsive/2aOboR6WjUk3hxVG8aLVNiLdkhlXExhA5buhU41o-cbaf26a76a15-480.webp"
+        }
+    },
+    "2aOboR6WlVAKJcsvcgbaL1pfFIvFHgmes4ZZIWgK.webp": {
+        "width": 596,
+        "height": 843,
+        "variants": {
+            "480": "responsive/2aOboR6WlVAKJcsvcgbaL1pfFIvFHgmes4ZZIWgK-c7b0ac9fed0d-480.webp"
+        }
+    },
+    "academy-01.webp": {
+        "width": 1334,
+        "height": 2000,
+        "variants": {
+            "480": "responsive/academy-01-1376108686bc-480.webp",
+            "960": "responsive/academy-01-1376108686bc-960.webp"
+        }
+    },
+    "academy-02.webp": {
+        "width": 1334,
+        "height": 2000,
+        "variants": {
+            "480": "responsive/academy-02-8775cae4ab50-480.webp",
+            "960": "responsive/academy-02-8775cae4ab50-960.webp"
+        }
+    },
+    "academy-03.webp": {
+        "width": 1334,
+        "height": 2000,
+        "variants": {
+            "480": "responsive/academy-03-082422eb00fe-480.webp",
+            "960": "responsive/academy-03-082422eb00fe-960.webp"
+        }
+    },
+    "academy-04.webp": {
+        "width": 1334,
+        "height": 2000,
+        "variants": {
+            "480": "responsive/academy-04-b89d72511cb0-480.webp",
+            "960": "responsive/academy-04-b89d72511cb0-960.webp"
+        }
+    },
+    "academy-05.webp": {
+        "width": 1334,
+        "height": 2000,
+        "variants": {
+            "480": "responsive/academy-05-aab715902bd5-480.webp",
+            "960": "responsive/academy-05-aab715902bd5-960.webp"
+        }
+    },
+    "academy-06.webp": {
+        "width": 1334,
+        "height": 2000,
+        "variants": {
+            "480": "responsive/academy-06-14ffe0ac8108-480.webp",
+            "960": "responsive/academy-06-14ffe0ac8108-960.webp"
+        }
+    },
+    "academy-07.webp": {
+        "width": 1334,
+        "height": 2000,
+        "variants": {
+            "480": "responsive/academy-07-d15d07bbd754-480.webp",
+            "960": "responsive/academy-07-d15d07bbd754-960.webp"
+        }
+    },
+    "academy-08.webp": {
+        "width": 1334,
+        "height": 2000,
+        "variants": {
+            "480": "responsive/academy-08-77f36618d61e-480.webp",
+            "960": "responsive/academy-08-77f36618d61e-960.webp"
+        }
+    },
+    "academy-09.webp": {
+        "width": 1334,
+        "height": 2000,
+        "variants": {
+            "480": "responsive/academy-09-0cfcbee82ecb-480.webp",
+            "960": "responsive/academy-09-0cfcbee82ecb-960.webp"
+        }
+    },
+    "academy-10.webp": {
+        "width": 1333,
+        "height": 2000,
+        "variants": {
+            "480": "responsive/academy-10-d996d63c9acd-480.webp",
+            "960": "responsive/academy-10-d996d63c9acd-960.webp"
+        }
+    },
+    "academy-11.webp": {
+        "width": 1334,
+        "height": 2000,
+        "variants": {
+            "480": "responsive/academy-11-9975f80ede50-480.webp",
+            "960": "responsive/academy-11-9975f80ede50-960.webp"
+        }
+    },
+    "academy-12.webp": {
+        "width": 1333,
+        "height": 2000,
+        "variants": {
+            "480": "responsive/academy-12-6843f0fcdc43-480.webp",
+            "960": "responsive/academy-12-6843f0fcdc43-960.webp"
+        }
+    },
+    "academy-13.webp": {
+        "width": 1334,
+        "height": 2000,
+        "variants": {
+            "480": "responsive/academy-13-49a8249ac30d-480.webp",
+            "960": "responsive/academy-13-49a8249ac30d-960.webp"
+        }
+    },
+    "academy-14.webp": {
+        "width": 1334,
+        "height": 2000,
+        "variants": {
+            "480": "responsive/academy-14-41146a3849e9-480.webp",
+            "960": "responsive/academy-14-41146a3849e9-960.webp"
+        }
+    },
+    "academy-15.webp": {
+        "width": 1334,
+        "height": 2000,
+        "variants": {
+            "480": "responsive/academy-15-4683e73a3d74-480.webp",
+            "960": "responsive/academy-15-4683e73a3d74-960.webp"
+        }
+    },
+    "academy-16.webp": {
+        "width": 1334,
+        "height": 2000,
+        "variants": {
+            "480": "responsive/academy-16-ee42b9650b4a-480.webp",
+            "960": "responsive/academy-16-ee42b9650b4a-960.webp"
+        }
+    },
+    "academy-17.webp": {
+        "width": 1333,
+        "height": 2000,
+        "variants": {
+            "480": "responsive/academy-17-bc83d6097634-480.webp",
+            "960": "responsive/academy-17-bc83d6097634-960.webp"
+        }
+    },
+    "academy-18.webp": {
+        "width": 1334,
+        "height": 2000,
+        "variants": {
+            "480": "responsive/academy-18-bb6ffeb456b8-480.webp",
+            "960": "responsive/academy-18-bb6ffeb456b8-960.webp"
+        }
+    },
+    "academy-19.webp": {
+        "width": 1333,
+        "height": 2000,
+        "variants": {
+            "480": "responsive/academy-19-02496431cff5-480.webp",
+            "960": "responsive/academy-19-02496431cff5-960.webp"
+        }
+    },
+    "academy-20.webp": {
+        "width": 2000,
+        "height": 1334,
+        "variants": {
+            "480": "responsive/academy-20-a1fa508b0743-480.webp",
+            "960": "responsive/academy-20-a1fa508b0743-960.webp",
+            "1440": "responsive/academy-20-a1fa508b0743-1440.webp"
+        }
+    },
+    "academy-21.webp": {
+        "width": 1334,
+        "height": 2000,
+        "variants": {
+            "480": "responsive/academy-21-abf5624817b2-480.webp",
+            "960": "responsive/academy-21-abf5624817b2-960.webp"
+        }
+    },
+    "academy-22.webp": {
+        "width": 1334,
+        "height": 2000,
+        "variants": {
+            "480": "responsive/academy-22-ec65f39cf54f-480.webp",
+            "960": "responsive/academy-22-ec65f39cf54f-960.webp"
+        }
+    },
+    "academy-23.webp": {
+        "width": 1333,
+        "height": 2000,
+        "variants": {
+            "480": "responsive/academy-23-8513cbf15342-480.webp",
+            "960": "responsive/academy-23-8513cbf15342-960.webp"
+        }
+    },
+    "academy-24.webp": {
+        "width": 1334,
+        "height": 2000,
+        "variants": {
+            "480": "responsive/academy-24-8f56c9a70737-480.webp",
+            "960": "responsive/academy-24-8f56c9a70737-960.webp"
+        }
+    },
+    "academy-25.webp": {
+        "width": 1334,
+        "height": 2000,
+        "variants": {
+            "480": "responsive/academy-25-77808c81ad0b-480.webp",
+            "960": "responsive/academy-25-77808c81ad0b-960.webp"
+        }
+    },
+    "academy-26.webp": {
+        "width": 1240,
+        "height": 1835,
+        "variants": {
+            "480": "responsive/academy-26-b9cc28816133-480.webp",
+            "960": "responsive/academy-26-b9cc28816133-960.webp"
+        }
+    },
+    "academy-27.webp": {
+        "width": 1334,
+        "height": 2000,
+        "variants": {
+            "480": "responsive/academy-27-9eb7296ddd6b-480.webp",
+            "960": "responsive/academy-27-9eb7296ddd6b-960.webp"
+        }
+    },
+    "academy-28.webp": {
+        "width": 1334,
+        "height": 2000,
+        "variants": {
+            "480": "responsive/academy-28-1616b0507d45-480.webp",
+            "960": "responsive/academy-28-1616b0507d45-960.webp"
+        }
+    },
+    "academy-29.webp": {
+        "width": 1334,
+        "height": 2000,
+        "variants": {
+            "480": "responsive/academy-29-57cc3c26214e-480.webp",
+            "960": "responsive/academy-29-57cc3c26214e-960.webp"
+        }
+    },
+    "academy-30.webp": {
+        "width": 1333,
+        "height": 2000,
+        "variants": {
+            "480": "responsive/academy-30-921d082a5aa4-480.webp",
+            "960": "responsive/academy-30-921d082a5aa4-960.webp"
+        }
+    },
+    "academy-31.webp": {
+        "width": 1334,
+        "height": 2000,
+        "variants": {
+            "480": "responsive/academy-31-ff1ecb99d9e1-480.webp",
+            "960": "responsive/academy-31-ff1ecb99d9e1-960.webp"
+        }
+    },
+    "academy-32.webp": {
+        "width": 1333,
+        "height": 2000,
+        "variants": {
+            "480": "responsive/academy-32-45f741076f8f-480.webp",
+            "960": "responsive/academy-32-45f741076f8f-960.webp"
+        }
+    },
+    "academy-33.webp": {
+        "width": 1334,
+        "height": 2000,
+        "variants": {
+            "480": "responsive/academy-33-116c2337ec7d-480.webp",
+            "960": "responsive/academy-33-116c2337ec7d-960.webp"
+        }
+    },
+    "academy-34.webp": {
+        "width": 1334,
+        "height": 2000,
+        "variants": {
+            "480": "responsive/academy-34-b0fb9640d523-480.webp",
+            "960": "responsive/academy-34-b0fb9640d523-960.webp"
+        }
+    },
+    "academy-35.webp": {
+        "width": 1334,
+        "height": 2000,
+        "variants": {
+            "480": "responsive/academy-35-5041a0908c0c-480.webp",
+            "960": "responsive/academy-35-5041a0908c0c-960.webp"
+        }
+    },
+    "academy-36.webp": {
+        "width": 1333,
+        "height": 2000,
+        "variants": {
+            "480": "responsive/academy-36-6ba7f67d5bc8-480.webp",
+            "960": "responsive/academy-36-6ba7f67d5bc8-960.webp"
+        }
+    },
+    "academy-37.webp": {
+        "width": 1333,
+        "height": 2000,
+        "variants": {
+            "480": "responsive/academy-37-0e708fb5210c-480.webp",
+            "960": "responsive/academy-37-0e708fb5210c-960.webp"
+        }
+    },
+    "academy-38.webp": {
+        "width": 1333,
+        "height": 2000,
+        "variants": {
+            "480": "responsive/academy-38-3c1533661c99-480.webp",
+            "960": "responsive/academy-38-3c1533661c99-960.webp"
+        }
+    },
+    "academy-39.webp": {
+        "width": 1334,
+        "height": 2000,
+        "variants": {
+            "480": "responsive/academy-39-83f4cf4f4bee-480.webp",
+            "960": "responsive/academy-39-83f4cf4f4bee-960.webp"
+        }
+    },
+    "academy-40.webp": {
+        "width": 1334,
+        "height": 2000,
+        "variants": {
+            "480": "responsive/academy-40-d4bef3f20776-480.webp",
+            "960": "responsive/academy-40-d4bef3f20776-960.webp"
+        }
+    },
+    "academy-41.webp": {
+        "width": 1334,
+        "height": 2000,
+        "variants": {
+            "480": "responsive/academy-41-522d13c8ba7a-480.webp",
+            "960": "responsive/academy-41-522d13c8ba7a-960.webp"
+        }
+    },
+    "academy-42.webp": {
+        "width": 2000,
+        "height": 1334,
+        "variants": {
+            "480": "responsive/academy-42-8088cb5553c9-480.webp",
+            "960": "responsive/academy-42-8088cb5553c9-960.webp",
+            "1440": "responsive/academy-42-8088cb5553c9-1440.webp"
+        }
+    },
+    "academy-43.webp": {
+        "width": 1334,
+        "height": 2000,
+        "variants": {
+            "480": "responsive/academy-43-06edfd9c8d6f-480.webp",
+            "960": "responsive/academy-43-06edfd9c8d6f-960.webp"
+        }
+    },
+    "academy-44.webp": {
+        "width": 1334,
+        "height": 2000,
+        "variants": {
+            "480": "responsive/academy-44-385b4da0ab3d-480.webp",
+            "960": "responsive/academy-44-385b4da0ab3d-960.webp"
+        }
+    },
+    "academy-45.webp": {
+        "width": 1334,
+        "height": 2000,
+        "variants": {
+            "480": "responsive/academy-45-d2b3408ee4cc-480.webp",
+            "960": "responsive/academy-45-d2b3408ee4cc-960.webp"
+        }
+    },
+    "academy-46.webp": {
+        "width": 1334,
+        "height": 2000,
+        "variants": {
+            "480": "responsive/academy-46-03140e45dc02-480.webp",
+            "960": "responsive/academy-46-03140e45dc02-960.webp"
+        }
+    },
+    "academy-47.webp": {
+        "width": 1334,
+        "height": 2000,
+        "variants": {
+            "480": "responsive/academy-47-a630d4dec584-480.webp",
+            "960": "responsive/academy-47-a630d4dec584-960.webp"
+        }
+    },
+    "academy-learning-space.webp": {
+        "width": 1201,
+        "height": 1800,
+        "variants": {
+            "480": "responsive/academy-learning-space-15e41aad9205-480.webp",
+            "960": "responsive/academy-learning-space-15e41aad9205-960.webp"
+        }
+    },
+    "academy-training-certificate.webp": {
+        "width": 1012,
+        "height": 1800,
+        "variants": {
+            "480": "responsive/academy-training-certificate-a916da38c22b-480.webp",
+            "960": "responsive/academy-training-certificate-a916da38c22b-960.webp"
+        }
+    },
+    "academy-training-milestone.webp": {
+        "width": 1350,
+        "height": 1800,
+        "variants": {
+            "480": "responsive/academy-training-milestone-ffac931cce70-480.webp",
+            "960": "responsive/academy-training-milestone-ffac931cce70-960.webp"
+        }
+    },
+    "beauty-behind-scenes.webp": {
+        "width": 1201,
+        "height": 1800,
+        "variants": {
+            "480": "responsive/beauty-behind-scenes-a6af5ede4cb8-480.webp",
+            "960": "responsive/beauty-behind-scenes-a6af5ede4cb8-960.webp"
+        }
+    },
+    "beauty-bridal-detail.webp": {
+        "width": 596,
+        "height": 843,
+        "variants": {
+            "480": "responsive/beauty-bridal-detail-369b0b925ac4-480.webp"
+        }
+    },
+    "beauty-pro-technique.webp": {
+        "width": 597,
+        "height": 843,
+        "variants": {
+            "480": "responsive/beauty-pro-technique-af70d3149d0f-480.webp"
+        }
+    },
+    "class-schedule-album.webp": {
+        "width": 1012,
+        "height": 1800,
+        "variants": {
+            "480": "responsive/class-schedule-album-184a3a15542e-480.webp",
+            "960": "responsive/class-schedule-album-184a3a15542e-960.webp"
+        }
+    },
+    "class-schedule-community.webp": {
+        "width": 1800,
+        "height": 1200,
+        "variants": {
+            "480": "responsive/class-schedule-community-bbd55614be23-480.webp",
+            "960": "responsive/class-schedule-community-bbd55614be23-960.webp",
+            "1440": "responsive/class-schedule-community-bbd55614be23-1440.webp"
+        }
+    },
+    "class-schedule-lesson.webp": {
+        "width": 1800,
+        "height": 1200,
+        "variants": {
+            "480": "responsive/class-schedule-lesson-3cd742de1f8e-480.webp",
+            "960": "responsive/class-schedule-lesson-3cd742de1f8e-960.webp",
+            "1440": "responsive/class-schedule-lesson-3cd742de1f8e-1440.webp"
+        }
+    },
+    "class-schedule-workshop.webp": {
+        "width": 1800,
+        "height": 1200,
+        "variants": {
+            "480": "responsive/class-schedule-workshop-fd06c1869307-480.webp",
+            "960": "responsive/class-schedule-workshop-fd06c1869307-960.webp",
+            "1440": "responsive/class-schedule-workshop-fd06c1869307-1440.webp"
+        }
+    },
+    "classroom-community.webp": {
+        "width": 1800,
+        "height": 1200,
+        "variants": {
+            "480": "responsive/classroom-community-282087bea400-480.webp",
+            "960": "responsive/classroom-community-282087bea400-960.webp",
+            "1440": "responsive/classroom-community-282087bea400-1440.webp"
+        }
+    },
+    "classroom-demonstration.webp": {
+        "width": 720,
+        "height": 1280,
+        "variants": {
+            "480": "responsive/classroom-demonstration-3318bba11bcc-480.webp"
+        }
+    },
+    "classroom-practice.webp": {
+        "width": 720,
+        "height": 1280,
+        "variants": {
+            "480": "responsive/classroom-practice-8cc1cd47f9b6-480.webp"
+        }
+    },
+    "classroom-students.webp": {
+        "width": 1800,
+        "height": 1200,
+        "variants": {
+            "480": "responsive/classroom-students-ef81e88eec44-480.webp",
+            "960": "responsive/classroom-students-ef81e88eec44-960.webp",
+            "1440": "responsive/classroom-students-ef81e88eec44-1440.webp"
+        }
+    },
+    "classroom-team.webp": {
+        "width": 1800,
+        "height": 1200,
+        "variants": {
+            "480": "responsive/classroom-team-5ba1a355719a-480.webp",
+            "960": "responsive/classroom-team-5ba1a355719a-960.webp",
+            "1440": "responsive/classroom-team-5ba1a355719a-1440.webp"
+        }
+    },
+    "classroom-technique.webp": {
+        "width": 720,
+        "height": 1280,
+        "variants": {
+            "480": "responsive/classroom-technique-f6ebc8e6c377-480.webp"
+        }
+    },
+    "classroom-workspace.webp": {
+        "width": 720,
+        "height": 1280,
+        "variants": {
+            "480": "responsive/classroom-workspace-450a6f5fb50a-480.webp"
+        }
+    },
+    "contact-enrollment.webp": {
+        "width": 2000,
+        "height": 1334,
+        "variants": {
+            "480": "responsive/contact-enrollment-8088cb5553c9-480.webp",
+            "960": "responsive/contact-enrollment-8088cb5553c9-960.webp",
+            "1440": "responsive/contact-enrollment-8088cb5553c9-1440.webp"
+        }
+    },
+    "course-roadmap-4-months.webp": {
+        "width": 1536,
+        "height": 1024,
+        "variants": {
+            "480": "responsive/course-roadmap-4-months-d7b5e44260f2-480.webp",
+            "960": "responsive/course-roadmap-4-months-d7b5e44260f2-960.webp",
+            "1440": "responsive/course-roadmap-4-months-d7b5e44260f2-1440.webp"
+        }
+    },
+    "educator-classroom.webp": {
+        "width": 2048,
+        "height": 1365,
+        "variants": {
+            "480": "responsive/educator-classroom-d013f85ad1e6-480.webp",
+            "960": "responsive/educator-classroom-d013f85ad1e6-960.webp",
+            "1440": "responsive/educator-classroom-d013f85ad1e6-1440.webp"
+        }
+    },
+    "educator-group.webp": {
+        "width": 2048,
+        "height": 1365,
+        "variants": {
+            "480": "responsive/educator-group-cd19f49dca02-480.webp",
+            "960": "responsive/educator-group-cd19f49dca02-960.webp",
+            "1440": "responsive/educator-group-cd19f49dca02-1440.webp"
+        }
+    },
+    "educator-students.webp": {
+        "width": 2048,
+        "height": 1365,
+        "variants": {
+            "480": "responsive/educator-students-51dd923934c2-480.webp",
+            "960": "responsive/educator-students-51dd923934c2-960.webp",
+            "1440": "responsive/educator-students-51dd923934c2-1440.webp"
+        }
+    },
+    "film-poster-01.webp": {
+        "width": 720,
+        "height": 1280,
+        "variants": {
+            "480": "responsive/film-poster-01-47e68ed20af1-480.webp"
+        }
+    },
+    "film-poster-02.webp": {
+        "width": 720,
+        "height": 1280,
+        "variants": {
+            "480": "responsive/film-poster-02-2229f04f8fbc-480.webp"
+        }
+    },
+    "film-poster-03.webp": {
+        "width": 720,
+        "height": 1280,
+        "variants": {
+            "480": "responsive/film-poster-03-cf517ccb303a-480.webp"
+        }
+    },
+    "film-poster-04.webp": {
+        "width": 720,
+        "height": 1280,
+        "variants": {
+            "480": "responsive/film-poster-04-3dbe1bf88fbd-480.webp"
+        }
+    },
+    "film-poster-05.webp": {
+        "width": 720,
+        "height": 406,
+        "variants": {
+            "480": "responsive/film-poster-05-a03c20a92a11-480.webp"
+        }
+    },
+    "film-poster-06.webp": {
+        "width": 720,
+        "height": 1280,
+        "variants": {
+            "480": "responsive/film-poster-06-5aa1023692e7-480.webp"
+        }
+    },
+    "founder-van-cuong-enhanced.webp": {
+        "width": 1254,
+        "height": 1254,
+        "variants": {
+            "480": "responsive/founder-van-cuong-enhanced-0971640aec72-480.webp",
+            "960": "responsive/founder-van-cuong-enhanced-0971640aec72-960.webp"
+        }
+    },
+    "founder-van-cuong.webp": {
+        "width": 200,
+        "height": 200,
+        "variants": []
+    },
+    "van-cuong-logo-transparent.webp": {
+        "width": 2172,
+        "height": 724,
+        "variants": {
+            "480": "responsive/van-cuong-logo-transparent-7d250d491604-480.webp",
+            "960": "responsive/van-cuong-logo-transparent-7d250d491604-960.webp",
+            "1440": "responsive/van-cuong-logo-transparent-7d250d491604-1440.webp"
+        }
+    },
+    "workshop-banner-bridal-enhanced.webp": {
+        "width": 1054,
+        "height": 1492,
+        "variants": {
+            "480": "responsive/workshop-banner-bridal-enhanced-17705f5a4f7d-480.webp",
+            "960": "responsive/workshop-banner-bridal-enhanced-17705f5a4f7d-960.webp"
+        }
+    },
+    "workshop-bridal-beauty-01.webp": {
+        "width": 1708,
+        "height": 2560,
+        "variants": {
+            "480": "responsive/workshop-bridal-beauty-01-0f1deeffdb05-480.webp",
+            "960": "responsive/workshop-bridal-beauty-01-0f1deeffdb05-960.webp",
+            "1440": "responsive/workshop-bridal-beauty-01-0f1deeffdb05-1440.webp"
+        }
+    },
+    "workshop-bridal-beauty-02.webp": {
+        "width": 1708,
+        "height": 2560,
+        "variants": {
+            "480": "responsive/workshop-bridal-beauty-02-b45d1770e096-480.webp",
+            "960": "responsive/workshop-bridal-beauty-02-b45d1770e096-960.webp",
+            "1440": "responsive/workshop-bridal-beauty-02-b45d1770e096-1440.webp"
+        }
+    },
+    "workshop-bridal-beauty-03.webp": {
+        "width": 1708,
+        "height": 2560,
+        "variants": {
+            "480": "responsive/workshop-bridal-beauty-03-668e08e51111-480.webp",
+            "960": "responsive/workshop-bridal-beauty-03-668e08e51111-960.webp",
+            "1440": "responsive/workshop-bridal-beauty-03-668e08e51111-1440.webp"
+        }
+    },
+    "workshop-bridal-beauty-04.webp": {
+        "width": 1706,
+        "height": 2560,
+        "variants": {
+            "480": "responsive/workshop-bridal-beauty-04-4e3e2932d79f-480.webp",
+            "960": "responsive/workshop-bridal-beauty-04-4e3e2932d79f-960.webp",
+            "1440": "responsive/workshop-bridal-beauty-04-4e3e2932d79f-1440.webp"
+        }
+    },
+    "workshop-bridal-beauty-05.webp": {
+        "width": 1706,
+        "height": 2560,
+        "variants": {
+            "480": "responsive/workshop-bridal-beauty-05-992b8b835388-480.webp",
+            "960": "responsive/workshop-bridal-beauty-05-992b8b835388-960.webp",
+            "1440": "responsive/workshop-bridal-beauty-05-992b8b835388-1440.webp"
+        }
+    },
+    "workshop-western-glam-01.webp": {
+        "width": 1706,
+        "height": 2560,
+        "variants": {
+            "480": "responsive/workshop-western-glam-01-039bf6eada48-480.webp",
+            "960": "responsive/workshop-western-glam-01-039bf6eada48-960.webp",
+            "1440": "responsive/workshop-western-glam-01-039bf6eada48-1440.webp"
+        }
+    },
+    "workshop-western-glam-02.webp": {
+        "width": 1706,
+        "height": 2560,
+        "variants": {
+            "480": "responsive/workshop-western-glam-02-e2469c0cce97-480.webp",
+            "960": "responsive/workshop-western-glam-02-e2469c0cce97-960.webp",
+            "1440": "responsive/workshop-western-glam-02-e2469c0cce97-1440.webp"
+        }
+    },
+    "workshop-western-glam-03.webp": {
+        "width": 1708,
+        "height": 2560,
+        "variants": {
+            "480": "responsive/workshop-western-glam-03-304880eafae9-480.webp",
+            "960": "responsive/workshop-western-glam-03-304880eafae9-960.webp",
+            "1440": "responsive/workshop-western-glam-03-304880eafae9-1440.webp"
+        }
+    },
+    "workshop-western-glam-04.webp": {
+        "width": 1706,
+        "height": 2560,
+        "variants": {
+            "480": "responsive/workshop-western-glam-04-f63e1c617b8b-480.webp",
+            "960": "responsive/workshop-western-glam-04-f63e1c617b8b-960.webp",
+            "1440": "responsive/workshop-western-glam-04-f63e1c617b8b-1440.webp"
+        }
+    },
+    "workshop-western-glam-05.webp": {
+        "width": 1708,
+        "height": 2560,
+        "variants": {
+            "480": "responsive/workshop-western-glam-05-6cfbce11b6b1-480.webp",
+            "960": "responsive/workshop-western-glam-05-6cfbce11b6b1-960.webp",
+            "1440": "responsive/workshop-western-glam-05-6cfbce11b6b1-1440.webp"
+        }
+    }
+}

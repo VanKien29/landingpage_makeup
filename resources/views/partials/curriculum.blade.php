@@ -4,7 +4,7 @@
         <div class="curriculum-intro">
             <h2>Vững nền tảng.<br><em>Tự do sáng tạo.</em></h2>
             <p>06 nhóm kiến thức, từ những đường cọ đầu tiên đến tư duy của một người làm nghề.</p>
-            <img class="curriculum-photo" src="{{ asset('images/educator-classroom.webp') }}" alt="Giảng viên hướng dẫn trực tiếp trong lớp học makeup" loading="lazy" width="800" height="533">
+            <x-image file="educator-classroom.webp" class="curriculum-photo"  alt="Giảng viên hướng dẫn trực tiếp trong lớp học makeup" />
             <p class="note">Các module là nhóm nội dung dự kiến. Giáo trình chi tiết của 20 buổi Training sẽ được học viện cập nhật.</p>
         </div>
         <div class="accordion curriculum-modules">

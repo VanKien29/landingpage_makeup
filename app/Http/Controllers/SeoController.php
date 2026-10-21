@@ -10,9 +10,13 @@ use Illuminate\View\View;
 
 class SeoController extends Controller
 {
-    public function legacyWorkshop(Seo $seo): RedirectResponse
+    public function legacyWorkshop(Seo $seo, ?WorkshopEvent $workshop = null): RedirectResponse
     {
-        return redirect()->to($seo->url('workshop.show', ['workshop' => 'the-back']), 301);
+        if ($workshop !== null) {
+            abort_unless($workshop->slug === config('workshop.slug') && $workshop->is_published, 404);
+        }
+
+        return redirect()->to($seo->url('workshop.show'), 301);
     }
 
     public function policies(Seo $seo): View
@@ -25,11 +29,8 @@ class SeoController extends Controller
         abort_unless($seo->indexingEnabled(), 404);
 
         $urls = [$seo->url('home')];
-        foreach (WorkshopEvent::query()->where('is_published', true)->select('id', 'slug')->orderBy('id')->cursor() as $workshop) {
-            if ($workshop->slug === 'the-art-of-elevation-2026') {
-                continue;
-            }
-            $urls[] = $seo->url('workshop.show', ['workshop' => $workshop->slug]);
+        if (WorkshopEvent::where('slug', config('workshop.slug'))->where('is_published', true)->exists()) {
+            $urls[] = $seo->url('workshop.show');
         }
 
         return response()->view('sitemap', compact('urls'))->header('Content-Type', 'application/xml; charset=UTF-8');

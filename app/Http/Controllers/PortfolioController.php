@@ -78,7 +78,7 @@ class PortfolioController extends Controller
                 }
             });
         } catch (Throwable $exception) {
-            Storage::disk('local')->delete($storedPaths);
+            WebpImages::delete($storedPaths);
             throw $exception;
         }
 
@@ -102,26 +102,36 @@ class PortfolioController extends Controller
             DB::transaction(fn (): bool => $portfolioItem->update($data));
         } catch (Throwable $exception) {
             if (isset($data['image_path'])) {
-                Storage::disk('local')->delete($data['image_path']);
+                WebpImages::delete($data['image_path']);
             }
             throw $exception;
         }
         if (isset($data['image_path']) && str_starts_with($oldPath, 'portfolio/')) {
-            Storage::disk('local')->delete($oldPath);
+            WebpImages::delete($oldPath);
         }
         PortfolioCache::flush();
 
         return $this->redirectToListing($filters)->with('success', 'Đã cập nhật tác phẩm.');
     }
 
-    public function show(PortfolioItem $portfolioItem): BinaryFileResponse
+    public function show(Request $request, PortfolioItem $portfolioItem): BinaryFileResponse
     {
         abort_unless($portfolioItem->is_featured && str_starts_with($portfolioItem->image_path, 'portfolio/'), 404);
         abort_unless(Storage::disk('local')->exists($portfolioItem->image_path), 404);
 
-        return response()->file(Storage::disk('local')->path($portfolioItem->image_path), [
+        $width = $request->query('w');
+        abort_unless($width === null || in_array($width, ['480', '960', '1440'], true), 404);
+        $path = $portfolioItem->image_path;
+        if ($width !== null) {
+            $preview = WebpImages::previewPath($path, (int) $width);
+            if (Storage::disk('local')->exists($preview)) {
+                $path = $preview;
+            }
+        }
+
+        return response()->file(Storage::disk('local')->path($path), [
             'X-Content-Type-Options' => 'nosniff',
-            'Cache-Control' => 'public, max-age=86400',
+            'Cache-Control' => 'public, max-age=604800',
         ]);
     }
 
@@ -141,7 +151,7 @@ class PortfolioController extends Controller
         $path = $portfolioItem->image_path;
         $portfolioItem->delete();
         if (str_starts_with($path, 'portfolio/')) {
-            Storage::disk('local')->delete($path);
+            WebpImages::delete($path);
         }
 
         return $this->redirectToListing($filters)->with('success', 'Đã xóa tác phẩm khỏi bộ sưu tập.');
@@ -167,7 +177,7 @@ class PortfolioController extends Controller
 
             return $items->count();
         });
-        Storage::disk('local')->delete($paths);
+        WebpImages::delete($paths);
         PortfolioCache::flush();
         $label = ['delete' => 'xóa', 'show' => 'hiển thị', 'hide' => 'ẩn'][$data['action']];
 

@@ -39,7 +39,7 @@ class Seo
         $title = $name.' | Workshop Makeup tại Tokyo — Văn Cường';
         $description = $this->text($workshop->introduction ?? '', 180)
             ?: 'Private Makeup Workshop tại Tokyo cùng Văn Cường Makeup & Academy. Khám phá Western Glam và Bridal Beauty, lịch trình và thông tin đăng ký.';
-        $canonical = $this->url('workshop.show', ['workshop' => $workshop->slug]);
+        $canonical = $this->url('workshop.show');
         $seo = $this->metadata($title, $description, $canonical);
         $seo['image'] = $this->image('images/'.config('workshop.banner_image'));
         $seo['image_alt'] = 'Private Makeup Workshop — '.$name;

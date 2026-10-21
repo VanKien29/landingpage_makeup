@@ -2,9 +2,9 @@
     <div class="section-top"><p class="eyebrow">04 / CLASS SCHEDULE</p><span>MAKE TIME FOR YOUR PASSION</span></div>
     <div class="section-heading"><h2><span class="numeric-inline">4</span> tháng học tập.<br><em>Từng bước vững nghề.</em></h2><p>Lịch học được xây dựng để mỗi buổi đến lớp đều có mục tiêu rõ ràng: tiếp nhận kỹ thuật, thực hành trên mẫu và hoàn thiện bài dưới sự hướng dẫn trực tiếp.</p></div>
     <div class="schedule-photo-strip" role="region" aria-label="Hình ảnh lớp học — có thể vuốt ngang trên điện thoại" tabindex="0">
-        <figure class="schedule-main-photo"><img src="{{ asset('images/class-schedule-lesson.webp') }}" alt="Học viên tập trung theo dõi buổi hướng dẫn trực tiếp trong lớp makeup" loading="lazy" width="1800" height="1200"><figcaption><span>LEARN TOGETHER</span><span>Quan sát. Thực hành. Tiến bộ.</span></figcaption></figure>
-        <figure><img src="{{ asset('images/class-schedule-community.webp') }}" alt="Khoảnh khắc tập thể trong lớp học makeup tại studio" loading="lazy" width="1800" height="1200"><figcaption><span>01 / THE CLASSROOM</span><p>Cùng học, cùng trưởng thành.</p></figcaption></figure>
-        <figure><img src="{{ asset('images/class-schedule-workshop.webp') }}" alt="Học viên chụp ảnh cùng mẫu tại buổi học trong studio" loading="lazy" width="1800" height="1200"><figcaption><span>02 / THE EXPERIENCE</span><p>Học từ những trải nghiệm thực tế.</p></figcaption></figure>
+        <figure class="schedule-main-photo"><x-image file="class-schedule-lesson.webp"  alt="Học viên tập trung theo dõi buổi hướng dẫn trực tiếp trong lớp makeup" /><figcaption><span>LEARN TOGETHER</span><span>Quan sát. Thực hành. Tiến bộ.</span></figcaption></figure>
+        <figure><x-image file="class-schedule-community.webp"  alt="Khoảnh khắc tập thể trong lớp học makeup tại studio" /><figcaption><span>01 / THE CLASSROOM</span><p>Cùng học, cùng trưởng thành.</p></figcaption></figure>
+        <figure><x-image file="class-schedule-workshop.webp"  alt="Học viên chụp ảnh cùng mẫu tại buổi học trong studio" /><figcaption><span>02 / THE EXPERIENCE</span><p>Học từ những trải nghiệm thực tế.</p></figcaption></figure>
     </div>
     <div class="schedule-plan" aria-label="Thông tin lịch Training và Practice">
         <div class="schedule-plan-header"><span class="small-label">YOUR WEEK AT THE ACADEMY</span><p><strong>02</strong><span>BUỔI TỐI THIỂU<br> MỖI TUẦN</span></p></div>

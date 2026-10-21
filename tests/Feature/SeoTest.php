@@ -67,30 +67,30 @@ class SeoTest extends TestCase
         $this->production();
         $event = WorkshopEvent::factory()->create(['slug' => 'the-back', 'title' => 'THE BACK', 'introduction' => 'Buổi học makeup thực tế tại Tokyo.']);
 
-        $response = $this->get('https://academy.example/workshop/the-back?utm_source=facebook');
+        $response = $this->get('https://academy.example/workshop?utm_source=facebook');
 
         $response->assertOk()->assertHeaderMissing('X-Robots-Tag');
         $html = $this->html($response->getContent());
         $this->assertSame('Buổi học makeup thực tế tại Tokyo.', $html->evaluate('string(//meta[@name="description"]/@content)'));
-        $this->assertSame('https://academy.example/workshop/the-back', $html->evaluate('string(//link[@rel="canonical"]/@href)'));
+        $this->assertSame('https://academy.example/workshop', $html->evaluate('string(//link[@rel="canonical"]/@href)'));
         $this->assertSame(1, $html->query('//h1')->length);
         $this->assertSame($html->evaluate('string(//img[@fetchpriority="high"]/@srcset)'), $html->evaluate('string(//link[@rel="preload"][@as="image"]/@imagesrcset)'));
         $schema = json_decode($html->evaluate('string(//script[@type="application/ld+json"])'), true, flags: JSON_THROW_ON_ERROR);
         $this->assertSame(['Organization', 'WebSite', 'WebPage', 'BreadcrumbList'], array_column($schema['@graph'], '@type'));
-        $this->assertSame('https://academy.example/workshop/the-back', $schema['@graph'][3]['itemListElement'][1]['item']);
+        $this->assertSame('https://academy.example/workshop', $schema['@graph'][3]['itemListElement'][1]['item']);
         $this->assertArrayNotHasKey('startDate', $schema['@graph'][2]);
 
         $event->update(['introduction' => 'Nội dung mới từ ban tổ chức.']);
-        $updated = $this->get('https://academy.example/workshop/the-back')->assertOk();
+        $updated = $this->get('https://academy.example/workshop')->assertOk();
         $this->assertSame('Nội dung mới từ ban tổ chức.', $this->html($updated->getContent())->evaluate('string(//meta[@name="description"]/@content)'));
     }
 
     public function test_dynamic_metadata_is_escaped_and_json_ld_cannot_close_its_script(): void
     {
         $this->production();
-        $event = WorkshopEvent::factory()->create(['slug' => 'safe-workshop', 'title' => 'Beauty " & </script><script>alert(1)</script>', 'introduction' => 'Kỹ thuật "nền" & <img src=x onerror=alert(1)> makeup.']);
+        $event = WorkshopEvent::factory()->create(['slug' => 'the-back', 'title' => 'Beauty " & </script><script>alert(1)</script>', 'introduction' => 'Kỹ thuật "nền" & <img src=x onerror=alert(1)> makeup.']);
 
-        $response = $this->get('https://academy.example/workshop/'.$event->slug)->assertOk();
+        $response = $this->get('https://academy.example/workshop')->assertOk();
 
         $response->assertDontSee('</script><script>alert(1)</script>', false)->assertDontSee('<img src=x onerror=alert(1)>', false);
         $html = $this->html($response->getContent());
@@ -103,9 +103,9 @@ class SeoTest extends TestCase
     public function test_empty_workshop_copy_has_nonempty_fallback_metadata(): void
     {
         $this->production();
-        $event = WorkshopEvent::factory()->create(['title' => ' ', 'introduction' => ' ']);
+        $event = WorkshopEvent::factory()->create(['slug' => 'the-back', 'title' => ' ', 'introduction' => ' ']);
 
-        $response = $this->get('https://academy.example/workshop/'.$event->slug)->assertOk();
+        $response = $this->get('https://academy.example/workshop')->assertOk();
 
         $html = $this->html($response->getContent());
         $this->assertStringContainsString('Private Makeup Workshop', $html->evaluate('string(//title)'));
@@ -125,16 +125,18 @@ class SeoTest extends TestCase
         $xml = new DOMDocument;
         $this->assertTrue($xml->loadXML($response->getContent()));
         $locations = array_map(fn ($node): string => $node->textContent, iterator_to_array($xml->getElementsByTagName('loc')));
-        $this->assertSame(['https://academy.example/', 'https://academy.example/workshop/the-back'], $locations);
+        $this->assertSame(['https://academy.example/', 'https://academy.example/workshop'], $locations);
         foreach ($locations as $location) {
             $this->get($location)->assertOk()->assertHeaderMissing('X-Robots-Tag');
         }
 
         $event->update(['is_published' => false]);
-        $this->get('https://academy.example/sitemap.xml')->assertOk()->assertDontSee('/workshop/the-back');
-        $this->get('https://academy.example/workshop/the-back')->assertNotFound()->assertHeader('X-Robots-Tag', 'noindex, follow');
+        $this->get('https://academy.example/sitemap.xml')->assertOk()->assertDontSee('<loc>https://academy.example/workshop</loc>', false);
+        $this->get('https://academy.example/workshop')->assertNotFound()->assertHeader('X-Robots-Tag', 'noindex, follow');
         $event->update(['is_published' => true, 'slug' => 'new-public-event']);
-        $this->get('https://academy.example/sitemap.xml')->assertOk()->assertSee('/workshop/new-public-event')->assertDontSee('/workshop/the-back');
+        config(['workshop.slug' => 'new-public-event']);
+        $this->get('https://academy.example/sitemap.xml')->assertOk()->assertSee('<loc>https://academy.example/workshop</loc>', false)->assertDontSee('/workshop/new-public-event');
+        $this->get('https://academy.example/workshop')->assertOk();
     }
 
     public function test_production_robots_declares_sitemap_and_leaves_assets_and_noindex_pages_crawlable(): void
@@ -159,7 +161,7 @@ class SeoTest extends TestCase
         $this->assertSame('noindex, follow', $this->html($response->getContent())->evaluate('string(//meta[@name="robots"]/@content)'));
         $this->get('https://academy.example/robots.txt')->assertOk()->assertContent("User-agent: *\nDisallow: /\n");
         $this->get('https://academy.example/sitemap.xml')->assertNotFound()->assertHeader('X-Robots-Tag', 'noindex, follow');
-        $this->get('https://academy.example/workshop/the-back')->assertOk()->assertHeader('X-Robots-Tag', 'noindex, follow');
+        $this->get('https://academy.example/workshop')->assertOk()->assertHeader('X-Robots-Tag', 'noindex, follow');
     }
 
     #[TestWith(['http://www.academy.example/chinh-sach/?utm_source=fb', 'https://academy.example/chinh-sach?utm_source=fb'])]
@@ -180,8 +182,8 @@ class SeoTest extends TestCase
         $this->production();
         WorkshopEvent::factory()->create(['slug' => 'the-back']);
 
-        $this->get('http://www.academy.example/workshop/the-art-of-elevation-2026')->assertStatus(301)->assertRedirect('https://academy.example/workshop/the-back');
-        $this->get('https://academy.example/workshop/the-back')->assertOk();
+        $this->get('http://www.academy.example/workshop/the-art-of-elevation-2026')->assertStatus(301)->assertRedirect('https://academy.example/workshop');
+        $this->get('https://academy.example/workshop')->assertOk();
     }
 
     public function test_trusted_tls_proxy_does_not_cause_https_redirect_loop(): void

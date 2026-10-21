@@ -13,8 +13,11 @@ use Throwable;
 
 final class WebpImages
 {
-    public function encode(string $source): string
+    public function encode(string $source, ?int $maxWidth = null): string
     {
+        if ($maxWidth !== null && $maxWidth < 1) {
+            throw new InvalidArgumentException('Chiều rộng ảnh phải lớn hơn 0.');
+        }
         if (! function_exists('imagewebp') || ! (imagetypes() & IMG_WEBP)) {
             throw new RuntimeException('Máy chủ cần bật PHP GD có hỗ trợ WebP để chuyển đổi ảnh.');
         }
@@ -59,9 +62,18 @@ final class WebpImages
         imagepalettetotruecolor($image);
         imagealphablending($image, false);
         imagesavealpha($image, true);
+        if ($maxWidth !== null && imagesx($image) > $maxWidth) {
+            $height = max(1, (int) round(imagesy($image) * $maxWidth / imagesx($image)));
+            $resized = imagecreatetruecolor($maxWidth, $height);
+            imagealphablending($resized, false);
+            imagesavealpha($resized, true);
+            imagefill($resized, 0, 0, imagecolorallocatealpha($resized, 0, 0, 0, 127));
+            imagecopyresampled($resized, $image, 0, 0, 0, 0, $maxWidth, $height, imagesx($image), imagesy($image));
+            $image = $resized;
+        }
         ob_start();
         try {
-            $success = imagewebp($image, null, 88);
+            $success = imagewebp($image, null, $maxWidth === null ? 88 : 78);
             $contents = ob_get_contents();
         } finally {
             ob_end_clean();
@@ -91,12 +103,44 @@ final class WebpImages
             if (! Storage::disk('local')->put($path, $contents)) {
                 throw new RuntimeException('Không thể lưu ảnh WebP. Vui lòng kiểm tra quyền ghi thư mục storage.');
             }
+            $this->preparePreviews($path);
         } catch (Throwable $exception) {
-            Storage::disk('local')->delete($path);
+            self::delete($path);
             throw $exception;
         }
 
         return $path;
+    }
+
+    public function preparePreviews(string $path): void
+    {
+        $source = Storage::disk('local')->path($path);
+        $size = @getimagesize($source);
+        if ($size === false) {
+            throw new InvalidArgumentException('Không đọc được ảnh để tạo bản xem trước.');
+        }
+        foreach (ResponsiveImages::WIDTHS as $width) {
+            if ($width >= $size[0]) {
+                continue;
+            }
+            $preview = self::previewPath($path, $width);
+            if (! Storage::disk('local')->exists($preview) && ! Storage::disk('local')->put($preview, $this->encode($source, $width))) {
+                throw new RuntimeException('Không thể lưu ảnh xem trước.');
+            }
+        }
+    }
+
+    public static function previewPath(string $path, int $width): string
+    {
+        return 'portfolio/previews/'.pathinfo($path, PATHINFO_FILENAME).'/'.$width.'.webp';
+    }
+
+    /** @param string|array<int, string> $paths */
+    public static function delete(string|array $paths): void
+    {
+        foreach ((array) $paths as $path) {
+            Storage::disk('local')->delete([$path, ...array_map(fn (int $width): string => self::previewPath($path, $width), ResponsiveImages::WIDTHS)]);
+        }
     }
 
     public static function publicFilename(string $filename): string

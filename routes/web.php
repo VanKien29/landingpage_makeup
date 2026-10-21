@@ -18,8 +18,10 @@ Route::get('/robots.txt', [SeoController::class, 'robots'])->name('robots');
 Route::get('/tac-pham/{portfolioItem}/anh', [PortfolioController::class, 'show'])->name('portfolio.image');
 Route::get('/workshop/the-art-of-elevation-2026', [SeoController::class, 'legacyWorkshop']);
 Route::redirect('/workshop-admin/the-art-of-elevation-2026', '/workshop-admin/the-back', 301);
-Route::get('/workshop/{workshop:slug}', [WorkshopController::class, 'show'])->name('workshop.show');
-Route::post('/workshop/{workshop:slug}/register', [WorkshopController::class, 'store'])->middleware('throttle:workshop-registration')->name('workshop.register');
+Route::get('/workshop', [WorkshopController::class, 'show'])->name('workshop.show');
+Route::post('/workshop/register', [WorkshopController::class, 'store'])->middleware('throttle:workshop-registration')->name('workshop.register');
+Route::get('/workshop/{workshop:slug}', [SeoController::class, 'legacyWorkshop']);
+Route::post('/workshop/{workshop:slug}/register', [WorkshopController::class, 'store'])->middleware('throttle:workshop-registration')->name('workshop.register.legacy');
 Route::prefix('workshop-admin/{workshop:slug}')->middleware(['auth', 'can:manage-academy'])->group(function (): void {
     Route::get('/', [WorkshopAdminController::class, 'index'])->name('workshop.admin');
     Route::patch('/', [WorkshopAdminController::class, 'updateEvent'])->name('workshop.update');
