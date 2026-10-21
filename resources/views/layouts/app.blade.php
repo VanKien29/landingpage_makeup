@@ -8,7 +8,7 @@
     <meta name="theme-color" content="#f7f6f2">
     @if(request()->routeIs('home'))
         @php($heroImage = \App\Services\ResponsiveImages::attributes('academy-38.webp'))
-        <link rel="preload" as="image" href="{{ $heroImage['src'] }}" imagesrcset="{{ $heroImage['srcset'] }}" imagesizes="(max-width: 700px) max(100vw, 500px), (max-width: 1080px) 50vw, 40vw" fetchpriority="high">
+        <link rel="preload" as="image" href="{{ $heroImage['src'] }}" imagesrcset="{{ $heroImage['srcset'] }}" imagesizes="(max-width: 700px) 100vw, (max-width: 1080px) 50vw, 40vw" fetchpriority="high">
     @endif
     <link rel="icon" href="{{ asset('favicon.webp') }}" type="image/webp">
     <link rel="shortcut icon" href="{{ asset('favicon.ico') }}" type="image/x-icon">
