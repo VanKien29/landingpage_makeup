@@ -50,7 +50,7 @@ class WorkshopController extends Controller
 
         $message = $registration->status === WorkshopRegistration::Waitlisted
             ? 'Đã nhận đăng ký '.$registration->reference.' vào danh sách chờ của THE BACK. Hiện các suất tham dự đã được xác nhận đủ. Ban tổ chức sẽ liên hệ nếu có chỗ trống. Workshop hoàn toàn miễn phí.'
-            : 'Cảm ơn bạn! Đã tiếp nhận đăng ký '.$registration->reference.' cho THE BACK. Workshop hoàn toàn miễn phí. Vui lòng chờ ban tổ chức liên hệ qua điện thoại, email hoặc mạng xã hội để xác nhận suất tham dự và thông báo ngày, địa điểm cụ thể.';
+            : 'Cảm ơn bạn! Đã tiếp nhận đăng ký '.$registration->reference.' cho THE BACK. Workshop hoàn toàn miễn phí. Vui lòng chờ ban tổ chức liên hệ qua điện thoại, email hoặc mạng xã hội để xác nhận suất tham dự.';
 
         if ($request->expectsJson()) {
             return response()->json(['message' => $message, 'reference' => $registration->reference, 'status' => $registration->status], 201);
